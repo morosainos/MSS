@@ -1,0 +1,26 @@
+CREATE TABLE maritime.examination
+( 
+	eId INTEGER NOT NULL, 
+	eCid INTEGER NOT NULL,
+	eName TEXT,
+	eType INTEGER NOT NULL,
+	eForm TEXT NOT NULL,
+	eMPexam INTEGER,
+	eTimes INTEGER,
+	eTeacher1 INTEGER,
+	eTeacher2 INTEGER,
+	start_dt TIMESTAMP,
+	total_time TEXT,
+	eTerm TEXT NOT NULL,
+	is_active BOOLEAN NOT NULL, 
+	eDescription TEXT,
+	last_update_user TEXT,
+	last_update_dt TIMESTAMP,
+	CONSTRAINT pk_exam_id PRIMARY KEY (eId), 
+	CONSTRAINT fk_exam_cid_course_id FOREIGN KEY (eCid) REFERENCES maritime.course(coId),
+	CONSTRAINT fk_exam_type_ld_id FOREIGN KEY (eType) REFERENCES maritime.listdata(ldId),
+	CONSTRAINT fk_exam_makeup_exam_id FOREIGN KEY (eMPexam) REFERENCES maritime.examination(eId),
+	CONSTRAINT fk_exam_teacher1_teacher_id FOREIGN KEY (eTeacher1) REFERENCES maritime.teacher(tId),
+	CONSTRAINT fk_exam_teacher2_teacher_id FOREIGN KEY (eTeacher2) REFERENCES maritime.teacher(tId),
+	CONSTRAINT fk_exam_form_ld_id FOREIGN KEY (eForm) REFERENCES maritime.listdata(ldId)
+);
