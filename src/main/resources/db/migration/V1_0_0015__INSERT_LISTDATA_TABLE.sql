@@ -1,6 +1,6 @@
 ﻿DELETE FROM maritime.listdata;
 INSERT INTO maritime.listdata (ldId,ldListID,ldValue,ldCode,ldOrder,ldDescription,is_active,is_visible)
-VALUES (1,1,'管理员',admin',1,'Have admin privilige to change teacher/student/score',true,false);
+VALUES (1,1,'管理员','admin',1,'Have admin privilige to change teacher/student/score',true,false);
 INSERT INTO maritime.listdata (ldId,ldListID,ldValue,ldCode,ldOrder,ldDescription,is_active,is_visible)
 VALUES (2,1,'教师','normal',2,'Have privilige to change score',true,false);
 INSERT INTO maritime.listdata (ldId,ldListID,ldValue,ldCode,ldOrder,ldDescription,is_active,is_visible)
@@ -37,3 +37,7 @@ INSERT INTO maritime.listdata (ldId,ldListID,ldValue,ldCode,ldOrder,ldDescriptio
 VALUES (18,5,'经管法类','economics',3,'Economics,administration and law course',true,true);
 INSERT INTO maritime.listdata (ldId,ldListID,ldValue,ldCode,ldOrder,ldDescription,is_active,is_visible)
 VALUES (19,5,'理工类','science',4,'Science and engineering course',true,true);
+INSERT INTO maritime.listdata (ldId,ldListID,ldValue,ldCode,ldOrder,ldDescription,is_active,is_visible)
+VALUES (20,6,'航海类','navigation',4,'Student navigation related',true,true);
+INSERT INTO maritime.listdata (ldId,ldListID,ldValue,ldCode,ldOrder,ldDescription,is_active,is_visible)
+VALUES (21,6,'非航海类','non-navigation',4,'Student non-navigation related',true,true);

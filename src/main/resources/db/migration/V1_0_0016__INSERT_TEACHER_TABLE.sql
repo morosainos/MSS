@@ -10,4 +10,4 @@ VALUES (4,'张宇','男',131443,'guan',true,2);
 INSERT INTO maritime.teacher (tId,tName,tSex,tNumber,tPassword,is_active,tRole)
 VALUES (5,'黄文','男',131444,'hh7',true,3);
 INSERT INTO maritime.teacher (tId,tName,tSex,tNumber,tPassword,is_active,tRole)
-VALUES (5,'李姳','女',131445,'flower',true,1);
+VALUES (6,'李姳','女',131445,'flower',true,1);
