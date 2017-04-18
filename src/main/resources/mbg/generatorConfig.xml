@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="D:\MSS_GRADLE\sources\postgresql-9.4.1208.jar" />
+
+    <context id="MSSTables" targetRuntime="MyBatis3">
+
+		<jdbcConnection driverClass="org.postgresql.Driver"
+			connectionURL="jdbc:postgresql://localhost:5432/postgres"
+			userId="postgres"
+			password="admin">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.maritime.models"
+			targetProject="D:\MSS_GRADLE\src\main\resources\mbg">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.maritime.com.maritime.dao.resource"
+			targetProject="D:\MSS_GRADLE\src\main\resources\mbg">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.maritime.com.maritime.dao.mappers" targetProject="D:\MSS_GRADLE\src\main\resources\mbg">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+
+        <!--<table schema="maritime" tableName="teacher" domainObjectName="TeacherModel">-->
+            <!--<property name="useActualColumnNames" value="false" />-->
+            <!--<property name="rootClass" value="BaseModel" />-->
+        <!--</table>-->
+        <table schema="maritime" tableName="teacher" domainObjectName="TeacherModel"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+        <!--<table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
+            <!--<ignoreColumn column="FRED" />-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+	</context>
+</generatorConfiguration>

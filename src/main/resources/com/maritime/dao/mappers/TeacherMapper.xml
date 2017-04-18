@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.maritime.dao.mappers.TeacherMapper">
+
+  <resultMap id="BaseResultMap" type="com.maritime.models.TeacherModel">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="tname" jdbcType="VARCHAR" property="tname" />
+    <result column="tsex" jdbcType="CHAR" property="tsex" />
+    <result column="tnumber" jdbcType="BIGINT" property="tnumber" />
+    <result column="tpassword" jdbcType="VARCHAR" property="tpassword" />
+    <result column="is_active" jdbcType="BIT" property="isActive" />
+    <result column="trole" jdbcType="INTEGER" property="trole" />
+    <result column="tdescription" jdbcType="VARCHAR" property="tdescription" />
+  </resultMap>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+          resultMap="BaseResultMap">
+    select tid, tname, tsex, tnumber, tpassword, is_active, trole, tdescription
+    from maritime.teacher
+    where tid =
+    #{tid,jdbcType=INTEGER}
+  </select>
+</mapper>
