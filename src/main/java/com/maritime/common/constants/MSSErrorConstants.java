@@ -1,15 +1,6 @@
-/**
- * Copyright 2016 Kingland System Corporation. All Rights Reserved.
- */
 package com.maritime.common.constants;
 
-/**
- * @author KSC
- * 
- *         The rule of name the constants should be ERROR TYPE + ERROR, like LOGIN_USER_NAME_ERROR, and the value should be the TR_KEY column value in
- *         translation table.
- */
-public class OTPErrorConstants {
+public class MSSErrorConstants {
 
 	/**
 	 * COMMON UNKNOWN ERROR

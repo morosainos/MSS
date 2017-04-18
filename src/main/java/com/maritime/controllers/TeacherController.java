@@ -21,12 +21,13 @@ public class TeacherController {
     private TeacherService teacherService;
 
 
-    @RequestMapping(value="/test")
+    @RequestMapping(value="/testForMybatis")
     public String selectByPrimaryKey()
     {
-        return teacherService.selectByPrimaryKey(1).getTname();
+        return teacherService.selectByPrimaryKey(2).getTname();
     }
-    @RequestMapping(value="/ttt")
+
+    @RequestMapping(value="/test")
     public String test()
     {
         return "test ok";

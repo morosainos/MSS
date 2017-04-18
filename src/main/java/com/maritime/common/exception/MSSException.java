@@ -1,29 +1,14 @@
-/**
- * Copyright 2016 Kingland System Corporation. All Rights Reserved.
- */
 package com.maritime.common.exception;
 
-/**
- * @author KSC
- * 
- *         This class is using for defining all customize exception.
- *
- */
-public class OTPException extends Exception {
+public class MSSException extends Exception {
 
 	/**
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = -8035102340096393771L;
 
-	/**
-	 * Default Construction
-	 * 
-	 * Modify by Victor 
-	 * 		add call super method and setErrorMessage to set errorMessage and errorCode same default
-	 * @date 2016-12-29
-	 */
-	public OTPException(String errorCode) {
+
+	public MSSException(String errorCode) {
 		super(errorCode);
 		setErrorMessage(errorCode);
 		setErrorCode(errorCode);
@@ -35,7 +20,7 @@ public class OTPException extends Exception {
 	 * @param e
 	 * @param errorCodeArray
 	 */
-	public OTPException(String[] errorCodeArray) {
+	public MSSException(String[] errorCodeArray) {
 		setErrorCodeArray(errorCodeArray);
 	}
 
@@ -44,7 +29,7 @@ public class OTPException extends Exception {
 	 * @param errorCode
 	 * @param e
 	 */
-	public OTPException(String errorCode, Exception e) {
+	public MSSException(String errorCode, Exception e) {
 		if (null != e) {
 			setErrorMessage(e.getMessage());
 		}
@@ -57,7 +42,7 @@ public class OTPException extends Exception {
 	 * @param e
 	 * @param errorCodeArray
 	 */
-	public OTPException(Exception e, String[] errorCodeArray) {
+	public MSSException(Exception e, String[] errorCodeArray) {
 		if (null != e) {
 			setErrorMessage(e.getMessage());
 		}

@@ -1,4 +1,4 @@
-package com.maritime.dao.mappers;
+package com.maritime.dao;
 
 import com.maritime.models.TeacherModel;
 import org.apache.ibatis.annotations.Mapper;

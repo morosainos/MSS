@@ -1,9 +1,5 @@
 package com.maritime.models;
 
-/**
- * @author
- *
- */
 public class BaseModel {
 
 	private String state;

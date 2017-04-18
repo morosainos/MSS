@@ -24,13 +24,13 @@
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="com.maritime.com.maritime.dao.resource"
+		<sqlMapGenerator targetPackage="com.maritime.dao.class"
 			targetProject="D:\MSS_GRADLE\src\main\resources\mbg">
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.maritime.com.maritime.dao.mappers" targetProject="D:\MSS_GRADLE\src\main\resources\mbg">
+			targetPackage="com.maritime.dao" targetProject="D:\MSS_GRADLE\src\main\resources\mbg">
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
@@ -38,7 +38,7 @@
             <!--<property name="useActualColumnNames" value="false" />-->
             <!--<property name="rootClass" value="BaseModel" />-->
         <!--</table>-->
-        <table schema="maritime" tableName="teacher" domainObjectName="TeacherModel"
+        <table schema="maritime" tableName="teacher" domainObjectName="Teacher"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
