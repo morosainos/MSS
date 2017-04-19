@@ -1,8 +1,8 @@
 package com.maritime.services;
 
-import com.maritime.models.TeacherModel;
+import com.maritime.models.Teacher;
 
 public interface TeacherService {
 
-	TeacherModel selectByPrimaryKey(Integer tid);
+	Teacher selectByPrimaryKey(Integer tid);
 }

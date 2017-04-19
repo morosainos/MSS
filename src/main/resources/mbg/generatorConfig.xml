@@ -34,22 +34,71 @@
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
-        <!--<table schema="maritime" tableName="teacher" domainObjectName="TeacherModel">-->
-            <!--<property name="useActualColumnNames" value="false" />-->
-            <!--<property name="rootClass" value="BaseModel" />-->
-        <!--</table>-->
-        <table schema="maritime" tableName="teacher" domainObjectName="Teacher"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Teacher" tableName="teacher"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Academy" tableName="academy"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Class" tableName="class"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Course" tableName="course"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Examination" tableName="examination"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="ListModel" tableName="list"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="ListData" tableName="listdata"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Major" tableName="major"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Point" tableName="point"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="PointSet" tableName="pointset"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="SCMapping" tableName="scmapping"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Score" tableName="score"
+               schema="maritime">
+        </table>
+        <table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Student" tableName="student"
+               schema="maritime">
         </table>
 
-        <!--<table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >-->
-            <!--<property name="useActualColumnNames" value="true"/>-->
-            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
-            <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
-            <!--<ignoreColumn column="FRED" />-->
-            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
-        <!--</table>-->
 	</context>
 </generatorConfiguration>

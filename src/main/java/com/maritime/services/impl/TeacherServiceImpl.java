@@ -1,7 +1,7 @@
 package com.maritime.services.impl;
 
-import com.maritime.dao.TeacherModelMapper;
-import com.maritime.models.TeacherModel;
+import com.maritime.dao.TeacherMapper;
+import com.maritime.models.Teacher;
 import com.maritime.services.TeacherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,10 +21,10 @@ public class TeacherServiceImpl extends BaseServiceImp implements TeacherService
 	private static final Logger logger = LoggerFactory.getLogger(TeacherServiceImpl.class);
 
 	@Autowired
-	private TeacherModelMapper teacherMapper;
+	private TeacherMapper teacherMapper;
 
 	@Override
-	public TeacherModel selectByPrimaryKey(Integer tid) {
+	public Teacher selectByPrimaryKey(Integer tid) {
 		return teacherMapper.selectByPrimaryKey(tid);
 	}
 
