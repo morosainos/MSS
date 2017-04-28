@@ -1,0 +1,44 @@
+<!--
+	@author:Celery celery.mingyu.qin@kingland.com
+	@date:2016-12-21
+	@description:Multiple choices template
+-->
+<div class="paper-template container-fluid">
+	<div ng-show="isEditable">
+		<h4>Please input question here</h4>
+	</div>
+	<div class="row">
+		<div class="question col-md-12">
+			<!-- When it is ksc user,question can be edited,in other case this is read-only -->
+			<ng-simditor content="questionDetail.questionContent" editable="isEditable"></ng-simditor>
+		</div>
+	</div>
+	<div ng-show="isEditable">
+		<h4>Reference Answer</h4>
+	</div>
+	<div ng-repeat="choice in answerDetailList">
+		<div class="answer row">
+			<div class="col-md-1" uib-popover="reference answer" popover-placement="right" popover-trigger="'mouseenter'">
+				<!-- Checkbox to choose answer -->
+				<input ng-disabled="mode===1" ng-model="choice.isCorrect" class="check" type="checkbox"></input>
+			</div>
+			<div class="col-md-10">
+				<!-- When it is ksc user,answer can be edited,in other case this is read-only -->
+				<ng-simditor content="choice.answerContent" editable="isEditable"></ng-simditor>
+			</div>
+			<div class="col-md-1">
+				<!-- When it is ksc user,delete button can be seen,in other case it's disable.
+						Also it will be disable when there's only four choices left-->
+				<a href="" ng-show='isEditable' ng-click="minus($index)" ng-show="answerDetailList.length>4"><span class="glyphicon glyphicon-minus-sign"></span></a>
+				<span ng-show="arrayUserChoice[$index]" class="glyphicon glyphicon-ok-circle" uib-popover="user answer" popover-placement="left" popover-trigger="'mouseenter'"></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="foot row" ng-show='isEditable'>
+		<div class="col-md-1">
+			<!-- When it is ksc user,add button can be seen,in other case it's disable. -->
+			<a href="" ng-click="add()"><span class="glyphicon glyphicon-plus-sign"></span></a>
+		</div>
+	</div>
+</div>

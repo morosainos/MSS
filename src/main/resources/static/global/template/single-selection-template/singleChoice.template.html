@@ -1,0 +1,35 @@
+<div class="paper-template container-fluid">
+	<div class="h4 div-word-answer" ng-show="editable">Please input
+		question here</div>
+	<div class="row">
+		<div class="question">
+			<ng-simditor content="questionDetail.questionContent"
+				editable="editable"></ng-simditor>
+		</div>
+	</div>
+	<div class="h4 div-word-answer" ng-show="editable">Reference
+		Answer</div>
+	<div ng-repeat="cell in answerDetailList">
+		<div class="answer row">
+			<div class="col-md-1" uib-popover="reference answer" popover-placement="right" popover-trigger="'mouseenter'">
+					<input class="radio" ng-disabled="radioDisable" type="radio"
+						ng-model="answerChoice.answerId" name={{radioName}}
+						ng-value="$index"/>
+			</div>
+			<div class="col-md-10">
+				<ng-simditor content="cell.answerContent" editable="editable"></ng-simditor>
+			</div>
+			<div class="col-md-1">
+				<a href="" ng-show="editable" ng-click="dropAnswer($index)"><span
+					class="
+				glyphicon glyphicon-minus-sign"></span></a>
+				<span ng-show="arrayUserChoice[$index]" class="glyphicon glyphicon-ok-circle" uib-popover="user answer" popover-placement="left" popover-trigger="'mouseenter'"></span>
+			</div>
+		</div>
+	</div>
+	<div class="foot row" ng-show="editable">
+		<div class="col-md-1">
+			<a href="" ng-click="addAnswer()"><span
+				class="glyphicon glyphicon-plus-sign"></span></a>
+		</div>
+	</div>

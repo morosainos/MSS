@@ -1,0 +1,40 @@
+<div class="container-fluid-content">
+<div class="container-fluid-content-header">
+			<span ng-bind="reportName"></span>
+		
+	</div>
+
+		<div class="container-fluid-content-header">
+	<span ng-bind="startDate"></span><span>~</span>
+	<span ng-bind="startDate"></span>
+	</div>
+
+	
+	<div>
+	
+	
+	<table class="table table-bordered table-hover table-striped">
+	<tr>
+	<td>/</td>
+	<td ng-repeat=" cell in data[0]">{{cell.x}}</td></td>
+	</tr>
+	
+	<tr ng-repeat=" column in data">
+		<td> {{column[0].y}}</td>
+		<td ng-repeat="cell in column">{{cell.number}}</td>
+	</tr>
+	
+	</table>
+	</div>
+
+	<div class="container-fluid-content-chart-bar">
+		<canvas class="chart chart-bar" chart-legend="true"
+			chart-data="barData" chart-labels="barLabels"
+			chart-series="barSeries"></canvas>
+	</div>
+
+	<div class="container-fluid-content-download">
+		<a ng-click="downloadTemplate()">Download the Excel Report Here</a>
+	</div>
+
+</div>

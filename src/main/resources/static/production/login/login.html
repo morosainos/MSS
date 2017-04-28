@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<script src="../../global/plugins/angular-1.5.8/angular.min.js"></script>
+<script src="../../global/plugins/jquery-3.1.1.js"></script>
+<script src="../../global/plugins/js.cookie.min.js"></script>
+<script src="../../global/plugins/toastr/js/angular-toastr.tpls.js"></script>
+<script src="../../global/plugins/angular-1.5.8/angular-animate.min.js"></script>
+<script src="../../global/script/constants.js"></script>
+<script src="login.js"></script>
+<title>SignIn | MSS</title>
+<link href="../../global/plugins/bootstrap-3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="../../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="../../global/plugins/toastr/css/angular-toastr.css" />
+<link href="login.css" rel="stylesheet">
+</head>
+
+<body ng-app="loginApp" ng-controller="loginCtrl">
+	<div class="container">
+		<form class="signin" role="form" name="verifyForm"
+			ng-submit="login()" novalidate>
+			<div class="block">
+				<h2 class="signin-head">欢迎来到成绩管理系统！请输入用户名和密码：</h2>
+				<div>
+					<input name="number" type="text" class="form-control"
+						placeholder="学号/职工号"ng-model="user.number" maxlength="11" ng-pattern="/^[0-9]*$/" required autofocus> 
+					<span class="error-display" ng-show="verifyForm.number.$dirty"> 
+						<span ng-show="verifyForm.number.$error.pattern" ng-bind=NUM_INVALID_MSG></span>
+						<span ng-show="verifyForm.number.$error.required" ng-bind=NUM_EMPTY_MSG></span>
+					</span>
+				</div>
+				<div>
+					<input name="password" type="password" class="form-control"
+						placeholder="密码" ng-model="user.password" required>
+					<span class="error-display" ng-show="verifyForm.password.$dirty ">
+						<span ng-show="verifyForm.password.$error.required" ng-bind=PASSWORD_EMPTY_MSG></span>
+					</span>
+				</div>
+				<button id="login-btn" type="submit"
+					ng-disabled="verifyForm.$invalid || verifyForm.$pristine"
+					class="btn btn-lg btn-primary btn-block">登录</button>
+			</div>
+		</form>
+	</div>
+	<footer>
+		<div></div>
+        <h4 class="signin-foot"><i class="fa fa-paw"></i>&nbsp;&nbsp;&nbsp;©2017 MSS is a spring-boot UI system. Designed for Graduation project.</h4>
+  </footer>
+</body>
+</html>
+

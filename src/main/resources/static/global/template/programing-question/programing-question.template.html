@@ -1,0 +1,20 @@
+<div class="paper-template">
+	<div class="question">
+		<ng-simditor content="questionDetail.questionContent" editable="questionEditable"> </ng-simditor>
+	</div>
+	<div class="answer">
+		<code-editor content="answerDetailList[0].answerContent" editable="codeEditable" mime="mime"></code-editor>
+	</div>
+	
+	<!-- applicant answer -->
+	<div ng-show="isReviewing">
+		<br>
+		<h5 style="color: cornflowerblue; margin-left: 15px; ">User Answer: </h5>
+		<div class="img-rounded answer-div-border">
+			<div class="answer-content-div">
+				<code-editor content="userAnswers.answerContent" editable="false" mime="mime"></code-editor>
+			</div>
+		</div>
+	</div>
+	
+</div>

@@ -1,0 +1,51 @@
+/*kingland logo in top*/
+#kinglandlogo {
+	margin-left: 150px;
+	width: 240px;
+	height: 58px;
+}
+
+/*EroroMsg of validate*/
+.errorMsg {
+	white-space: nowrap;
+	vertical-align: baseline;
+	margin-top: 15px;
+	font-size: 15px;
+	color: red;
+	position: relative;
+	top: 15px;
+}
+
+/**
+ * @description:Style for four type of question template.
+ */
+
+.paper-template {
+	margin: 10px;
+}
+
+.paper-template .question {}
+
+.paper-template .question .simditor .simditor-body {
+	min-height: 30px;
+}
+
+.paper-template .answer {
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.paper-template .answer .simditor .simditor-body {
+	min-height: 30px;
+}
+
+.paper-template .foot {
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+body{
+	font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Noto Sans CJK SC,WenQuanYi Micro Hei,Arial,sans-serif;!important;
+}

@@ -1,0 +1,37 @@
+/**
+ * @description:Style for customize multiple template.Need to refer common.css.
+ */
+.paper-template .question span {
+	font-size: 20px;
+}
+
+.paper-template h4 {
+	font-weight: bold;
+}
+
+.paper-template .answer .check {
+	width: 20px;
+	height: 18px;
+}
+
+.paper-template .answer .col-md-1 {
+	text-align: center;
+}
+
+.paper-template .answer .col-md-1 a {
+	font-size: 35px;
+	color: red;
+}
+
+.paper-template .foot .col-md-1 {
+	text-align: center;
+}
+
+.paper-template .foot .save {
+	margin-right: 100px;
+}
+
+.paper-template .foot .col-md-1 a {
+	font-size: 35px;
+	color: green;
+}

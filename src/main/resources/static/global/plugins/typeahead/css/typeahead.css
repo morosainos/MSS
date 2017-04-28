@@ -1,0 +1,30 @@
+/**
+ * @description:TypeAhead's Style
+ */
+.main-header input {
+	top: 0;
+	padding: 2px;
+	font-size: 16px;
+	border-radius: 20px;
+	border: 2px solid #C44741;
+	outline: none;
+}
+
+.item {
+	top: 0;
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #F2F2F2;
+}
+
+.item.title {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.main-header .active {
+	background-color: #C44741;
+	color: #f2f2f2;
+}

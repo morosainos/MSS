@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+
+.answer-div-border {
+	width: 650px; 
+	height: 100px; 
+	border:1px solid gainsboro; 
+	border-radius: 10px; 
+	margin-left: 10px; 
+	margin-top: 10px;
+	overflow: auto;
+	text-indent: 2em;
+}
+
+.answer-content-div {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.answer-score {
+	width: 40px;	
+}

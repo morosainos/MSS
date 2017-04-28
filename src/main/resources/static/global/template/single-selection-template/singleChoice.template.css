@@ -1,0 +1,48 @@
+@CHARSET "ISO-8859-1";
+
+.paper-template .questionText {
+	word-wrap: break-word;
+	word-break: break-word;
+	font-size: 20px;
+}
+
+.paper-template .radio {
+	width: 20px;
+	height: 20px
+}
+
+.paper-template .selection-text {
+	text-align: center;
+	padding-top: 50px;
+	height: 90px;
+	font-size: 20px;
+}
+
+.paper-template .question .simditor {
+	width: 100%;
+}
+
+.paper-template .row {
+	margin: 10px auto;
+}
+
+.paper-template .glyphicon-minus-sign {
+	color: red;
+	font-size: 35px;
+}
+
+.paper-template .answer .simditor .simditor-body {
+	min-height: 40px;
+}
+
+.paper-template .answer .col-md-1 {
+	text-align: center;
+}
+
+.paper-template .simditor .simditor-body {
+	padding: 5px 5px 5px;
+}
+
+.paper-template .simditor .simditor-wrapper .simditor-placeholder {
+	padding: 5px 5px;
+}

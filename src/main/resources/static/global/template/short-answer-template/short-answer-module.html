@@ -1,0 +1,40 @@
+<!--
+    Author:Victor Victor.Huimin.He@Kingland.com
+    Date:2016-12-20
+    Description:Developed short answer page
+ -->
+<div class="paper-template">
+	<div ng-show="isQuestionEditable">
+		<h3>Please input question here</h3>
+	</div>
+	
+	<!--Question editor-->
+	<div class="question">
+		<div>
+			<ng-simditor content="questionDetail.questionContent" editable="isQuestionEditable"></ng-simditor>
+		</div>
+	</div>
+	
+	<div ng-show="isAnswerEditable">
+		<h3>Reference Answer</h3>
+	</div>
+	
+	<!--Answer editor in edit mode-->
+	<div class="answer">
+		<div>
+			<ng-simditor content="answerDetailList[0].answerContent" editable="isAnswerEditable"></ng-simditor>
+		</div>
+	</div>
+	
+	<!-- applicant answer -->
+	<div ng-show="isReviewing">
+		<br>
+		<h5 style="color: cornflowerblue; ">User Answer: </h5>
+		<div class="img-rounded answer-div-border">
+			<div class="answer-content-div">
+				<ng-simditor content="userAnswers.answerContent" editable="false"></ng-simditor>
+			</div>
+		</div>
+	</div>
+	
+</div>
