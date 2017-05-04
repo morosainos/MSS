@@ -52,4 +52,6 @@ public interface StudentMapper {
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
     int updateByPrimaryKey(Student record);
+
+    Student selectByAccount(Long snumber);
 }

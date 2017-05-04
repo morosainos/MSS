@@ -17,28 +17,25 @@ loginApp.controller('loginCtrl',function($scope, $http, $window, toastr) {
 	$scope.NUM_EMPTY_MSG = window.mss.constants.LOGIN_MSG.NUM_EMPTY;
 	$scope.NUM_INVALID_MSG = window.mss.constants.LOGIN_MSG.NUM_INVALID;
 	$scope.PASSWORD_EMPTY_MSG = window.mss.constants.LOGIN_MSG.PASSWORD_EMPTY;
-
-	$scope.user = {};
+	
 	$scope.login = function() {
 		$http({
 				method : 'post',
 				url : '/login',
-				data : $scope.user,
-				headers : {
-					'Content-Type' : 'application/x-www-form-urlencoded'
-				},
-				transformRequest : function(obj) {
-					var str = [];
-					for (var p in obj) {
-						str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-					}
-					return str.join("&");
-				}})
-				.success(function(response) {
-							$window.location.href = "/otpinternal/dashboard.html";
-						})
-				.error(function(response) {
-							toastr.error("Error",window.mss.constants.LOGIN_MSG.SERVER_ERROR);
-						});
+				data : $scope.user
+			})
+			.success(function(response) {
+				if(response.message != null)
+					toastr.error("Error",response.message);
+				else
+				{
+					toastr.success("Success",window.mss.constants.LOGIN_MSG.LOGIN_SUCCESS);
+					$window.location.href = "/otpinternal/dashboard.html";
+				}
+					
+			})
+			.error(function(response) {
+				toastr.error("Error",window.mss.constants.LOGIN_MSG.SERVER_ERROR);
+			}); 
 	};
 });

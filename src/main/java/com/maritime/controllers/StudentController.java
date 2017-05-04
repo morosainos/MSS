@@ -11,26 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by Moros on 2017/4/17.
  */
 @RestController
-public class TeacherController extends BaseController{
+public class StudentController extends BaseController{
     /**
      * lOGGER
      */
-    private static final Logger logger = LoggerFactory.getLogger(TeacherController.class);
+    private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
 
     @Autowired
     private TeacherService teacherService;
-
-
-    @RequestMapping(value="/testForMybatis")
-    public String selectByPrimaryKey()
-    {
-        return teacherService.selectByPrimaryKey(2).getTname();
-    }
-
-    @RequestMapping(value="/test")
-    public String test()
-    {
-        return "test ok";
-    }
 
 }

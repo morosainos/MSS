@@ -52,4 +52,6 @@ public interface TeacherMapper {
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
     int updateByPrimaryKey(Teacher record);
+
+    Teacher selectByAccount(Long tnumber);
 }

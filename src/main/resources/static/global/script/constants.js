@@ -86,7 +86,8 @@
 			'NUM_ERROR': '账号不存在',
 			'NUM_INVALID': '账号只能是数字',
 			'PASSWORD_ERROR': '密码错误',
-			'SERVER_ERROR': '服务器连接失败，请联系管理员'
+			'SERVER_ERROR': '服务器连接失败，请联系管理员',
+			'LOGIN_SUCCESS':'欢迎登录!'
 		},
 		'TEMPALTE_MODE' : {
 			'USER_EDITING' : 0,
