@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<script src="../../global/plugins/angular-1.5.8/angular.min.js"></script>
 <script src="../../global/plugins/jquery-3.1.1.js"></script>
+<script src="../../global/plugins/angular-1.5.8/angular.min.js"></script>
 <script src="../../global/plugins/js.cookie.min.js"></script>
 <script src="../../global/plugins/toastr/js/angular-toastr.tpls.js"></script>
 <script src="../../global/plugins/angular-1.5.8/angular-animate.min.js"></script>
@@ -30,7 +30,7 @@
 				<h2 class="signin-head">欢迎来到成绩管理系统！请输入用户名和密码：</h2>
 				<div>
 					<input name="number" type="text" class="form-control"
-						placeholder="学号/职工号"ng-model="user.number" maxlength="11" ng-pattern="/^[0-9]*$/" required autofocus> 
+						placeholder="学号/职工号"ng-model="user.account" maxlength="11" ng-pattern="/^[0-9]*$/" required autofocus> 
 					<span class="error-display" ng-show="verifyForm.number.$dirty"> 
 						<span ng-show="verifyForm.number.$error.pattern" ng-bind=NUM_INVALID_MSG></span>
 						<span ng-show="verifyForm.number.$error.required" ng-bind=NUM_EMPTY_MSG></span>
