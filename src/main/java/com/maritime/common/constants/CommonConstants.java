@@ -31,5 +31,7 @@ public class CommonConstants {
 
 	public final static String COMMON_DATE_FORMAT = "yyyy-MM-dd HH:mm";
 
+    public final static String USER_TYPE_STUDENT = "student";
 
+    public final static String USER_TYPE_TEACHER = "teacher";
 }

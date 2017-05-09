@@ -11,6 +11,7 @@ import com.maritime.services.TeacherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -19,7 +20,7 @@ import org.springframework.web.servlet.view.RedirectView;
  * Created by Moros on 2017/4/17.
  */
 @RestController
-public class UserController {
+public class UserController extends BaseController{
     /**
      * lOGGER
      */
@@ -51,13 +52,21 @@ public class UserController {
         }
         if (student != null) {
             if (student.getSpassword().equals(user.getPassword()))
+            {
+                request.getSession().setAttribute("userType",CommonConstants.USER_TYPE_STUDENT);
+                request.getSession().setAttribute("userID",student.getSid());
                 return student;
+            }
             else {
                 user.setMessage(CommonErrorMsg.USER_EXISIT_BUT_WRONG_PASSWORD);
             }
         } else if (teacher != null) {
             if (teacher.getTpassword().equals(user.getPassword()))
+            {
+                request.getSession().setAttribute("userType", CommonConstants.USER_TYPE_TEACHER);
+                request.getSession().setAttribute("userID", teacher.getTid());
                 return teacher;
+            }
             else {
                 user.setMessage(CommonErrorMsg.USER_EXISIT_BUT_WRONG_PASSWORD);
             }
