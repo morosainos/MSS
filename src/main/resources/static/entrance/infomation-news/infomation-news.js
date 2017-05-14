@@ -1,7 +1,7 @@
 angular.module(window.mss.appName).controller(
-		window.mss.constants.CONTROLLER.EXAM_VIEW_CONTROLLER,
+		window.mss.constants.CONTROLLER.INFO_NEWS_CONTROLLER,
 		function($scope, $http, $window) {
-			console.log("EXAM_VIEW_CONTROLLER");
+			console.log("INFO_NEWS_CONTROLLER");
 
 		}		
 );

@@ -15,7 +15,7 @@ adminApp.config(function($stateProvider, $urlRouterProvider) {
 			controller: window.mss.constants.CONTROLLER.HOME_CONTROLLER,
 			resolve: {
 				deps: ['$ocLazyLoad', function($ocLazyLoad) {
-					return $ocLazyLoad.load('home/home.js');
+					return $ocLazyLoad.load(['home/home.js']);
 				}]
 			}
 		})
@@ -29,13 +29,13 @@ adminApp.config(function($stateProvider, $urlRouterProvider) {
 				}]
 			}
 		})
-		.state(window.mss.constants.STATE.INFO_EDIT_STATE, {
-			url: window.mss.constants.URL.INFO_EDIT_URL,
-			templateUrl: window.mss.constants.TEMPLATE.INFO_EDIT_TEMPLATE,
-			controller: window.mss.constants.CONTROLLER.INFO_EDIT_CONTROLLER,
+		.state(window.mss.constants.STATE.INFO_NEWS_STATE, {
+			url: window.mss.constants.URL.INFO_NEWS_URL,
+			templateUrl: window.mss.constants.TEMPLATE.INFO_NEWS_TEMPLATE,
+			controller: window.mss.constants.CONTROLLER.INFO_NEWS_CONTROLLER,
 			resolve: {
 				deps: ['$ocLazyLoad', function($ocLazyLoad) {
-					return $ocLazyLoad.load(['infomation-edit/infomation-edit.js','infomation-edit/infomation-edit.css']);
+					return $ocLazyLoad.load(['infomation-news/infomation-news.js','infomation-news/infomation-news.css']);
 				}]
 			}
 		})
@@ -59,16 +59,6 @@ adminApp.config(function($stateProvider, $urlRouterProvider) {
 				}]
 			}
 		})
-		.state(window.mss.constants.STATE.COURSE_EDIT_STATE, {
-			url: window.mss.constants.URL.COURSE_EDIT_URL,
-			templateUrl: window.mss.constants.TEMPLATE.COURSE_EDIT_TEMPLATE,
-			controller: window.mss.constants.CONTROLLER.COURSE_EDIT_CONTROLLER,
-			resolve: {
-				deps: ['$ocLazyLoad', function($ocLazyLoad) {
-					return $ocLazyLoad.load(['course-edit/course-edit.js','course-edit/course-edit.css']);
-				}]
-			}
-		})
 		.state(window.mss.constants.STATE.EXAM_VIEW_STATE, {
 			url: window.mss.constants.URL.EXAM_VIEW_URL,
 			templateUrl: window.mss.constants.TEMPLATE.EXAM_VIEW_TEMPLATE,
@@ -76,16 +66,6 @@ adminApp.config(function($stateProvider, $urlRouterProvider) {
 			resolve: {
 				deps: ['$ocLazyLoad', function($ocLazyLoad) {
 					return $ocLazyLoad.load(['exam-view/exam-view.js','exam-view/exam-view.css']);
-				}]
-			}
-		})
-		.state(window.mss.constants.STATE.EXAM_EDIT_STATE, {
-			url: window.mss.constants.URL.EXAM_EDIT_URL,
-			templateUrl: window.mss.constants.TEMPLATE.EXAM_EDIT_CONTROLLER,
-			controller: window.mss.constants.CONTROLLER.EXAM_EDIT_CONTROLLER,
-			resolve: {
-				deps: ['$ocLazyLoad', function($ocLazyLoad) {
-					return $ocLazyLoad.load(['exam-edit/exam-edit.js','exam-edit/exam-edit.css']);
 				}]
 			}
 		})
@@ -99,19 +79,19 @@ adminApp.config(function($stateProvider, $urlRouterProvider) {
 				}]
 			}
 		})
-		.state(window.mss.constants.STATE.SCORE_EDIT_STATE, {
-			url: window.mss.constants.URL.SCORE_EDIT_URL,
-			templateUrl: window.mss.constants.TEMPLATE.SCORE_EDIT_TEMPLATE,
-			controller: window.mss.constants.CONTROLLER.SCORE_EDIT_CONTROLLER,
+		.state(window.mss.constants.STATE.SCORE_MARK_STATE, {
+			url: window.mss.constants.URL.SCORE_MARK_URL,
+			templateUrl: window.mss.constants.TEMPLATE.SCORE_MARK_TEMPLATE,
+			controller: window.mss.constants.CONTROLLER.SCORE_MARK_CONTROLLER,
 			resolve: {
 				deps: ['$ocLazyLoad', function($ocLazyLoad) {
-					return $ocLazyLoad.load(['score-edit/score-edit.js','score-edit/score-edit.css']);
+					return $ocLazyLoad.load(['score-mark/score-mark.js','score-mark/score-mark.css']);
 				}]
 			}
 		})
 		.state(window.mss.constants.STATE.SCORE_REPORT_STATE, {
 			url: window.mss.constants.URL.SCORE_REPORT_URL,
-			templateUrl: window.mss.constants.TEMPLATE.SCORE_REPORT_URL,
+			templateUrl: window.mss.constants.TEMPLATE.SCORE_REPORT_TEMPLATE,
 			controller: window.mss.constants.CONTROLLER.SCORE_REPORT_CONTROLLER,
 			resolve: {
 				deps: ['$ocLazyLoad', function($ocLazyLoad) {
