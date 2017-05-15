@@ -1,7 +1,33 @@
 angular.module(window.mss.appName).controller(
 		window.mss.constants.CONTROLLER.HOME_CONTROLLER,
-		function($scope, $http, $window) {
+		function($scope, $http, $window,toastr) {
 			console.log("homeController");
+			$scope.user = null;
+			init = function(){
+				$http({
+					method : 'get',
+					url : '/user/getSession'
+				})
+				.success(function(response) {
+					if(angular.isUndefined(response.type) || null == response.type)
+					{
+						$window.location.href = "/entrance/home/login.html";
+					}
+					else
+					{
+						toastr.success("Success",window.mss.constants.LOGIN_MSG.LOGIN_SUCCESS);
+						$scope.user = response;
+						console.log($scope.user);
+					}
+				})
+				.error(function(response) {
+					$window.location.href = "/entrance/home/login.html";
+				}); 
+			};
+			init();
+			
+			
+			
 			$(document).ready(function(){
         var options = {
           legend: false,

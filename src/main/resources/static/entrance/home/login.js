@@ -21,21 +21,24 @@ loginApp.controller('loginCtrl',function($scope, $http, $window, toastr) {
 	$scope.login = function() {
 		$http({
 				method : 'post',
-				url : '/login',
+				url : '/user/login',
 				data : $scope.user
 			})
 			.success(function(response) {
 				if(response.message != null)
+				{
+					console.log(response.message);
 					toastr.error("Error",response.message);
+				}
 				else
 				{
-					toastr.success("Success",window.mss.constants.LOGIN_MSG.LOGIN_SUCCESS);
-					$window.location.href = "/otpinternal/dashboard.html";
+					$window.location.href = "/entrance/dashboard.html";
 				}
 					
 			})
 			.error(function(response) {
 				toastr.error("Error",window.mss.constants.LOGIN_MSG.SERVER_ERROR);
 			}); 
+
 	};
 });

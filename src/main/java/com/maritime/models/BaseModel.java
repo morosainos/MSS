@@ -8,6 +8,10 @@ public class BaseModel {
 
     String message;
 
+    String type;
+
+    Integer id;
+
     public String getMessage() {
         return message;
     }
@@ -30,5 +34,21 @@ public class BaseModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

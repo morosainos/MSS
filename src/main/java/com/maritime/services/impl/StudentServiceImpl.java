@@ -31,4 +31,9 @@ public class StudentServiceImpl extends BaseServiceImp implements StudentService
     public Student selectByAccount(Long snumber) {
         return studentMapper.selectByAccount(snumber);
     }
+
+    @Override
+    public Student selectByPrimaryKey(Integer sid) {
+        return studentMapper.selectByPrimaryKey(sid);
+    }
 }

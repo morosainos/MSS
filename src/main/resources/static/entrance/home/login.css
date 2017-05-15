@@ -62,6 +62,10 @@ body {
 	color: #f77062;
 }
 
+.correct-display {
+	color: #00FF00;
+}
+
 .block {
 	margin-top: 20%;
 	margin-bottom: 11%;

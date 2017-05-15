@@ -32,15 +32,19 @@
 					<input name="number" type="text" class="form-control"
 						placeholder="学号/职工号"ng-model="user.account" maxlength="11" ng-pattern="/^[0-9]*$/" required autofocus> 
 					<span class="error-display" ng-show="verifyForm.number.$dirty"> 
-						<span ng-show="verifyForm.number.$error.pattern" ng-bind=NUM_INVALID_MSG></span>
-						<span ng-show="verifyForm.number.$error.required" ng-bind=NUM_EMPTY_MSG></span>
+						<span class="fa fa-close" ng-show="verifyForm.number.$error.pattern" ng-bind=NUM_INVALID_MSG></span>
+						<span class="fa fa-close" ng-show="verifyForm.number.$error.required" ng-bind=NUM_EMPTY_MSG></span>
+					</span>
+					<span class="fa fa-check correct-display" ng-show="!verifyForm.number.$invalid"> 
 					</span>
 				</div>
 				<div>
 					<input name="password" type="password" class="form-control"
 						placeholder="密码" ng-model="user.password" required>
 					<span class="error-display" ng-show="verifyForm.password.$dirty ">
-						<span ng-show="verifyForm.password.$error.required" ng-bind=PASSWORD_EMPTY_MSG></span>
+						<span class="fa fa-close" ng-show="verifyForm.password.$error.required" ng-bind=PASSWORD_EMPTY_MSG></span>
+					</span>
+					<span class="fa fa-check correct-display" ng-show="!verifyForm.password.$invalid"> 
 					</span>
 				</div>
 				<button id="login-btn" type="submit"
