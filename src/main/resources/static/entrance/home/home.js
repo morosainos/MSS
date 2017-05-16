@@ -4,6 +4,7 @@ angular.module(window.mss.appName).controller(
 			console.log("homeController");
 			$scope.user = null;
 			init = function(){
+				console.log("init");
 				$http({
 					method : 'get',
 					url : '/user/getSession'
@@ -26,9 +27,23 @@ angular.module(window.mss.appName).controller(
 			};
 			init();
 			
+			$scope.logout = function(){
+				console.log("logout!");
+				$http({
+					method : 'get',
+					url : '/user/logout'
+				})
+				.success(function(response) {
+					$window.location.replace("/entrance/home/login.html");
+				})
+				.error(function(response) {
+					$window.location.replace("/entrance/home/login.html");
+				}); 
+			};
 			
-			
-			$(document).ready(function(){
+
+		
+		$(document).ready(function(){
         var options = {
           legend: false,
           responsive: false

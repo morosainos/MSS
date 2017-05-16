@@ -3,6 +3,7 @@ package com.maritime.controllers;
 import com.maritime.common.constants.CommonConstants;
 import com.maritime.common.constants.CommonErrorMsg;
 import com.maritime.common.exception.MSSException;
+import com.maritime.common.util.CommonUtil;
 import com.maritime.common.util.ModelUtil;
 import com.maritime.models.*;
 import com.maritime.services.StudentService;
@@ -10,10 +11,11 @@ import com.maritime.services.TeacherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.ServletException;
 
 /**
  * Created by Moros on 2017/4/17.
@@ -49,7 +51,8 @@ public class UserController extends BaseController {
             logger.error(e.getMessage());
         }
         if (student != null) {
-            if (student.getSpassword().equals(user.getPassword())) {
+            //MD5 crypt
+            if (CommonUtil.getMD5(student.getSpassword()).equals(CommonUtil.getMD5(user.getPassword()))) {
                 request.getSession().setAttribute("userType", CommonConstants.USER_TYPE_STUDENT);
                 request.getSession().setAttribute("userID", student.getSid());
                 return student;
@@ -93,5 +96,17 @@ public class UserController extends BaseController {
             }
         }
         return null;
+    }
+
+    @RequestMapping(value = "/user/logout", method = RequestMethod.GET)
+    public Boolean pointToUserLogout() {
+        request.getSession().removeAttribute("userID");
+        request.getSession().removeAttribute("userType");
+        try {
+            request.logout();
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }
