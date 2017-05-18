@@ -8,13 +8,9 @@ public class TeacherCustom extends BaseModel{
 
     private String sex;
 
-    private Long number;
-
-    private String password;
-
     private Boolean isActive;
 
-    private Integer role;
+    private String role;
 
     private String description;
 
@@ -44,24 +40,6 @@ public class TeacherCustom extends BaseModel{
         this.sex = sex;
     }
 
-    public Long getNumber() {
-        return number;
-    }
-
-    public void setNumber(Long number) {
-        this.number = number;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public Boolean getIsActive() {
         return isActive;
     }
@@ -70,11 +48,11 @@ public class TeacherCustom extends BaseModel{
         this.isActive = isActive;
     }
 
-    public Integer getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(String role) {
         this.role = role;
     }
 

@@ -12,6 +12,12 @@ public class BaseModel {
 
     Integer id;
 
+    Boolean firstLog;
+
+    String columnName1;
+
+    String columnData1;
+
     public String getMessage() {
         return message;
     }
@@ -50,5 +56,30 @@ public class BaseModel {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Boolean getFirstLog() {
+        return firstLog;
+    }
+
+    public void setFirstLog(Boolean firstLog) {
+        this.firstLog = firstLog;
+    }
+
+
+    public String getColumnName1() {
+        return columnName1;
+    }
+
+    public void setColumnName1(String columnName1) {
+        this.columnName1 = columnName1;
+    }
+
+    public String getColumnData1() {
+        return columnData1;
+    }
+
+    public void setColumnData1(String columnData1) {
+        this.columnData1 = columnData1;
     }
 }

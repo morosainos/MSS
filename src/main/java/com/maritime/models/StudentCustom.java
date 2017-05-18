@@ -1,7 +1,5 @@
 package com.maritime.models;
 
-import com.maritime.common.constants.CommonConstants;
-
 public class StudentCustom extends BaseModel{
 
     private Integer id;
@@ -10,19 +8,15 @@ public class StudentCustom extends BaseModel{
 
     private String sex;
 
-    private Long number;
-
-    private String password;
-
     private Boolean isActive;
 
-    private Integer stype;
+    private String stype;
 
     private String date;
 
-    private Integer academy;
+    private String academy;
 
-    private Integer major;
+    private String major;
 
     private Integer sclass;
 
@@ -54,24 +48,6 @@ public class StudentCustom extends BaseModel{
         this.sex = sex;
     }
 
-    public Long getNumber() {
-        return number;
-    }
-
-    public void setNumber(Long number) {
-        this.number = number;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public Boolean getIsActive() {
         return isActive;
     }
@@ -80,11 +56,11 @@ public class StudentCustom extends BaseModel{
         this.isActive = isActive;
     }
 
-    public Integer getStype() {
+    public String getStype() {
         return stype;
     }
 
-    public void setStype(Integer stype) {
+    public void setStype(String stype) {
         this.stype = stype;
     }
 
@@ -96,19 +72,19 @@ public class StudentCustom extends BaseModel{
         this.date = date;
     }
 
-    public Integer getAcademy() {
+    public String getAcademy() {
         return academy;
     }
 
-    public void setAcademy(Integer academy) {
+    public void setAcademy(String academy) {
         this.academy = academy;
     }
 
-    public Integer getMajor() {
+    public String getMajor() {
         return major;
     }
 
-    public void setMajor(Integer major) {
+    public void setMajor(String major) {
         this.major = major;
     }
 

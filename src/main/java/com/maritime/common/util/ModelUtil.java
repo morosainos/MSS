@@ -17,10 +17,12 @@ public class ModelUtil {
         teacherCustom.setId(teacher.getTid());
         teacherCustom.setIsActive(teacher.getIsActive());
         teacherCustom.setName(teacher.getTname());
-        teacherCustom.setNumber(teacher.getTnumber());
-        teacherCustom.setPassword(teacher.getTpassword());
-        teacherCustom.setRole(teacher.getTrole());
+        //teacherCustom.setAccount(teacher.getTnumber());
+        //teacherCustom.setPassword(teacher.getTpassword());
+        teacherCustom.setRole(teacher.getRole());
         teacherCustom.setSex(teacher.getTsex());
+        teacherCustom.setColumnData1(teacher.getRole());
+        teacherCustom.setColumnName1("角色");
         return teacherCustom;
     }
 
@@ -29,16 +31,18 @@ public class ModelUtil {
         studentCustom.setName(student.getSname());
         studentCustom.setDescription(student.getSdescription());
         studentCustom.setSex(student.getSsex());
-        studentCustom.setPassword(student.getPassword());
-        studentCustom.setNumber(student.getSnumber());
-        studentCustom.setAcademy(student.getSacademy());
+        //studentCustom.setPassword(student.getPassword());
+        //studentCustom.setAccount(student.getSnumber());
+        studentCustom.setAcademy(student.getAcademy());
         studentCustom.setDate(student.getSdate());
         studentCustom.setId(student.getSid());
         studentCustom.setIsActive(student.getIsActive());
-        studentCustom.setMajor(student.getSmajor());
-        studentCustom.setSclass(student.getSclass());
-        studentCustom.setStype(student.getStype());
+        studentCustom.setMajor(student.getMajor());
+        studentCustom.setSclass(student.getStudentclass());
+        studentCustom.setStype(student.getStudenttype());
         studentCustom.setType(CommonConstants.USER_TYPE_STUDENT);
+        studentCustom.setColumnData1(student.getSdate());
+        studentCustom.setColumnName1("入学时间");
         return studentCustom;
     }
 }

@@ -1,8 +1,8 @@
 angular.module(window.mss.appName).controller(
 		window.mss.constants.CONTROLLER.HOME_CONTROLLER,
-		function($scope, $http, $window,toastr) {
+		function($rootScope, $scope, $http, $window,toastr) {
 			console.log("homeController");
-			$scope.user = null;
+			$rootScope.user = null;
 			init = function(){
 				console.log("init");
 				$http({
@@ -16,15 +16,18 @@ angular.module(window.mss.appName).controller(
 					}
 					else
 					{
-						toastr.success("Success",window.mss.constants.LOGIN_MSG.LOGIN_SUCCESS);
-						$scope.user = response;
-						console.log($scope.user);
+						if(response.firstLogIn)
+						{
+							toastr.success("Success",window.mss.constants.LOGIN_MSG.LOGIN_SUCCESS);
+						}
+						$rootScope.user = response;
 					}
 				})
 				.error(function(response) {
 					$window.location.href = "/entrance/home/login.html";
 				}); 
 			};
+			
 			init();
 			
 			$scope.logout = function(){

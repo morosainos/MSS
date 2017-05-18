@@ -8,6 +8,7 @@ import com.maritime.common.util.ModelUtil;
 import com.maritime.models.*;
 import com.maritime.services.StudentService;
 import com.maritime.services.TeacherService;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,7 @@ public class UserController extends BaseController {
             if (CommonUtil.getMD5(student.getSpassword()).equals(CommonUtil.getMD5(user.getPassword()))) {
                 request.getSession().setAttribute("userType", CommonConstants.USER_TYPE_STUDENT);
                 request.getSession().setAttribute("userID", student.getSid());
+                request.getSession().setAttribute("firstLogIn", true);
                 return student;
             } else {
                 user.setMessage(CommonErrorMsg.USER_EXISIT_BUT_WRONG_PASSWORD);
@@ -63,6 +65,7 @@ public class UserController extends BaseController {
             if (teacher.getTpassword().equals(user.getPassword())) {
                 request.getSession().setAttribute("userType", CommonConstants.USER_TYPE_TEACHER);
                 request.getSession().setAttribute("userID", teacher.getTid());
+                request.getSession().setAttribute("firstLogIn", true);
                 return teacher;
             } else {
                 user.setMessage(CommonErrorMsg.USER_EXISIT_BUT_WRONG_PASSWORD);
@@ -78,17 +81,36 @@ public class UserController extends BaseController {
     public BaseModel getSession() {
         Integer id = (Integer) request.getSession().getAttribute("userID");
         String type = (String) request.getSession().getAttribute("userType");
+        Boolean firstLogin = (Boolean) request.getSession().getAttribute("firstLogIn");
         if (null != id && null != type) {
             Student student = null;
             Teacher teacher = null;
             try {
                 if (CommonConstants.USER_TYPE_TEACHER.equals(type)) {
                     teacher = teacherService.selectByPrimaryKey(id);
-                    TeacherCustom trueTeacher = ModelUtil.copyTeacher(teacher);
-                    return trueTeacher;
+                    TeacherCustom teacherCustom = ModelUtil.copyTeacher(teacher);
+                    if(firstLogin)
+                    {
+                        teacherCustom.setFirstLog(true);
+                        request.getSession().setAttribute("firstLogIn", false);
+                    }
+                    else
+                    {
+                        teacherCustom.setFirstLog(false);
+                    }
+                    return teacherCustom;
                 } else if (CommonConstants.USER_TYPE_STUDENT.equals(type)) {
                     student = studentService.selectByPrimaryKey(id);
                     StudentCustom studentCustom = ModelUtil.copyStudent(student);
+                    if(firstLogin)
+                    {
+                        studentCustom.setFirstLog(true);
+                        request.getSession().setAttribute("firstLogIn", false);
+                    }
+                    else
+                    {
+                        studentCustom.setFirstLog(false);
+                    }
                     return studentCustom;
                 }
             } catch (Exception e) {
@@ -102,6 +124,7 @@ public class UserController extends BaseController {
     public Boolean pointToUserLogout() {
         request.getSession().removeAttribute("userID");
         request.getSession().removeAttribute("userType");
+        request.getSession().removeAttribute("firstLogIn");
         try {
             request.logout();
         } catch (ServletException e) {
