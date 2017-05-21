@@ -14,6 +14,12 @@ public class TeacherCustom extends BaseModel{
 
     private String description;
 
+    private String academy;
+
+    private String major;
+
+    private Integer sclass;
+
     @Override
     public Integer getId() {
         return id;
@@ -62,5 +68,29 @@ public class TeacherCustom extends BaseModel{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getAcademy() {
+        return academy;
+    }
+
+    public void setAcademy(String academy) {
+        this.academy = academy;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public Integer getSclass() {
+        return sclass;
+    }
+
+    public void setSclass(Integer sclass) {
+        this.sclass = sclass;
     }
 }

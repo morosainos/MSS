@@ -21,6 +21,9 @@ public class ModelUtil {
         //teacherCustom.setPassword(teacher.getTpassword());
         teacherCustom.setRole(teacher.getRole());
         teacherCustom.setSex(teacher.getTsex());
+        teacherCustom.setAcademy(teacher.getAcademy());
+        teacherCustom.setMajor(teacher.getMajor());
+        teacherCustom.setSclass(teacher.getTeacherclass());
         teacherCustom.setColumnData1(teacher.getRole());
         teacherCustom.setColumnName1("角色");
         return teacherCustom;
