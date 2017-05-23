@@ -8,7 +8,6 @@ import com.maritime.common.util.ModelUtil;
 import com.maritime.models.*;
 import com.maritime.services.StudentService;
 import com.maritime.services.TeacherService;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +41,7 @@ public class UserController extends BaseController {
 
     @ResponseBody
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-    public BaseModel login(@RequestBody BaseModel user) throws MSSException {
+    public UserModel login(@RequestBody UserModel user) throws MSSException {
         Student student = null;
         Teacher teacher = null;
         try {
@@ -53,7 +52,7 @@ public class UserController extends BaseController {
         }
         if (student != null) {
             //MD5 crypt
-            if (CommonUtil.getMD5(student.getSpassword()).equals(CommonUtil.getMD5(user.getPassword()))) {
+            if (student.getSpassword().equals(CommonUtil.getMD5(user.getPassword()))) {
                 request.getSession().setAttribute("userType", CommonConstants.USER_TYPE_STUDENT);
                 request.getSession().setAttribute("userID", student.getSid());
                 request.getSession().setAttribute("firstLogIn", true);
@@ -62,7 +61,8 @@ public class UserController extends BaseController {
                 user.setMessage(CommonErrorMsg.USER_EXISIT_BUT_WRONG_PASSWORD);
             }
         } else if (teacher != null) {
-            if (teacher.getTpassword().equals(user.getPassword())) {
+            //MD5 crypt
+            if (teacher.getTpassword().equals(CommonUtil.getMD5(user.getPassword()))) {
                 request.getSession().setAttribute("userType", CommonConstants.USER_TYPE_TEACHER);
                 request.getSession().setAttribute("userID", teacher.getTid());
                 request.getSession().setAttribute("firstLogIn", true);
@@ -78,8 +78,8 @@ public class UserController extends BaseController {
 
     @ResponseBody
     @RequestMapping(value = "/user/getSession", method = RequestMethod.GET)
-    public BaseModel getSession() {
-        Integer id = (Integer) request.getSession().getAttribute("userID");
+    public UserModel getSession() {
+        Long id = (Long) request.getSession().getAttribute("userID");
         String type = (String) request.getSession().getAttribute("userType");
         Boolean firstLogin = (Boolean) request.getSession().getAttribute("firstLogIn");
         if (null != id && null != type) {

@@ -1,11 +1,8 @@
 package com.maritime.services.impl;
 
 import com.maritime.dao.StudentMapper;
-import com.maritime.dao.TeacherMapper;
 import com.maritime.models.Student;
-import com.maritime.models.Teacher;
 import com.maritime.services.StudentService;
-import com.maritime.services.TeacherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +30,12 @@ public class StudentServiceImpl extends BaseServiceImp implements StudentService
     }
 
     @Override
-    public Student selectByPrimaryKey(Integer sid) {
+    public Student selectByPrimaryKey(Long sid) {
         return studentMapper.selectByPrimaryKey(sid);
+    }
+
+    @Override
+    public int updateForInfo(Student record) {
+       return studentMapper.updateForInfo(record);
     }
 }

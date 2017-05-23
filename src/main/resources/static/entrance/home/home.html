@@ -12,7 +12,7 @@
               </div>
               <div class="profile_info">
                 <span>欢迎登录,</span>
-                <h2>管理员</h2>
+                <h2 ng-bind="user.name"></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -84,7 +84,7 @@
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img class="img-rounded" src="../global/img/cat.jpg" alt="">
-                                        管理员
+                      <span ng-bind="user.name"></span>
                     <span class=" fa fa-chevron-circle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

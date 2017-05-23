@@ -24,13 +24,18 @@ public class TeacherServiceImpl extends BaseServiceImp implements TeacherService
 	private TeacherMapper teacherMapper;
 
 	@Override
-	public Teacher selectByPrimaryKey(Integer tid) {
+	public Teacher selectByPrimaryKey(Long tid) {
 		return teacherMapper.selectByPrimaryKey(tid);
 	}
 
     @Override
     public Teacher selectByAccount(Long tnumber) {
         return teacherMapper.selectByAccount(tnumber);
+    }
+
+    @Override
+    public int updateForInfo(Teacher record) {
+        return teacherMapper.updateForInfo(record);
     }
 
 }

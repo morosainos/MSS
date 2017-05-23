@@ -1,7 +1,7 @@
 <div class="infoview">
 <div class="row editBtn">
     <div class="col-md-offset-11">
-		<button class="btn btn-primary">编辑资料</button>
+		<button class="btn btn-primary" ng-click="edit()">编辑资料</button>
     </div>
 </div>
 <div>
@@ -19,15 +19,119 @@
 	    <td ng-bind="user.major"></td>
 	  </tr>
 	  <tr>
+	  	<th>班级</th>
+	    <td ng-bind="user.sclass"></td>
 	    <th ng-bind="user.columnName1"></th>
 	    <td ng-bind="user.columnData1"></td>
-	    <th>班级</th>
-	    <td ng-bind="user.sclass"></td>
 	  </tr>
-	  <tr ng-show="user.student">
-	    <th>专业类别</th>
-	    <td ng-bind="user.stype"></td>
+	  <tr>
+	    <th>邮箱</th>
+	    <td ng-bind="user.email"></td>
+	    <th>联系电话</th>
+	    <td ng-bind="user.phone"></td>
+	  </tr>
+	  <tr>
+	    <th>身份证号</th>
+	    <td ng-bind="user.certiID"></td>
+	    <th>民族</th>
+	    <td ng-bind="user.nation"></td>
 	  </tr>
   </table>
 </div>
 </div>
+
+<!--template for edit modal-->
+<script type="text/ng-template" id="editInfo.html">
+	<div class="modalCustom">
+		<div>
+			<div class="modal-content">
+				<!--header.....-->
+				<div class="modal-header" style="height: 50px;">
+				<a class="close glyphicon glyphicon-remove" style="color: darkred;" ng-click="cancel()" autofocus="false"></a>
+					<p class="text-left">
+						<span style="font-size: 23px; font-weight: 600;">编辑信息</span>
+					</p>
+				</div>
+				<!--main body......-->
+				<div class="modal-body">
+					<div>
+						<form name="UserInfForm"
+							action="#" method="post" novalidate>
+							<table width="100%" border="1"
+								class="table table-hover table-bordered table-striped">
+									<tr class="form-group">
+										<td>邮箱</td>
+										<td><span><input type="email" class="form-control" 
+											autofocus="autofocus" name="email" ng-model="user.email"/></span>
+										<span class="error-display" ng-show="UserInfForm.email.$dirty && UserInfForm.email.$invalid"> 
+											<span class="fa fa-close" ng-show="UserInfForm.email.$error.email" ng-bind=EMAIL_INVALID></span>
+										</span>
+										</td>
+										<td>联系电话</td>
+										<td><span><input type="text" class="form-control" name="phone"
+											ng-model="user.phone" ng-pattern="/^[0-9]*$/"/></span>
+										<span class="error-display" ng-show="UserInfForm.phone.$dirty && UserInfForm.phone.$invalid"> 
+											<span class="fa fa-close" ng-show="UserInfForm.phone.$error.pattern" ng-bind=PHONE_INVALID></span>
+										</span>
+										</td>
+									</tr>
+									<tr class="form-group">
+										<td>身份证号</td>
+										<td><span><input type="text" class="form-control" name="certiID"
+											ng-model="user.certiID"/></span></td>
+										<td>民族</td>
+										<td><span><input type="text" class="form-control" name="nation"
+											ng-model="user.nation"/></span></td>
+									</tr>
+									<tr class="form-group">
+										<td>登录密码</td>
+										<td><span><input type="password" class="form-control" name="password"
+											ng-model="user.password" required/></span>
+										<span class="error-display" ng-show="UserInfForm.password.$dirty"> 
+											<span class="fa fa-close" ng-show="UserInfForm.password.$error.required" ng-bind=PASSWORD_EMPTY></span>
+										</span>
+										</td>
+										<td>确认密码</td>
+										<td><span><input type="password" class="form-control" name="password1"
+											ng-model="user.password1" required/></span>
+										<span class="error-display" ng-show="UserInfForm.password1.$dirty"> 
+											<span class="fa fa-close" ng-show="UserInfForm.password1.$error.required" ng-bind=PASSWORD_EMPTY></span>
+											<span class="fa fa-close" ng-show="!UserInfForm.password1.$error.required && (user.password != user.password1)" ng-bind=PASSWORD_NOT_EQUAL></span>
+										</span>
+										</td>
+									</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+				<!--modal body end-->
+				<!--modal footer....-->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary"
+						ng-click="updateUserInfo()" ng-disabled="UserInfForm.$invalid">保存</button>
+					<button type="button" class="btn btn-danger" ng-click="cancel()">取消</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</script>
+
+<script type="text/ng-template" id="sureSave.html">
+	<div class="modalCustom">
+		<div class="sure-save">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" style="font-size: 20px; font-weight: 600;">提示</h2>
+				</div>
+				<div class="modal-body">
+					<h3>确定保存所编辑内容吗？</h3>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-lg yes" style="float: left;width: 16%" ng-click="yes()">是</button>
+					<button type="button" class="btn btn-danger btn-lg no" style="float: right;width: 16%" ng-click="no()">否</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

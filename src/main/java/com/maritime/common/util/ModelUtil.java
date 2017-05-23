@@ -17,7 +17,7 @@ public class ModelUtil {
         teacherCustom.setId(teacher.getTid());
         teacherCustom.setIsActive(teacher.getIsActive());
         teacherCustom.setName(teacher.getTname());
-        //teacherCustom.setAccount(teacher.getTnumber());
+        teacherCustom.setAccount(teacher.getTnumber());
         //teacherCustom.setPassword(teacher.getTpassword());
         teacherCustom.setRole(teacher.getRole());
         teacherCustom.setSex(teacher.getTsex());
@@ -26,6 +26,10 @@ public class ModelUtil {
         teacherCustom.setSclass(teacher.getTeacherclass());
         teacherCustom.setColumnData1(teacher.getRole());
         teacherCustom.setColumnName1("角色");
+        teacherCustom.setEmail(teacher.gettEmail());
+        teacherCustom.setPhone(teacher.gettPhone());
+        teacherCustom.setCertiID(teacher.gettCertiID());
+        teacherCustom.setNation(teacher.gettNation());
         return teacherCustom;
     }
 
@@ -34,8 +38,8 @@ public class ModelUtil {
         studentCustom.setName(student.getSname());
         studentCustom.setDescription(student.getSdescription());
         studentCustom.setSex(student.getSsex());
-        //studentCustom.setPassword(student.getPassword());
-        //studentCustom.setAccount(student.getSnumber());
+        //studentCustom.setPassword(student.getSpassword());
+        studentCustom.setAccount(student.getSnumber());
         studentCustom.setAcademy(student.getAcademy());
         studentCustom.setDate(student.getSdate());
         studentCustom.setId(student.getSid());
@@ -46,6 +50,10 @@ public class ModelUtil {
         studentCustom.setType(CommonConstants.USER_TYPE_STUDENT);
         studentCustom.setColumnData1(student.getSdate());
         studentCustom.setColumnName1("入学时间");
+        studentCustom.setEmail(student.getsEmail());
+        studentCustom.setPhone(student.getsPhone());
+        studentCustom.setCertiID(student.getsCertiID());
+        studentCustom.setNation(student.getsNation());
         return studentCustom;
     }
 }

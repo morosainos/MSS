@@ -6,5 +6,7 @@ public interface StudentService {
 
 	Student selectByAccount(Long tnumber);
 
-    Student selectByPrimaryKey(Integer sid);
+    Student selectByPrimaryKey(Long sid);
+
+    int updateForInfo(Student record);
 }

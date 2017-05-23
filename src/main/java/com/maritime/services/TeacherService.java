@@ -4,7 +4,9 @@ import com.maritime.models.Teacher;
 
 public interface TeacherService {
 
-	Teacher selectByPrimaryKey(Integer tid);
+	Teacher selectByPrimaryKey(Long tid);
 
     Teacher selectByAccount(Long tnumber);
+
+    int updateForInfo(Teacher record);
 }

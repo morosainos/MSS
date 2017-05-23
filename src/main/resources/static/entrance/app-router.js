@@ -5,7 +5,8 @@ adminApp.run(function($rootScope, $state, $stateParams) {
 	$rootScope.$state = $state;
 	$rootScope.$stateParams = $stateParams;
 });
-adminApp.config(function($stateProvider, $urlRouterProvider) {
+adminApp.config(function($stateProvider, $urlRouterProvider, $controllerProvider) {
+	adminApp.controllerProvider = $controllerProvider;
 	$urlRouterProvider.when("", window.mss.constants.URL.DEFAULT_PAGE_URL);
 	$urlRouterProvider.otherwise(window.mss.constants.URL.DEFAULT_PAGE_URL);
 

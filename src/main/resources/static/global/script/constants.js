@@ -65,6 +65,15 @@
 			'SERVER_ERROR': '服务器连接失败，请联系管理员',
 			'LOGIN_SUCCESS':'欢迎登录!'
 		},
+		'VALIDATE_MSG':{
+			'EMAIL_INVALID':'邮箱格式不正确',
+			'PASSWORD_NOT_EQUAL':'两次输入密码不同',
+			'PHONE_INVALID': '电话只能是数字',
+			'PASSWORD_EMPTY': '密码不能为空'
+		},
+		'UPDATE_MSG':{
+			'UPDATE_SUCCESS':'修改成功！'
+		},
 		'TEMPALTE_MODE' : {
 			'USER_EDITING' : 0,
 			'USER_REVIEWING' : 1,
