@@ -1,9 +1,67 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
-</html>
+<div class="courseview">
+<div name="courseTable">
+	<div class="content">
+		<table ng-table="tableParams"
+				class="table table-striped table-condensed table-hover table-align table-bordered">
+			<tr ng-repeat="course in $data" ng-form="courseForm"
+				demo-tracked-table-row="course">
+				<td data-title="'学期'" filter="{pterm: 'text'}"
+					sortable="'pterm'" header-class="'active'"
+					demo-tracked-table-cell
+					>{{course.pterm}}</td>
+
+				<td data-title="'课程名'"
+					filter="{course : 'text'}" 
+					sortable="'course'" header-class="'active'" 
+					demo-tracked-table-cell >{{course.course}}</td>
+
+				<td data-title="'课程号'"
+					filter="{cnumber: 'text'}" sortable="'cnumber'"
+					header-class="'active'" demo-tracked-table-cell
+				    ng-form="cnumber">{{course.cnumber}}</td>
+
+				<td data-title="'课程老师'"
+					filter="{ teacher: 'text'}" sortable="'teacher'"
+					header-class="'active'" demo-tracked-table-cell
+					ng-form="teacher">
+					{{course.teacher}}</td>
+
+				<td data-title="'课程属性'"
+					filter="{category: 'text'}" sortable="'category'"
+					header-class="'active'" demo-tracked-table-cell
+					ng-form="category">{{course.category}}</td>
+
+				<td data-title="'课程类型'"
+					filter="{type: 'text'}"
+					sortable="'type'" header-class="'active'"
+					demo-tracked-table-cell ng-form="type">{{course.type}}</td>
+
+				<td data-title="'所属学院'"
+					filter="{academy: 'text'}"
+					sortable="'academy'" header-class="'active'"
+					demo-tracked-table-cell ng-form="academy">
+					{{course.academy}}</td>
+
+				<td data-title="'学分'"
+					filter="{point: 'number'}"
+					sortable="'point'" header-class="'active'"
+					demo-tracked-table-cell ng-form="point">
+					{{course.point}}</td>
+					
+				<td data-title="'学时'"
+					filter="{hour: 'number'}"
+					sortable="'hour'" header-class="'active'"
+					demo-tracked-table-cell ng-form="hour">
+					{{course.hour}}</td>
+			
+				<td data-title="'考试类型'"
+					filter="{examtype: 'text'}"
+					sortable="'examtype'" header-class="'active'"
+					demo-tracked-table-cell ng-form="examtype">
+					{{course.examtype}}</td>
+										
+			</tr>
+		</table>
+	</div>
+</div>
+</div>

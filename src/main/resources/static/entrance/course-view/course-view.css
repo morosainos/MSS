@@ -1,0 +1,30 @@
+.courseview{
+	padding-bottom: 20%;
+}
+
+.courseview .content{
+	margin-top: 100px;
+}
+
+.courseview table tbody tr td{
+	text-align: center;
+	vertical-align: middle;
+	font: 18px;
+}
+
+.courseview input[type="text"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+
+.courseview input[type="number"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+

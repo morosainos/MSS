@@ -21,6 +21,7 @@
     <result column="codescription" jdbcType="VARCHAR" property="codescription" />
     <result column="last_update_user" jdbcType="VARCHAR" property="lastUpdateUser" />
     <result column="last_update_dt" jdbcType="TIMESTAMP" property="lastUpdateDt" />
+    <result column="coExamType" jdbcType="INTEGER" property="coExamType" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--
@@ -29,7 +30,7 @@
       This element was generated on Wed Apr 19 22:55:14 CST 2017.
     -->
     coid, coname, conumber, coteacher1, coteacher2, is_active, coacademy, cocategory, 
-    cotype, copoint, cohour, codescription, last_update_user, last_update_dt
+    cotype, copoint, cohour, codescription, last_update_user, last_update_dt, coExamType
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--

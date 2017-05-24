@@ -1,0 +1,30 @@
+.teacherview{
+	padding-bottom: 20%;
+}
+
+.teacherview .content{
+	margin-top: 20px;
+}
+
+.teacherview table tbody tr td{
+	text-align: center;
+	vertical-align: middle;
+	font: 18px;
+}
+
+.teacherview input[type="text"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+
+.teacherview input[type="number"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+

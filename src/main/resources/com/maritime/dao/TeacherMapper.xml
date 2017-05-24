@@ -66,6 +66,18 @@
         where tnumber = #{tid,jdbcType=BIGINT} and is_active = true
   </select>
 
+  <select id="selectForAll" resultMap="BaseResultMap">
+    select
+    tid, tname, tsex, tnumber, tpassword, tdescription, tEmail, tPhone, tCertiID, tNation,
+    role.ldValue as role,aca.aname as academy,maj.mname as major,cla.cnum as teacherclass
+    from maritime.teacher t
+    inner join maritime.listdata role on trole = role.ldid
+    left join maritime.academy aca on tacademy = aca.aid
+    left join maritime.major maj on tmajor = maj.mid
+    left join maritime.class cla on tclass = cla.cid
+    where t.is_active = true
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--
       WARNING - @mbggenerated

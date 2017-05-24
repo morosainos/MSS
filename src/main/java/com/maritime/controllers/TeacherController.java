@@ -2,17 +2,15 @@ package com.maritime.controllers;
 
 import com.maritime.common.exception.MSSException;
 import com.maritime.common.util.CommonUtil;
-import com.maritime.models.Student;
 import com.maritime.models.Teacher;
 import com.maritime.models.UserModel;
 import com.maritime.services.TeacherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Moros on 2017/4/17.
@@ -41,4 +39,9 @@ public class TeacherController extends BaseController{
         return teacherService.updateForInfo(teacher);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/teacher/selectForAll", method = RequestMethod.GET)
+    public List<Teacher> selectForAll() throws MSSException {
+        return teacherService.selectForAll();
+    }
 }

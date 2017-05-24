@@ -62,6 +62,18 @@
         from maritime.student
         where snumber = #{sid,jdbcType=BIGINT} and is_active = true
   </select>
+  <select id="selectForAll" resultMap="BaseResultMap">
+    select
+    sid, sname, ssex, snumber, spassword, sdate,
+    sdescription, sEmail, sPhone, sCertiID, sNation,
+    type.ldValue as studenttype,aca.aname as academy,maj.mname as major,cla.cnum as studentclass
+    from maritime.student s
+    inner join maritime.listdata type on stype = type.ldid
+    inner join maritime.academy aca on sacademy = aca.aid
+    inner join maritime.major maj on smajor = maj.mid
+    inner join maritime.class cla on sclass = cla.cid
+    where s.is_active = true
+  </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--

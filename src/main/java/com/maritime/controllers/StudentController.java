@@ -8,10 +8,9 @@ import com.maritime.services.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Moros on 2017/4/17.
@@ -37,5 +36,11 @@ public class StudentController extends BaseController{
         student.setsNation(user.getNation());
         student.setSpassword(user.getPassword());
         return studentService.updateForInfo(student);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/student/selectForAll", method = RequestMethod.GET)
+    public List<Student> selectForAll() throws MSSException {
+        return studentService.selectForAll();
     }
 }

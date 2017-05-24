@@ -3,6 +3,8 @@ package com.maritime.dao;
 import com.maritime.models.Teacher;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface TeacherMapper {
     /**
@@ -40,4 +42,6 @@ public interface TeacherMapper {
     Teacher selectByAccount(Long tnumber);
 
     int updateForInfo(Teacher record);
+
+    List<Teacher> selectForAll();
 }

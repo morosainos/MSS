@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED, timeout = 30)
 @Service("student")
@@ -37,5 +39,10 @@ public class StudentServiceImpl extends BaseServiceImp implements StudentService
     @Override
     public int updateForInfo(Student record) {
        return studentMapper.updateForInfo(record);
+    }
+
+    @Override
+    public List<Student> selectForAll() {
+        return studentMapper.selectForAll();
     }
 }

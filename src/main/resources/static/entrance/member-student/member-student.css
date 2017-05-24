@@ -1,0 +1,30 @@
+.studentview{
+	padding-bottom: 20%;
+}
+
+.studentview .content{
+	margin-top: 20px;
+}
+
+.studentview table tbody tr td{
+	text-align: center;
+	vertical-align: middle;
+	font: 18px;
+}
+
+.studentview input[type="text"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+
+.studentview input[type="number"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+

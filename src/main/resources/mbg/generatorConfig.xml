@@ -34,7 +34,7 @@
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
-        <table selectByExampleQueryId="false" enableSelectByExample="false"
+<!--         <table selectByExampleQueryId="false" enableSelectByExample="false"
                enableDeleteByExample="false" enableUpdateByExample="false"
                enableCountByExample="false" domainObjectName="Teacher" tableName="teacher"
                schema="maritime">
@@ -97,6 +97,12 @@
         <table selectByExampleQueryId="false" enableSelectByExample="false"
                enableDeleteByExample="false" enableUpdateByExample="false"
                enableCountByExample="false" domainObjectName="Student" tableName="student"
+               schema="maritime">
+        </table> -->
+		
+		<table selectByExampleQueryId="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false"
+               enableCountByExample="false" domainObjectName="Schedule" tableName="schedule"
                schema="maritime">
         </table>
 

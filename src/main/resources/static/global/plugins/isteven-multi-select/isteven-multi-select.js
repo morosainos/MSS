@@ -515,7 +515,7 @@ angular.module( 'isteven-multi-select', ['ng'] ).directive( 'istevenMultiSelect'
             // refresh button label
             $scope.refreshButton = function() {
             	//Default label show - Karl
-                $scope.varButtonLabel   = 'Click to select';                
+                $scope.varButtonLabel   = '选择显示项';                
                 var ctr                 = 0;                  
 
                 // refresh button label...

@@ -1,9 +1,78 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
-</html>
+<div class="teacherview">
+<div name="teacherTable">
+	<div class="content">
+		<div style="float: right;">
+			<!--show drop down menu-->
+			<div isteven-multi-select input-model="filter" output-model="outputSelect"
+				button-label="name" item-label="name" tick-property="ticked"></div>
+		</div>
+		<table ng-table="tableParams"
+				class="table table-striped table-condensed table-hover table-align table-bordered">
+			<tr ng-repeat="teacher in $data" ng-form="teacherForm"
+				demo-tracked-table-row="teacher">
+				<td ng-if="filter[0].ticked" data-title="'姓名'" 
+					filter="{tname: 'text'}" sortable="'tname'" 
+					header-class="'active'" demo-tracked-table-cell
+					>{{teacher.tname}}</td>
+
+				<td ng-if="filter[1].ticked" data-title="'账号'"
+					filter="{tnumber : 'text'}" 
+					sortable="'tnumber'" header-class="'active'" 
+					demo-tracked-table-cell >{{teacher.tnumber}}</td>
+
+				<td ng-if="filter[2].ticked" data-title="'性别'"
+					filter="{tsex: 'text'}" sortable="'tsex'"
+					header-class="'active'" demo-tracked-table-cell
+				    ng-form="tsex">{{teacher.tsex}}</td>
+
+				<td ng-if="filter[3].ticked" data-title="'角色'"
+					filter="{ role: 'text'}" sortable="'role'"
+					header-class="'active'" demo-tracked-table-cell
+					ng-form="role">
+					{{teacher.role}}</td>
+
+				<td ng-if="filter[4].ticked" data-title="'学院'"
+					filter="{academy: 'text'}" sortable="'academy'"
+					header-class="'active'" demo-tracked-table-cell
+					ng-form="academy">{{teacher.academy}}</td>
+
+				<td ng-if="filter[5].ticked" data-title="'专业'"
+					filter="{major: 'text'}"
+					sortable="'major'" header-class="'active'"
+					demo-tracked-table-cell ng-form="major">{{teacher.major}}</td>
+
+				<td ng-if="filter[6].ticked" data-title="'班级'"
+					filter="{teacherclass: 'text'}"
+					sortable="'teacherclass'" header-class="'active'"
+					demo-tracked-table-cell ng-form="teacherclass">
+					{{teacher.teacherclass}}</td>
+
+				<td ng-if="filter[7].ticked" data-title="'身份证号'"
+					filter="{tCertiID: 'text'}"
+					sortable="'tCertiID'" header-class="'active'"
+					demo-tracked-table-cell ng-form="tCertiID">
+					{{teacher.tCertiID}}</td>	
+
+				<td ng-if="filter[8].ticked" data-title="'邮箱'"
+					filter="{tEmail: 'text'}"
+					sortable="'tEmail'" header-class="'active'"
+					demo-tracked-table-cell ng-form="tEmail">
+					{{teacher.tEmail}}</td>
+			
+				<td ng-if="filter[9].ticked" data-title="'电话'"
+					filter="{tPhone: 'text'}"
+					sortable="'tPhone'" header-class="'active'"
+					demo-tracked-table-cell ng-form="tPhone">
+					{{teacher.tPhone}}</td>
+				
+				<td ng-if="filter[10].ticked" data-title="'民族'"
+					filter="{tNation: 'text'}"
+					sortable="'tNation'" header-class="'active'"
+					demo-tracked-table-cell ng-form="tNation">
+					{{teacher.tNation}}</td>
+										
+			</tr>
+		</table>
+	</div>
+</div>
+</div>

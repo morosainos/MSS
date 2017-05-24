@@ -17,6 +17,16 @@
     <result column="pdescription" jdbcType="VARCHAR" property="pdescription" />
     <result column="last_update_user" jdbcType="VARCHAR" property="lastUpdateUser" />
     <result column="last_update_dt" jdbcType="TIMESTAMP" property="lastUpdateDt" />
+
+    <result column="course" jdbcType="VARCHAR" property="course" />
+    <result column="cnumber" jdbcType="BIGINT" property="cnumber" />
+    <result column="teacher" jdbcType="VARCHAR" property="teacher" />
+    <result column="academy" jdbcType="VARCHAR" property="academy" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="point" jdbcType="REAL" property="point" />
+    <result column="hour" jdbcType="INTEGER" property="hour" />
+    <result column="examtype" jdbcType="VARCHAR" property="examtype" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--
@@ -37,6 +47,19 @@
     <include refid="Base_Column_List" />
     from maritime.scmapping
     where pid = #{pid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllCourse" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select map.pterm,c.coname as course,c.conumber as cnumber,t.tname as teacher,
+    a.aname as academy,cate.ldvalue as category,type.ldvalue as type,c.copoint as point,
+    c.cohour as hour,examt.ldvalue as examtype
+    from maritime.scmapping map
+    inner join maritime.course c on map.pcid = c.coid
+    left join maritime.teacher t on c.coteacher1 = t.tid
+    left join maritime.academy a on c.coacademy = a.aid
+    left join maritime.listdata cate on c.cocategory = cate.ldid
+    left join maritime.listdata type on c.cotype = type.ldid
+    left join maritime.listdata examt on c.coexamtype = examt.ldid
+    where map.psid = #{psid,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--

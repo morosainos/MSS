@@ -3,6 +3,8 @@ package com.maritime.dao;
 import com.maritime.models.SCMapping;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface SCMappingMapper {
     /**
@@ -52,4 +54,6 @@ public interface SCMappingMapper {
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
     int updateByPrimaryKey(SCMapping record);
+
+    List<SCMapping> selectAllCourse(Long sid);
 }
