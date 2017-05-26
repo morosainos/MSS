@@ -1,5 +1,5 @@
 /*EroroMsg of validate*/
-.errorMsg {
+/*.errorMsg {
 	white-space: nowrap;
 	vertical-align: baseline;
 	margin-top: 15px;
@@ -7,13 +7,48 @@
 	color: red;
 	position: relative;
 	top: 15px;
+}*/
+
+.modalCustom input[type="text"],input[type="password"],input[type="email"]{
+  box-sizing: border-box;
+  text-align:center;
+  font-size:15px;
+  border-radius:6px;
+  border:1px solid #c8cccf;
+  color:#6a6f77;
+  -web-kit-appearance:none;
+  -moz-appearance: none;
+  display:block;
+  outline:0;
+  padding:0 1em;
+  text-decoration:none;
+  width:100%;
+}
+.modalCustom input[type="text"]:focus{
+  border:1px solid #72afd3;
 }
 
-/**
- * @description:Style for four type of question template.
- */
+.modalCustom input[type="password"]:focus{
+  border:1px solid #72afd3;
+}
 
-.paper-template {
+.modalCustom input[type="email"]:focus{
+  border:1px solid #72afd3;
+}
+
+.modalCustom table td{
+	text-align: center;
+	vertical-align: middle;
+	font: 18px bold;
+}
+
+.error-display{
+	font-size: 14px;
+	color: #f77062;
+}
+
+
+/*.paper-template {
 	margin: 10px;
 }
 
@@ -37,11 +72,7 @@
 	margin-top: 5px;
 	margin-left: 10px;
 	margin-right: 10px;
-}
-
-.error-display {
-	color: #f77062;
-}
+}*/
 
 .correct-display {
 	color: #00FF00;

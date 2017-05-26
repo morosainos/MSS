@@ -3,6 +3,8 @@ package com.maritime.dao;
 import com.maritime.models.Class;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface ClassMapper {
     /**
@@ -52,4 +54,6 @@ public interface ClassMapper {
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
     int updateByPrimaryKey(Class record);
+
+    List<Class> selectByMajor(Integer mid);
 }

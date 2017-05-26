@@ -44,4 +44,8 @@ public interface TeacherMapper {
     int updateForInfo(Teacher record);
 
     List<Teacher> selectForAll();
+
+    int inactiveTeacher(Long[] tids);
+
+    List<Teacher> selectForDuplicate(Teacher teacher);
 }

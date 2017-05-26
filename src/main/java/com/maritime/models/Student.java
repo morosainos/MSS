@@ -115,7 +115,7 @@ public class Student extends UserModel{
 
     private String major;
 
-    private Integer studentclass;
+    private String studentclass;
 
     private String sEmail;
 
@@ -437,11 +437,11 @@ public class Student extends UserModel{
         this.major = major;
     }
 
-    public Integer getStudentclass() {
+    public String getStudentclass() {
         return studentclass;
     }
 
-    public void setStudentclass(Integer studentclass) {
+    public void setStudentclass(String studentclass) {
         this.studentclass = studentclass;
     }
 

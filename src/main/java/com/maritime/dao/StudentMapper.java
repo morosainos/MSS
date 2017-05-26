@@ -60,4 +60,8 @@ public interface StudentMapper {
     int updateForInfo(Student record);
 
     List<Student> selectForAll();
+
+    int inactiveStudent(Long[] sids);
+
+    List<Student> selectForDuplicate(Student student);
 }

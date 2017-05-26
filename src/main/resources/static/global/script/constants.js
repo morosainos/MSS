@@ -69,10 +69,22 @@
 			'EMAIL_INVALID':'邮箱格式不正确',
 			'PASSWORD_NOT_EQUAL':'两次输入密码不同',
 			'PHONE_INVALID': '电话只能是数字',
-			'PASSWORD_EMPTY': '密码不能为空'
+			'PASSWORD_EMPTY': '密码不能为空',
+			'NAME_EMPTY':'姓名不能为空',
+			'NUMBER_EMPTY':'账号不能为空',
+			'DATE_EMPTY':'入学时间不能为空',
+			'MAJOR_EMPTY':'专业不能为空',
+			'ACADEMY_EMPTY':'学院不能为空',
+			'CLASS_EMPTY':'班级不能为空',
+			'NUMBER_INVALID': '账号只能是数字',
+			'DATE_INVALID': '入学时间只能是数字',
+			'ACCOUNT_DUPLICATE': '账号已存在！'
 		},
 		'UPDATE_MSG':{
-			'UPDATE_SUCCESS':'修改成功！'
+			'UPDATE_SUCCESS':'修改成功！',
+			'INSERT_SUCCESS':'插入成功！',
+			'DELETE_SUCCESS':'删除成功！',
+			'SELECT_EMPTY':'请选中要删除的行！'
 		},
 		'TEMPALTE_MODE' : {
 			'USER_EDITING' : 0,

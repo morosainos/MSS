@@ -33,6 +33,12 @@
     from maritime.academy
     where aid = #{aid,jdbcType=INTEGER}
   </select>
+  <select id="selectForAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from maritime.academy
+    where is_active = true
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbggenerated

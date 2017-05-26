@@ -35,6 +35,12 @@
     from maritime.major
     where mid = #{mid,jdbcType=INTEGER}
   </select>
+    <select id="selectByAcademy" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from maritime.major
+        where macademy = #{macademy,jdbcType=INTEGER}
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbggenerated

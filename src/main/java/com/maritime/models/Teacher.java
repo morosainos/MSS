@@ -85,7 +85,7 @@ public class Teacher extends UserModel{
 
     private String major;
 
-    private Integer teacherclass;
+    private String teacherclass;
 
     private String tEmail;
 
@@ -335,11 +335,11 @@ public class Teacher extends UserModel{
         this.major = major;
     }
 
-    public Integer getTeacherclass() {
+    public String getTeacherclass() {
         return teacherclass;
     }
 
-    public void setTeacherclass(Integer teacherclass) {
+    public void setTeacherclass(String teacherclass) {
         this.teacherclass = teacherclass;
     }
 

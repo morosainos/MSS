@@ -45,4 +45,24 @@ public class TeacherServiceImpl extends BaseServiceImp implements TeacherService
         return teacherMapper.selectForAll();
     }
 
+    @Override
+    public int inactiveTeacher(Long[] tids) {
+        return teacherMapper.inactiveTeacher(tids);
+    }
+
+    @Override
+    public List<Teacher> selectForDuplicate(Teacher teacher) {
+        return teacherMapper.selectForDuplicate(teacher);
+    }
+
+    @Override
+    public int updateByPrimaryKey(Teacher record) {
+        return teacherMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public int insert(Teacher record) {
+        return teacherMapper.insert(record);
+    }
+
 }

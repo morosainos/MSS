@@ -44,4 +44,36 @@ public class TeacherController extends BaseController{
     public List<Teacher> selectForAll() throws MSSException {
         return teacherService.selectForAll();
     }
+
+    @RequestMapping(value = "/teacher/insert", method = RequestMethod.POST)
+    public Integer selectForAll(@RequestBody Teacher teacher) throws MSSException {
+        teacher.setTid((long)0);
+        if(null != teacherService.selectForDuplicate(teacher) && teacherService.selectForDuplicate(teacher).size()>0)
+        {
+            return -1;
+        }
+        teacher.setTpassword(CommonUtil.getMD5(teacher.getTpassword()));
+        return teacherService.insert(teacher);
+    }
+
+    @RequestMapping(value = "/teacher/inactiveTeacher", method = RequestMethod.GET)
+    public int inactiveTeacher(@RequestParam Long[] teaIds) {
+        int deleteNums = 0;
+
+        if (teaIds.length > 0) {
+            deleteNums = teacherService.inactiveTeacher(teaIds);
+        }
+
+        return deleteNums;
+    }
+
+    @RequestMapping(value = "/teacher/updateByPrimaryKey", method = RequestMethod.POST)
+    public int updateByPrimaryKey(@RequestBody Teacher teacher) throws MSSException {
+        if(null != teacherService.selectForDuplicate(teacher) && teacherService.selectForDuplicate(teacher).size()>0)
+        {
+            return -1;
+        }
+        teacher.setTpassword(CommonUtil.getMD5(teacher.getTpassword()));
+        return teacherService.updateByPrimaryKey(teacher);
+    }
 }

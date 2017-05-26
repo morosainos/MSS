@@ -31,7 +31,7 @@ public class UserModel {
 
     private String major;
 
-    private Integer sclass;
+    private String aclass;
 
     private String description;
 
@@ -148,12 +148,12 @@ public class UserModel {
         this.major = major;
     }
 
-    public Integer getSclass() {
-        return sclass;
+    public String getAclass() {
+        return aclass;
     }
 
-    public void setSclass(Integer sclass) {
-        this.sclass = sclass;
+    public void setAclass(String sclass) {
+        this.aclass = sclass;
     }
 
     public String getDescription() {

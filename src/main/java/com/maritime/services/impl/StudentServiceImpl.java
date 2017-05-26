@@ -45,4 +45,29 @@ public class StudentServiceImpl extends BaseServiceImp implements StudentService
     public List<Student> selectForAll() {
         return studentMapper.selectForAll();
     }
+
+    @Override
+    public int insert(Student record) {
+        return studentMapper.insert(record);
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Long sid) {
+        return studentMapper.deleteByPrimaryKey(sid);
+    }
+
+    @Override
+    public int inactiveStudent(Long[] sids) {
+        return studentMapper.inactiveStudent(sids);
+    }
+
+    @Override
+    public int updateByPrimaryKey(Student record) {
+        return studentMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Student> selectForDuplicate(Student student) {
+        return studentMapper.selectForDuplicate(student);
+    }
 }

@@ -13,4 +13,12 @@ public interface TeacherService {
     int updateForInfo(Teacher record);
 
     List<Teacher> selectForAll();
+
+    int inactiveTeacher(Long[] tids);
+
+    List<Teacher> selectForDuplicate(Teacher teacher);
+
+    int updateByPrimaryKey(Teacher record);
+
+    int insert(Teacher record);
 }

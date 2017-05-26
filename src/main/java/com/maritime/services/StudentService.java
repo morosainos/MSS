@@ -13,4 +13,14 @@ public interface StudentService {
     int updateForInfo(Student record);
 
     List<Student> selectForAll();
+
+    int insert(Student record);
+
+    int deleteByPrimaryKey(Long sid);
+
+    int inactiveStudent(Long[] sids);
+
+    int updateByPrimaryKey(Student record);
+
+    List<Student> selectForDuplicate(Student student);
 }

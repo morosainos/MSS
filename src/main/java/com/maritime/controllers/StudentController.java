@@ -43,4 +43,37 @@ public class StudentController extends BaseController{
     public List<Student> selectForAll() throws MSSException {
         return studentService.selectForAll();
     }
+
+
+    @RequestMapping(value = "/student/insert", method = RequestMethod.POST)
+    public Integer selectForAll(@RequestBody Student student) throws MSSException {
+        student.setSid((long)0);
+        if(null != studentService.selectForDuplicate(student) && studentService.selectForDuplicate(student).size()>0)
+        {
+            return -1;
+        }
+        student.setSpassword(CommonUtil.getMD5(student.getSpassword()));
+        return studentService.insert(student);
+    }
+
+    @RequestMapping(value = "/student/inactiveStudent", method = RequestMethod.GET)
+    public int inactiveStudent(@RequestParam Long[] stuIds) {
+        int deleteNums = 0;
+
+        if (stuIds.length > 0) {
+            deleteNums = studentService.inactiveStudent(stuIds);
+        }
+
+        return deleteNums;
+    }
+
+    @RequestMapping(value = "/student/updateByPrimaryKey", method = RequestMethod.POST)
+    public int updateByPrimaryKey(@RequestBody Student student) throws MSSException {
+        if(null != studentService.selectForDuplicate(student) && studentService.selectForDuplicate(student).size()>0)
+        {
+            return -1;
+        }
+        student.setSpassword(CommonUtil.getMD5(student.getSpassword()));
+        return studentService.updateByPrimaryKey(student);
+    }
 }

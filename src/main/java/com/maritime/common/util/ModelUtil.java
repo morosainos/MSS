@@ -23,7 +23,7 @@ public class ModelUtil {
         teacherCustom.setSex(teacher.getTsex());
         teacherCustom.setAcademy(teacher.getAcademy());
         teacherCustom.setMajor(teacher.getMajor());
-        teacherCustom.setSclass(teacher.getTeacherclass());
+        teacherCustom.setAclass(teacher.getTeacherclass());
         teacherCustom.setColumnData1(teacher.getRole());
         teacherCustom.setColumnName1("角色");
         teacherCustom.setEmail(teacher.gettEmail());
@@ -45,7 +45,7 @@ public class ModelUtil {
         studentCustom.setId(student.getSid());
         studentCustom.setIsActive(student.getIsActive());
         studentCustom.setMajor(student.getMajor());
-        studentCustom.setSclass(student.getStudentclass());
+        studentCustom.setAclass(student.getStudentclass());
         studentCustom.setStype(student.getStudenttype());
         studentCustom.setType(CommonConstants.USER_TYPE_STUDENT);
         studentCustom.setColumnData1(student.getSdate());
