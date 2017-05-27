@@ -80,6 +80,16 @@ adminApp.config(function($stateProvider, $urlRouterProvider, $controllerProvider
 				}]
 			}
 		})
+		.state(window.mss.constants.STATE.SCORE_VIEW_TEACHER_STATE, {
+			url: window.mss.constants.URL.SCORE_VIEW_TEACHER_URL,
+			templateUrl: window.mss.constants.TEMPLATE.SCORE_VIEW_TEACHER_TEMPLATE,
+			controller: window.mss.constants.CONTROLLER.SCORE_VIEW_TEACHER_CONTROLLER,
+			resolve: {
+				deps: ['$ocLazyLoad', function($ocLazyLoad) {
+					return $ocLazyLoad.load(['score-view-teacher/score-view-teacher.js','score-view-teacher/score-view-teacher.css']);
+				}]
+			}
+		})
 		.state(window.mss.constants.STATE.SCORE_MARK_STATE, {
 			url: window.mss.constants.URL.SCORE_MARK_URL,
 			templateUrl: window.mss.constants.TEMPLATE.SCORE_MARK_TEMPLATE,

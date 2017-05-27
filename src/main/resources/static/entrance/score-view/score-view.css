@@ -1,0 +1,30 @@
+.scoreview{
+	padding-bottom: 20%;
+}
+
+.scoreview .content{
+	margin-top: 20px;
+}
+
+.scoreview table tbody tr td{
+	text-align: center;
+	vertical-align: middle;
+	font: 18px;
+}
+
+.scoreview input[type="text"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+
+.scoreview input[type="number"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+

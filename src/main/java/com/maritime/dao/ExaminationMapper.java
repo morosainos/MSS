@@ -3,6 +3,8 @@ package com.maritime.dao;
 import com.maritime.models.Examination;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface ExaminationMapper {
     /**
@@ -52,4 +54,12 @@ public interface ExaminationMapper {
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
     int updateByPrimaryKey(Examination record);
+
+    List<Examination> selectForTeacher(Long eteacher1);
+
+    List<Examination> selectForStudent(Long sid);
+
+    List<Examination> selectForAll();
+
+    int inactiveExam(Long[] eids);
 }

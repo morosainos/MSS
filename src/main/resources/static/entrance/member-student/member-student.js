@@ -3,6 +3,7 @@ angular.module(window.mss.appName).controller(
 		function($scope, $rootScope, $uibModal, $http, toastr, NgTableParams) {
 			console.log("MEMBER_STUDENT_CONTROLLER");	
 			
+			$scope.user ={};
 			getUser = function(){
 				$scope.user = $rootScope.user;
 				console.log($scope.user);
@@ -125,8 +126,8 @@ angular.module(window.mss.appName).controller(
 				
 				$uibModal.open({				
 					backdrop: false, 
-					templateUrl : 'sureDelete.html',
-					controller : 'sureDeleteCtrl',
+					templateUrl : 'sureDeleteS.html',
+					controller : 'sureDeleteSCtrl',
 					scope: scopeForModal,
 					size : 'lg',
 					resolve : {
@@ -321,7 +322,7 @@ angular.module('sureSaveS', []).controller('sureSaveSCtrl', function($scope,$uib
 	}
 });
 
-angular.module('sureDelete', []).controller('sureDeleteCtrl', function($scope,$uibModal, 
+angular.module('sureDeleteS', []).controller('sureDeleteSCtrl', function($scope,$uibModal, 
 		$uibModalInstance, $http, toastr, stuIds) {
 	var stuIds = stuIds;
 	

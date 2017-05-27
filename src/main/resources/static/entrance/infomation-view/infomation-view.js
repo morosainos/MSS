@@ -3,9 +3,9 @@ angular.module(window.mss.appName).controllerProvider.register(
 		function($rootScope, $scope, $uibModal, $http, toastr) {
 			console.log("INFO_VIEW_CONTROLLER");
 			
+			$scope.user ={};
 			getUser = function(){
 				$scope.user = $rootScope.user;
-				console.log($scope.user);
 				if("student" == $scope.user.type)
 				{
 					$scope.user.student = true;

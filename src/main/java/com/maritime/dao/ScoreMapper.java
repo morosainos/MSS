@@ -3,6 +3,8 @@ package com.maritime.dao;
 import com.maritime.models.Score;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface ScoreMapper {
     /**
@@ -52,4 +54,8 @@ public interface ScoreMapper {
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
     int updateByPrimaryKey(Score record);
+
+    List<Score> selectForFinalScore(Long sid);
+
+    List<Score> selectForAllScore(Score score);
 }

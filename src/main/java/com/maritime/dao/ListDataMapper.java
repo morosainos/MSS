@@ -3,6 +3,8 @@ package com.maritime.dao;
 import com.maritime.models.ListData;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface ListDataMapper {
     /**
@@ -52,4 +54,6 @@ public interface ListDataMapper {
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
     int updateByPrimaryKey(ListData record);
+
+    List<ListData> selectByListID(Integer ldlistid);
 }

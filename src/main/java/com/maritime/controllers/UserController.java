@@ -65,6 +65,7 @@ public class UserController extends BaseController {
             if (teacher.getTpassword().equals(CommonUtil.getMD5(user.getPassword()))) {
                 request.getSession().setAttribute("userType", CommonConstants.USER_TYPE_TEACHER);
                 request.getSession().setAttribute("userID", teacher.getTid());
+                request.getSession().setAttribute("userRole", teacher.getTrole());
                 request.getSession().setAttribute("firstLogIn", true);
                 return teacher;
             } else {
@@ -125,6 +126,7 @@ public class UserController extends BaseController {
         request.getSession().removeAttribute("userID");
         request.getSession().removeAttribute("userType");
         request.getSession().removeAttribute("firstLogIn");
+        request.getSession().removeAttribute("userRole");
         try {
             request.logout();
         } catch (ServletException e) {

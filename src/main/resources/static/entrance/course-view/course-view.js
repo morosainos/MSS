@@ -3,9 +3,9 @@ angular.module(window.mss.appName).controller(
 		function($scope, $rootScope, $http, $window, NgTableParams, $uibModal) {
 			console.log("courseviewController");
 			
+			$scope.user = {};
 			getUser = function(){
 				$scope.user = $rootScope.user;
-				console.log($scope.user);
 				if("student" == $scope.user.type)
 				{
 					$scope.user.student = true;

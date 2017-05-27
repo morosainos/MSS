@@ -21,6 +21,15 @@ angular.module(window.mss.appName).controller(
 							toastr.success("Success",window.mss.constants.LOGIN_MSG.LOGIN_SUCCESS);
 						}
 						$rootScope.user = response;
+						$rootScope.user.student = false;
+						$rootScope.user.teacher = false;
+						if("student" == response.type)
+						{
+							$rootScope.user.student = true;
+						}else if("teacher" == response.type){
+							$rootScope.user.teacher = true;
+						}
+						console.log($rootScope.user);
 					}
 				})
 				.error(function(response) {
@@ -28,7 +37,7 @@ angular.module(window.mss.appName).controller(
 				}); 
 			};
 			
-			init();
+			//init();
 			
 			$scope.logout = function(){
 				console.log("logout!");

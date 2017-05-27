@@ -3,11 +3,12 @@ angular.module(window.mss.appName).controller(
 		function($scope, $rootScope, $uibModal, $http, toastr, NgTableParams) {
 			console.log("MEMBER_TEACHER_CONTROLLER");	
 			
+			$scope.user ={};
 			getUser = function(){
 				$scope.user = $rootScope.user;
-				if("teacher" == $scope.user.type)
+				if("student" == $scope.user.type)
 				{
-					$scope.user.teacher = true;
+					$scope.user.student = true;
 				}
 				else if("teacher" == $scope.user.type)
 				{
@@ -121,8 +122,8 @@ angular.module(window.mss.appName).controller(
 
 				$uibModal.open({				
 					backdrop: false, 
-					templateUrl : 'sureDelete.html',
-					controller : 'sureDeleteCtrl',
+					templateUrl : 'sureDeleteT.html',
+					controller : 'sureDeleteTCtrl',
 					scope: scopeForModal,
 					size : 'lg',
 					resolve : {
@@ -318,7 +319,7 @@ angular.module('sureSaveT', []).controller('sureSaveTCtrl', function($scope,$uib
 	}
 });
 
-angular.module('sureDelete', []).controller('sureDeleteCtrl', function($scope,$uibModal, 
+angular.module('sureDeleteT', []).controller('sureDeleteTCtrl', function($scope,$uibModal, 
 		$uibModalInstance, $http, toastr, teaIds) {
 	var teaIds = teaIds;
 

@@ -37,7 +37,7 @@ public class Course {
      *
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
-    private Integer coteacher1;
+    private Long coteacher1;
 
     /**
      *
@@ -46,7 +46,7 @@ public class Course {
      *
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
-    private Integer coteacher2;
+    private Long coteacher2;
 
     /**
      *
@@ -211,7 +211,7 @@ public class Course {
      *
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
-    public Integer getCoteacher1() {
+    public Long getCoteacher1() {
         return coteacher1;
     }
 
@@ -223,7 +223,7 @@ public class Course {
      *
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
-    public void setCoteacher1(Integer coteacher1) {
+    public void setCoteacher1(Long coteacher1) {
         this.coteacher1 = coteacher1;
     }
 
@@ -235,7 +235,7 @@ public class Course {
      *
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
-    public Integer getCoteacher2() {
+    public Long getCoteacher2() {
         return coteacher2;
     }
 
@@ -247,7 +247,7 @@ public class Course {
      *
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
-    public void setCoteacher2(Integer coteacher2) {
+    public void setCoteacher2(Long coteacher2) {
         this.coteacher2 = coteacher2;
     }
 

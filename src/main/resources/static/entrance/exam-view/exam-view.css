@@ -1,0 +1,30 @@
+.examview{
+	padding-bottom: 20%;
+}
+
+.examview .content{
+	margin-top: 20px;
+}
+
+.examview table tbody tr td{
+	text-align: center;
+	vertical-align: middle;
+	font: 18px;
+}
+
+.examview input[type="text"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+
+.examview input[type="number"]{
+  	text-align:center;
+  	font-size:15px;
+  	border-radius:10px;
+  	border:1px solid #c8cccf;
+  	color:#6a6f77;
+}
+
