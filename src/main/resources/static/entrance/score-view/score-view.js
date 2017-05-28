@@ -58,7 +58,6 @@ angular.module(window.mss.appName).controller(
 				$http.get('/score/selectForFinalScore').success(
 						function(data) {
 							$scope.data = data;
-							console.log($scope.data);
 							$scope.tableParams = new NgTableParams({
 								'count' : 10
 							}, {
@@ -104,7 +103,6 @@ angular.module('viewScoreApp',[]).controller('viewScoreCtrl',function($scope,$ht
 			})
 			.success(function(data) {
 				$scope.data = data;
-				console.log($scope.data);
 				$scope.innerParams = new NgTableParams({
 					'count' : 10
 				}, {

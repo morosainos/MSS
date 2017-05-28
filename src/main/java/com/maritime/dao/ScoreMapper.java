@@ -58,4 +58,8 @@ public interface ScoreMapper {
     List<Score> selectForFinalScore(Long sid);
 
     List<Score> selectForAllScore(Score score);
+
+    List<Score> selectForTeacherPage(Long tid);
+
+    List<Score> selectForStudentScore(Score score);
 }

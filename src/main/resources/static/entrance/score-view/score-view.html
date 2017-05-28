@@ -30,8 +30,8 @@
 				<td ng-if="filter[3].ticked" data-title="'课程名'"
 					filter="{cname: 'text'}" sortable="'cname'"
 					header-class="'active'" demo-tracked-table-cell
-				    ><button style="border: 0;text-align: center;vertical-align: middle;color:grey;" 
-						class="btn btn-default" title="查看该课所有成绩"
+				    ><button type="button" style="text-align: center;vertical-align: middle;" 
+						class="btn btn-info" title="查看该课所有成绩"
 					ng-click="viewScore(score.mapid)">{{score.cname}}</button></td>
 				 
 				<td ng-if="filter[5].ticked" data-title="'课程种类'"
@@ -129,6 +129,11 @@
 								filter="{score: 'text'}" sortable="'score'"
 								header-class="'active'" demo-tracked-table-cell
 							    >{{scoreall.score}}</td>
+							    
+							<td data-title="'备注'"
+								filter="{sdescription: 'text'}" sortable="'sdescription'"
+								header-class="'active'" demo-tracked-table-cell
+							    >{{scoreall.sdescription}}</td>
 						</tr>
 					</table>
 				</div>

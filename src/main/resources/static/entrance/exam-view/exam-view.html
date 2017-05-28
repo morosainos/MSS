@@ -38,8 +38,8 @@
 				<td ng-if="filter[8].ticked" data-title="'考试名称'"
 					filter="{ ename: 'text'}" sortable="'ename'"
 					header-class="'active'" demo-tracked-table-cell
-					><button ng-if="user.teacher" style="border: 0;text-align: center;vertical-align: middle;color:grey;" 
-						class="btn btn-default" title="点击编辑考试信息"
+					><button ng-if="user.teacher" type="button" style="text-align: center;vertical-align: middle;" 
+						class="btn btn-info" title="点击编辑考试信息"
 					ng-click="addExam(exam)">{{exam.ename}}</button><span ng-if="user.student">{{exam.ename}}</span></td>
 					
 				<td ng-if="filter[3].ticked" data-title="'考试类型'"

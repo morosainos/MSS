@@ -90,13 +90,13 @@ adminApp.config(function($stateProvider, $urlRouterProvider, $controllerProvider
 				}]
 			}
 		})
-		.state(window.mss.constants.STATE.SCORE_MARK_STATE, {
-			url: window.mss.constants.URL.SCORE_MARK_URL,
-			templateUrl: window.mss.constants.TEMPLATE.SCORE_MARK_TEMPLATE,
-			controller: window.mss.constants.CONTROLLER.SCORE_MARK_CONTROLLER,
+		.state(window.mss.constants.STATE.INFOMATION_SCHEDULE_STATE, {
+			url: window.mss.constants.URL.INFOMATION_SCHEDULE_URL,
+			templateUrl: window.mss.constants.TEMPLATE.INFOMATION_SCHEDULE_TEMPLATE,
+			controller: window.mss.constants.CONTROLLER.INFOMATION_SCHEDULE_CONTROLLER,
 			resolve: {
 				deps: ['$ocLazyLoad', function($ocLazyLoad) {
-					return $ocLazyLoad.load(['score-mark/score-mark.js','score-mark/score-mark.css']);
+					return $ocLazyLoad.load(['infomation-schedule/infomation-schedule.js','infomation-schedule/infomation-schedule.css']);
 				}]
 			}
 		})

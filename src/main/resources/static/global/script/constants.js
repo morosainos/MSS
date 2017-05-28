@@ -12,7 +12,7 @@
 			'EXAM_VIEW_URL': '/exam-view',
 			'SCORE_VIEW_URL': '/score-view',
 			'SCORE_VIEW_TEACHER_URL': '/score-view-teacher',
-			'SCORE_MARK_URL':'/score-mark',
+			'INFOMATION_SCHEDULE_URL':'/infomation-schedule',
 			'SCORE_REPORT_URL':'/score-report',
 			'MEMBER_STUDENT_URL':'/member-student',
 			'MEMBER_TEACHER_URL':'/member-teacher',
@@ -27,7 +27,7 @@
 			'EXAM_VIEW_STATE': 'home.exam-view',
 			'SCORE_VIEW_STATE': 'home.score-view',
 			'SCORE_VIEW_TEACHER_STATE': 'home.score-view-teacher',
-			'SCORE_MARK_STATE':'home.score-mark',
+			'INFOMATION_SCHEDULE_STATE':'home.infomation-schedule',
 			'SCORE_REPORT_STATE':'home.score-report',
 			'MEMBER_STUDENT_STATE':'home.member-student',
 			'MEMBER_TEACHER_STATE':'home.member-teacher'
@@ -41,7 +41,7 @@
 			'EXAM_VIEW_TEMPLATE': 'exam-view/exam-view.html',
 			'SCORE_VIEW_TEMPLATE': 'score-view/score-view.html',
 			'SCORE_VIEW_TEACHER_TEMPLATE': 'score-view-teacher/score-view-teacher.html',
-			'SCORE_MARK_TEMPLATE':'score-mark/score-mark.html',
+			'INFOMATION_SCHEDULE_TEMPLATE':'infomation-schedule/infomation-schedule.html',
 			'SCORE_REPORT_TEMPLATE':'score-report/score-report.html',
 			'MEMBER_STUDENT_TEMPLATE':'member-student/member-student.html',
 			'MEMBER_TEACHER_TEMPLATE':'member-teacher/member-teacher.html'
@@ -55,7 +55,7 @@
 			'EXAM_VIEW_CONTROLLER': 'ExamViewController',
 			'SCORE_VIEW_CONTROLLER': 'ScoreViewController',
 			'SCORE_VIEW_TEACHER_CONTROLLER': 'ScoreViewTeacherController',
-			'SCORE_MARK_CONTROLLER':'ScoreMarkController',
+			'INFOMATION_SCHEDULE_CONTROLLER':'ScoreMarkController',
 			'SCORE_REPORT_CONTROLLER':'ScoreReportController',
 			'MEMBER_STUDENT_CONTROLLER':'MemberStudentController',
 			'MEMBER_TEACHER_CONTROLLER':'MemberTeacherController'
@@ -93,7 +93,9 @@
 		},
 		'UPDATE_MSG':{
 			'UPDATE_SUCCESS':'修改成功！',
+			'UPDATE_FAILED':'修改失败！',
 			'INSERT_SUCCESS':'插入成功！',
+			'INSERT_FAILED':'插入失败！',
 			'DELETE_SUCCESS':'删除成功！',
 			'SELECT_EMPTY':'请选中要删除的行！'
 		},

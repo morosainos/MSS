@@ -23,8 +23,8 @@
 					filter="{tnumber : 'text'}" 
 					sortable="'tnumber'" header-class="'active'" 
 					demo-tracked-table-cell >
-					<button style="border: 0;text-align: center;vertical-align: middle;color:grey;" 
-						class="btn btn-default" title="点击编辑教师信息"
+					<button type="button" style="text-align: center;vertical-align: middle;" 
+						class="btn btn-info" title="点击编辑教师信息"
 					ng-click="addTeacher(teacher)">{{teacher.tnumber}}</button></td>
 					
 				<td ng-if="filter[0].ticked" data-title="'姓名'" 

@@ -37,10 +37,9 @@ angular.module(window.mss.appName).controller(
 				}); 
 			};
 			
-			//init();
+			init();
 			
 			$scope.logout = function(){
-				console.log("logout!");
 				$http({
 					method : 'get',
 					url : '/user/logout'

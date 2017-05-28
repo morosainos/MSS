@@ -35,4 +35,24 @@ public class ScoreServiceImpl extends BaseServiceImp implements ScoreService {
     public List<Score> selectForAllScore(Score score) {
         return scoreMapper.selectForAllScore(score);
     }
+
+    @Override
+    public List<Score> selectForTeacherPage(Long tid) {
+        return scoreMapper.selectForTeacherPage(tid);
+    }
+
+    @Override
+    public List<Score> selectForStudentScore(Score score) {
+        return scoreMapper.selectForStudentScore(score);
+    }
+
+    @Override
+    public int insert(Score record) {
+        return scoreMapper.insert(record);
+    }
+
+    @Override
+    public int updateByPrimaryKey(Score record) {
+        return scoreMapper.updateByPrimaryKey(record);
+    }
 }
