@@ -67,16 +67,16 @@
         fin.etotalscore as totalscore,a.aname as aname,cat.ldvalue as ccategory,typ.ldvalue as ctype,final.score as finalscore,final.point as finalpoint,
         t.tname as tname
         from maritime.scmapping m
-        left join maritime.course c on m.pcid = c.coid
+        left join maritime.course c on m.pcid = c.coid and c.is_active = true
         left join maritime.examination fin on m.pcid = fin.ecid and m.pterm = fin.eterm and fin.is_active = true and fin.etype = 9
         left join maritime.score final on final.ssid = m.psid and final.seid = fin.eid and final.is_active = true
-        left join maritime.student d on final.ssid = d.sid
-        left join maritime.teacher t on t.tid = c.coteacher1
+        left join maritime.student d on final.ssid = d.sid and d.is_active = true
+        left join maritime.teacher t on t.tid = c.coteacher1 and t.is_active = true
         left join maritime.academy a on c.coacademy = a.aid
         left join maritime.listdata cat on c.cocategory = cat.ldid
         left join maritime.listdata typ on c.cotype = typ.ldid
         left join maritime.listdata examt on fin.etype = examt.ldid
-        where m.psid =  #{sid,jdbcType=BIGINT}
+        where m.psid =  #{sid,jdbcType=BIGINT} and m.is_active = true
     </select>
     <select id="selectForAllScore" parameterType="com.maritime.models.Score" resultMap="BaseResultMap">
         select s.score,s.point,e.ename as ename,e.total_time as totaltime,
@@ -84,18 +84,18 @@
         from maritime.scmapping m
         left join maritime.examination e on m.pcid = e.ecid and m.pterm = e.eterm and e.is_active = true
         left join maritime.score s on s.ssid = m.psid and s.seid = e.eid and s.is_active = true
-        left join maritime.student d on s.ssid = d.sid
-        left join maritime.course c on e.ecid = c.coid
+        left join maritime.student d on s.ssid = d.sid and d.is_active = true
+        left join maritime.course c on e.ecid = c.coid and c.is_active = true
         left join maritime.listdata form on e.eform = form.ldid
         left join maritime.listdata examt on e.etype = examt.ldid
-        where m.psid = #{ssid,jdbcType=BIGINT} and m.pid = #{mapid,jdbcType=BIGINT}
+        where m.psid = #{ssid,jdbcType=BIGINT} and m.pid = #{mapid,jdbcType=BIGINT} and m.is_active = true
     </select>
     <select id="selectForTeacherPage" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select e.eid as eid,c.conumber as cnumber,c.coname as cname,a.aname as aname,typ.ldvalue as ctype,cat.ldvalue as ccategory,c.copoint as cpoint,c.cohour as chour,
         e.eterm as term,e.ename as ename,e.total_time as totaltime,
         e.etotalscore as totalscore,examt.ldvalue as examtype,form.ldvalue as eform
         from maritime.examination e
-        left join maritime.course c on e.ecid = c.coid
+        left join maritime.course c on e.ecid = c.coid and c.is_active = true
         left join maritime.academy a on a.aid = c.coacademy
         left join maritime.listdata form on e.eform = form.ldid
         left join maritime.listdata examt on e.etype = examt.ldid
@@ -110,7 +110,7 @@
         from maritime.student s
         left join maritime.scmapping m on m.psid = s.sid and m.is_active = true
         left join maritime.course c on m.pcid = c.coid and c.is_active = true
-        left join maritime.examination e on e.ecid = c.coid and m.pterm = e.eterm
+        left join maritime.examination e on e.ecid = c.coid and m.pterm = e.eterm and e.is_active = true
         left join maritime.score sc on s.sid = sc.ssid and sc.seid = e.eid and sc.is_active = true
         left join maritime.academy a on a.aid = s.sacademy
         left join maritime.major maj on maj.mid = s.smajor

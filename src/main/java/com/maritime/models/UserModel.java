@@ -195,4 +195,5 @@ public class UserModel {
     public void setNation(String nation) {
         this.nation = nation;
     }
+
 }

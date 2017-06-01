@@ -1,9 +1,414 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
-</html>
+<div class="courseselect">
+<div>
+	<div class="col-md-6">
+		<h3 ng-bind="term"></h3>  
+		<h3>预选课截止时间为：6/20日，望抓紧时间选课</h3>
+		<button type="button" class="btn btn-dark" ng-click="showTable()">显示课表</button>
+  	</div>
+  	<div class="col-md-6">
+	  <table ng-if="isShow" class="table table-striped table-bordered" style="font-size: 12px;">
+	  	<tr>
+	  		<th>课程表</th>
+		    <th>星期一</th>
+		    <th>星期二</th>
+		    <th>星期三</th>
+		    <th>星期四</th>
+		    <th>星期五</th>
+		    <th>星期六</th>
+		    <th>星期日</th>
+		  </tr>
+		  <tr>
+		    <th>1-2节</th>
+		    <td><span ng-if="''!=w1s1&&w1s1i" class="fa fa-check" tooltips tooltip-template="{{w1s1}}"></span>
+		    	<span ng-if="''!=w1s1&&!w1s1i" class="fa fa-circle" tooltips tooltip-template="{{w1s1}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w2s1&&w2s1i" class="fa fa-check" tooltips tooltip-template="{{w2s1}}"></span>
+		    	<span ng-if="''!=w2s1&&!w2s1i" class="fa fa-circle" tooltips tooltip-template="{{w2s1}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w3s1&&w3s1i" class="fa fa-check" tooltips tooltip-template="{{w3s1}}"></span>
+		    	<span ng-if="''!=w3s1&&!w3s1i" class="fa fa-circle" tooltips tooltip-template="{{w3s1}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w4s1&&w4s1i" class="fa fa-check" tooltips tooltip-template="{{w4s1}}"></span>
+		    	<span ng-if="''!=w4s1&&!w4s1i" class="fa fa-circle" tooltips tooltip-template="{{w4s1}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w5s1&&w5s1i" class="fa fa-check" tooltips tooltip-template="{{w5s1}}"></span>
+		    	<span ng-if="''!=w5s1&&!w5s1i" class="fa fa-circle" tooltips tooltip-template="{{w5s1}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w6s1&&w6s1i" class="fa fa-check" tooltips tooltip-template="{{w6s1}}"></span>
+		    	<span ng-if="''!=w6s1&&!w6s1i" class="fa fa-circle" tooltips tooltip-template="{{w6s1}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w7s1&&w7s1i" class="fa fa-check" tooltips tooltip-template="{{w7s1}}"></span>
+		    	<span ng-if="''!=w7s1&&!w7s1i" class="fa fa-circle" tooltips tooltip-template="{{w7s1}}"></span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <th>3-4节</th>
+		    <td><span ng-if="''!=w1s2&&w1s2i" class="fa fa-check" tooltips tooltip-template="{{w1s2}}"></span>
+		    	<span ng-if="''!=w1s2&&!w1s2i" class="fa fa-circle" tooltips tooltip-template="{{w1s2}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w2s2&&w2s2i" class="fa fa-check" tooltips tooltip-template="{{w2s2}}"></span>
+		    	<span ng-if="''!=w2s2&&!w2s2i" class="fa fa-circle" tooltips tooltip-template="{{w2s2}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w3s2&&w3s2i" class="fa fa-check" tooltips tooltip-template="{{w3s2}}"></span>
+		    	<span ng-if="''!=w3s2&&!w3s2i" class="fa fa-circle" tooltips tooltip-template="{{w3s2}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w4s2&&w4s2i" class="fa fa-check" tooltips tooltip-template="{{w4s2}}"></span>
+		    	<span ng-if="''!=w4s2&&!w4s2i" class="fa fa-circle" tooltips tooltip-template="{{w4s2}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w5s2&&w5s2i" class="fa fa-check" tooltips tooltip-template="{{w5s2}}"></span>
+		    	<span ng-if="''!=w5s2&&!w5s2i" class="fa fa-circle" tooltips tooltip-template="{{w5s2}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w6s2&&w6s2i" class="fa fa-check" tooltips tooltip-template="{{w6s2}}"></span>
+		    	<span ng-if="''!=w6s2&&!w6s2i" class="fa fa-circle" tooltips tooltip-template="{{w6s2}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w7s2&&w7s2i" class="fa fa-check" tooltips tooltip-template="{{w7s2}}"></span>
+		    	<span ng-if="''!=w7s2&&!w7s2i" class="fa fa-circle" tooltips tooltip-template="{{w7s2}}"></span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <th>5-6节</th>
+		    <td><span ng-if="''!=w1s3&&w1s3i" class="fa fa-check" tooltips tooltip-template="{{w1s3}}"></span>
+		    	<span ng-if="''!=w1s3&&!w1s3i" class="fa fa-circle" tooltips tooltip-template="{{w1s3}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w2s3&&w2s3i" class="fa fa-check" tooltips tooltip-template="{{w2s3}}"></span>
+		    	<span ng-if="''!=w2s3&&!w2s3i" class="fa fa-circle" tooltips tooltip-template="{{w2s3}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w3s3&&w3s3i" class="fa fa-check" tooltips tooltip-template="{{w3s3}}"></span>
+		    	<span ng-if="''!=w3s3&&!w3s3i" class="fa fa-circle" tooltips tooltip-template="{{w3s3}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w4s3&&w4s3i" class="fa fa-check" tooltips tooltip-template="{{w4s3}}"></span>
+		    	<span ng-if="''!=w4s3&&!w4s3i" class="fa fa-circle" tooltips tooltip-template="{{w4s3}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w5s3&&w5s3i" class="fa fa-check" tooltips tooltip-template="{{w5s3}}"></span>
+		    	<span ng-if="''!=w5s3&&!w5s3i" class="fa fa-circle" tooltips tooltip-template="{{w5s3}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w6s3&&w6s3i" class="fa fa-check" tooltips tooltip-template="{{w6s3}}"></span>
+		    	<span ng-if="''!=w6s3&&!w6s3i" class="fa fa-circle" tooltips tooltip-template="{{w6s3}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w7s3&&w7s3i" class="fa fa-check" tooltips tooltip-template="{{w7s3}}"></span>
+		    	<span ng-if="''!=w7s3&&!w7s3i" class="fa fa-circle" tooltips tooltip-template="{{w7s3}}"></span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <th>7-8节</th>
+		    <td><span ng-if="''!=w1s4&&w1s4i" class="fa fa-check" tooltips tooltip-template="{{w1s4}}"></span>
+		    	<span ng-if="''!=w1s4&&!w1s4i" class="fa fa-circle" tooltips tooltip-template="{{w1s4}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w2s4&&w2s4i" class="fa fa-check" tooltips tooltip-template="{{w2s4}}"></span>
+		    	<span ng-if="''!=w2s4&&!w2s4i" class="fa fa-circle" tooltips tooltip-template="{{w2s4}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w3s4&&w3s4i" class="fa fa-check" tooltips tooltip-template="{{w3s4}}"></span>
+		    	<span ng-if="''!=w3s4&&!w3s4i" class="fa fa-circle" tooltips tooltip-template="{{w3s4}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w4s4&&w4s4i" class="fa fa-check" tooltips tooltip-template="{{w4s4}}"></span>
+		    	<span ng-if="''!=w4s4&&!w4s4i" class="fa fa-circle" tooltips tooltip-template="{{w4s4}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w5s4&&w5s4i" class="fa fa-check" tooltips tooltip-template="{{w5s4}}"></span>
+		    	<span ng-if="''!=w5s4&&!w5s4i" class="fa fa-circle" tooltips tooltip-template="{{w5s4}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w6s4&&w6s4i" class="fa fa-check" tooltips tooltip-template="{{w6s4}}"></span>
+		    	<span ng-if="''!=w6s4&&!w6s4i" class="fa fa-circle" tooltips tooltip-template="{{w6s4}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w7s4&&w7s4i" class="fa fa-check" tooltips tooltip-template="{{w7s4}}"></span>
+		    	<span ng-if="''!=w7s4&&!w7s4i" class="fa fa-circle" tooltips tooltip-template="{{w7s4}}"></span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <th>9-10节</th>
+		    <td><span ng-if="''!=w1s5&&w1s5i" class="fa fa-check" tooltips tooltip-template="{{w1s5}}"></span>
+		    	<span ng-if="''!=w1s5&&!w1s5i" class="fa fa-circle" tooltips tooltip-template="{{w1s5}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w2s5&&w2s5i" class="fa fa-check" tooltips tooltip-template="{{w2s5}}"></span>
+		    	<span ng-if="''!=w2s5&&!w2s5i" class="fa fa-circle" tooltips tooltip-template="{{w2s5}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w3s5&&w3s5i" class="fa fa-check" tooltips tooltip-template="{{w3s5}}"></span>
+		    	<span ng-if="''!=w3s5&&!w3s5i" class="fa fa-circle" tooltips tooltip-template="{{w3s5}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w4s5&&w4s5i" class="fa fa-check" tooltips tooltip-template="{{w4s5}}"></span>
+		    	<span ng-if="''!=w4s5&&!w4s5i" class="fa fa-circle" tooltips tooltip-template="{{w4s5}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w5s5&&w5s5i" class="fa fa-check" tooltips tooltip-template="{{w5s5}}"></span>
+		    	<span ng-if="''!=w5s5&&!w5s5i" class="fa fa-circle" tooltips tooltip-template="{{w5s5}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w6s5&&w6s5i" class="fa fa-check" tooltips tooltip-template="{{w6s5}}"></span>
+		    	<span ng-if="''!=w6s5&&!w6s5i" class="fa fa-circle" tooltips tooltip-template="{{w6s5}}"></span>
+		    </td>
+		    <td><span ng-if="''!=w7s5&&w7s5i" class="fa fa-check" tooltips tooltip-template="{{w7s5}}"></span>
+		    	<span ng-if="''!=w7s5&&!w7s5i" class="fa fa-circle" tooltips tooltip-template="{{w7s5}}"></span>
+		    </td>
+		  </tr>
+	  </table>
+    </div>
+	<div class="content">
+		<div style="float: right;">
+			<!--show drop down menu-->
+			<div isteven-multi-select input-model="filter" output-model="outputSelect"
+				button-label="name" item-label="name" tick-property="ticked"></div>
+		</div>
+		<script type="text/ng-template" id="headerCheckbox.html">
+			<input type="checkbox" ng-model="checkboxes.checked" class="select-all" value="" />
+		</script>
+		<table ng-table="tableParams"
+				class="table table-striped table-condensed table-hover table-align table-bordered">
+			<tr ng-repeat="course in $data" ng-form="courseForm"
+				demo-tracked-table-row="course">
+				<td header-class="'active'" header="'headerCheckbox.html'"><input
+					type="checkbox" ng-model="checkboxes.items[course.coid]" ng-click="selectCourse(course)"></td>
+				<td ng-if="filter[0].ticked" data-title="'课程号'"
+					filter="{conumber: 'text'}" sortable="'conumber'"
+					header-class="'active'" demo-tracked-table-cell
+				    >{{course.conumber}}</td>
+				    
+				<td ng-if="filter[1].ticked" data-title="'课程名'"
+					filter="{coname : 'text'}" 
+					sortable="'coname'" header-class="'active'" 
+					demo-tracked-table-cell >{{course.coname}}</td>
+
+				<td ng-if="filter[2].ticked" data-title="'课程老师'"
+					filter="{ teacher: 'text'}" sortable="'teacher'"
+					header-class="'active'" demo-tracked-table-cell
+					>{{course.teacher}}</td>
+
+				<td ng-if="filter[3].ticked" data-title="'课程属性'"
+					filter="{category: 'text'}" sortable="'category'"
+					header-class="'active'" demo-tracked-table-cell
+					ng-form="category">{{course.category}}</td>
+
+				<td ng-if="filter[4].ticked" data-title="'课程类型'"
+					filter="{type: 'text'}"
+					sortable="'type'" header-class="'active'"
+					demo-tracked-table-cell ng-form="type">{{course.type}}</td>
+
+				<td ng-if="filter[5].ticked" data-title="'所属学院'"
+					filter="{academy: 'text'}"
+					sortable="'academy'" header-class="'active'"
+					demo-tracked-table-cell ng-form="academy">
+					{{course.academy}}</td>
+
+				<td ng-if="filter[6].ticked" data-title="'学分'"
+					filter="{copoint: 'number'}"
+					sortable="'copoint'" header-class="'active'"
+					demo-tracked-table-cell>
+					{{course.copoint}}</td>
+					
+				<td ng-if="filter[7].ticked" data-title="'学时'"
+					filter="{cohour: 'number'}"
+					sortable="'cohour'" header-class="'active'"
+					demo-tracked-table-cell>
+					{{course.cohour}}</td>
+			
+				<td ng-if="filter[8].ticked" data-title="'考试类型'"
+					filter="{examtype: 'text'}"
+					sortable="'examtype'" header-class="'active'"
+					demo-tracked-table-cell>
+					{{course.examtype}}</td>
+					
+				<td ng-if="filter[9].ticked" data-title="'星期'"
+					filter="{week: 'text'}"
+					sortable="'week'" header-class="'active'"
+					demo-tracked-table-cell>
+					{{course.week}}</td>
+					
+				<td ng-if="filter[10].ticked" data-title="'节数'"
+					filter="{section: 'text'}"
+					sortable="'section'" header-class="'active'"
+					demo-tracked-table-cell>
+					{{course.section}}</td>
+					
+				<td ng-if="filter[11].ticked" data-title="'周长'"
+					filter="{sdescription: 'text'}"
+					sortable="'sdescription'" header-class="'active'"
+					demo-tracked-table-cell>
+					{{course.sdescription}}</td>	
+					
+				<td ng-if="filter[12].ticked" data-title="'频率'"
+					filter="{freq: 'text'}"
+					sortable="'freq'" header-class="'active'"
+					demo-tracked-table-cell>
+					{{course.freq}}</td>
+					
+				<td ng-if="filter[13].ticked" data-title="'总人数'"
+					filter="{allPeople: 'number'}"
+					sortable="'allPeople'" header-class="'active'"
+					demo-tracked-table-cell>
+					{{course.allPeople}}</td>
+					
+				<td ng-if="filter[14].ticked" data-title="'剩余人数'"
+					filter="{remainPeople: 'number'}"
+					sortable="'remainPeople'" header-class="'active'"
+					demo-tracked-table-cell>
+					{{course.remainPeople}}</td>
+			</tr>
+		</table>
+	</div>
+	<div class="row">
+		<button type="button" class="btn btn-primary" ng-click="save()">确认选课</button>
+		<button type="button" class="btn btn-danger" ng-click="delete()">删除已选课程</button>
+	</div>
+</div>
+</div>
+
+<script type="text/ng-template" id="headerCheckboxForModal.html">
+	<input type="checkbox" ng-model="modalcheckboxes.checked" class="select-all" value="" />
+</script>
+<script type="text/ng-template" id="sureSaveCS.html">
+	<div class="modalCustom">
+		<di>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" style="font-size: 20px; font-weight: 600;">提示</h2>
+				</div>
+				<div class="modal-body">
+					<h3>确定选课吗？</h3>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-lg yes" style="float: left;width: 16%" ng-click="yes()">是</button>
+					<button type="button" class="btn btn-danger btn-lg no" style="float: right;width: 16%" ng-click="no()">否</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<script type="text/ng-template" id="deleteSelectCourse.html">
+	<div class="modalCustom">
+		<div>
+			<div class="modal-content">
+				<!--header.....-->
+				<div class="modal-header" style="height: 50px;">
+				<a class="close glyphicon glyphicon-remove" style="color: darkred;" ng-click="cancel()" autofocus="false"></a>
+					<p class="text-left">
+						<span style="font-size: 23px; font-weight: 600;">查看已选课程</span>
+					</p>
+				</div>
+				<!--main body......-->
+				<div class="modal-body">
+					<div class="content">
+					<div style="float: right;">
+						<!--show drop down menu-->
+						<div isteven-multi-select input-model="filter" output-model="outputSelect"
+							button-label="name" item-label="name" tick-property="ticked"></div>
+					</div>
+					<table ng-table="tableParams"
+							class="table table-striped table-align table-bordered">
+						<tr ng-repeat="course in $data" ng-form="courseForm"
+							demo-tracked-table-row="course">
+							<td header-class="'active'" header="'headerCheckboxForModal.html'"><input
+								type="checkbox" ng-model="modalcheckboxes.items[course.mapid]"></td>
+							<td ng-if="filter[0].ticked" data-title="'课程号'"
+								filter="{conumber: 'text'}" sortable="'conumber'"
+								header-class="'active'" demo-tracked-table-cell
+							    >{{course.conumber}}</td>
+							    
+							<td ng-if="filter[1].ticked" data-title="'课程名'"
+								filter="{coname : 'text'}" 
+								sortable="'coname'" header-class="'active'" 
+								demo-tracked-table-cell >{{course.coname}}</td>
+			
+							<td ng-if="filter[2].ticked" data-title="'课程老师'"
+								filter="{ teacher: 'text'}" sortable="'teacher'"
+								header-class="'active'" demo-tracked-table-cell
+								>{{course.teacher}}</td>
+			
+							<td ng-if="filter[3].ticked" data-title="'课程属性'"
+								filter="{category: 'text'}" sortable="'category'"
+								header-class="'active'" demo-tracked-table-cell
+								ng-form="category">{{course.category}}</td>
+			
+							<td ng-if="filter[4].ticked" data-title="'课程类型'"
+								filter="{type: 'text'}"
+								sortable="'type'" header-class="'active'"
+								demo-tracked-table-cell ng-form="type">{{course.type}}</td>
+			
+							<td ng-if="filter[5].ticked" data-title="'所属学院'"
+								filter="{academy: 'text'}"
+								sortable="'academy'" header-class="'active'"
+								demo-tracked-table-cell ng-form="academy">
+								{{course.academy}}</td>
+			
+							<td ng-if="filter[6].ticked" data-title="'学分'"
+								filter="{copoint: 'number'}"
+								sortable="'copoint'" header-class="'active'"
+								demo-tracked-table-cell>
+								{{course.copoint}}</td>
+								
+							<td ng-if="filter[7].ticked" data-title="'学时'"
+								filter="{cohour: 'number'}"
+								sortable="'cohour'" header-class="'active'"
+								demo-tracked-table-cell>
+								{{course.cohour}}</td>
+						
+							<td ng-if="filter[8].ticked" data-title="'考试类型'"
+								filter="{examtype: 'text'}"
+								sortable="'examtype'" header-class="'active'"
+								demo-tracked-table-cell>
+								{{course.examtype}}</td>
+								
+							<td ng-if="filter[9].ticked" data-title="'星期'"
+								filter="{week: 'text'}"
+								sortable="'week'" header-class="'active'"
+								demo-tracked-table-cell>
+								{{course.week}}</td>
+								
+							<td ng-if="filter[10].ticked" data-title="'节数'"
+								filter="{section: 'text'}"
+								sortable="'section'" header-class="'active'"
+								demo-tracked-table-cell>
+								{{course.section}}</td>
+								
+							<td ng-if="filter[11].ticked" data-title="'周长'"
+								filter="{sdescription: 'text'}"
+								sortable="'sdescription'" header-class="'active'"
+								demo-tracked-table-cell>
+								{{course.sdescription}}</td>	
+								
+							<td ng-if="filter[12].ticked" data-title="'频率'"
+								filter="{freq: 'text'}"
+								sortable="'freq'" header-class="'active'"
+								demo-tracked-table-cell>
+								{{course.freq}}</td>
+								
+							<td ng-if="filter[13].ticked" data-title="'总人数'"
+								filter="{allPeople: 'number'}"
+								sortable="'allPeople'" header-class="'active'"
+								demo-tracked-table-cell>
+								{{course.allPeople}}</td>
+								
+							<td ng-if="filter[14].ticked" data-title="'剩余人数'"
+								filter="{remainPeople: 'number'}"
+								sortable="'remainPeople'" header-class="'active'"
+								demo-tracked-table-cell>
+								{{course.remainPeople}}</td>
+						</tr>
+					</table>
+				</div>
+				</div>
+				<!--modal body end-->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-lg yes" style="float: left;width: 16%" ng-click="delete()">删除</button>
+					<button type="button" class="btn btn-danger btn-lg no" style="float: right;width: 16%" ng-click="cancel()">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/ng-template" id="sureDeleteSC.html">
+	<div class="modalCustom">
+		<div>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" style="font-size: 20px; font-weight: 600;">提示</h2>
+				</div>
+				<div class="modal-body">
+					<h3>确定删除所选课程吗？</h3>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-lg yes" style="float: left;width: 16%" ng-click="yes()">是</button>
+					<button type="button" class="btn btn-danger btn-lg no" style="float: right;width: 16%" ng-click="no()">否</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

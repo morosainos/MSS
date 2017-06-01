@@ -7,10 +7,7 @@ import com.maritime.services.CourseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,6 +33,19 @@ public class CourseController extends BaseController{
             return courseService.selectForStudent(id);
         }
         return null;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/course/selectSelectiveCourse", method = RequestMethod.POST)
+    public List<Course> selectSelectiveCourse(@RequestBody String term) throws MSSException {
+        return courseService.selectSelectiveCourse(term);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/course/selectSelectiveCourseFoStudent", method = RequestMethod.POST)
+    public List<Course> selectSelectiveCourseFoStudent(@RequestBody String term) throws MSSException {
+        Long id = (Long) request.getSession().getAttribute("userID");
+        return courseService.selectSelectiveCourseFoStudent(id,term);
     }
 
 }

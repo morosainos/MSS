@@ -2,6 +2,7 @@ package com.maritime.dao;
 
 import com.maritime.models.Course;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -58,4 +59,8 @@ public interface CourseMapper {
     List<Course> selectForTeacher(Long coteacher1);
 
     List<Course> selectForStudent(Long psid);
+
+    List<Course> selectSelectiveCourse(String term);
+
+    List<Course> selectSelectiveCourseFoStudent(@Param("sid")Long sid, @Param("term")String term);
 }

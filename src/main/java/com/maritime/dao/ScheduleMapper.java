@@ -2,6 +2,9 @@ package com.maritime.dao;
 
 import com.maritime.models.Schedule;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface ScheduleMapper {
@@ -52,4 +55,10 @@ public interface ScheduleMapper {
      * @mbggenerated Wed May 24 16:49:51 CST 2017
      */
     int updateByPrimaryKey(Schedule record);
+
+    List<Schedule> selectForStudent(@Param("sid")Long sid, @Param("term")String term);
+
+    List<Schedule> selectForTeacher(@Param("tid")Long tid, @Param("term")String term);
+
+    int updateRemainPeople(@Param("sid")Integer sid, @Param("number")Integer number);
 }

@@ -1,9 +1,72 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
-</html>
+<div class="infoschedule">
+<div>
+	<div class="row" style="margin-bottom: 20px;">选择学期：
+		<select class="form-control" ng-model="term" style="border-radius:10px;width: 25%;"
+			ng-options="t.pterm as t.pterm for t in terms" ng-click="loadTableData()">
+		</select>
+	</div>
+
+  <table class="table table-striped table-bordered">
+  	<tr style="font: 30px;">
+  		<th>节数/星期</th>
+	    <th>星期一</th>
+	    <th>星期二</th>
+	    <th>星期三</th>
+	    <th>星期四</th>
+	    <th>星期五</th>
+	    <th>星期六</th>
+	    <th>星期日</th>
+	  </tr>
+	  <tr style="font: 30px;">
+	    <th>1-2节</th>
+	    <td ng-bind-html="w1s1"></td>
+	    <td ng-bind-html="w2s1"></td>
+	    <td ng-bind-html="w3s1"></td>
+	    <td ng-bind-html="w4s1"></td>
+	    <td ng-bind-html="w5s1"></td>
+	    <td ng-bind-html="w6s1"></td>
+	    <td ng-bind-html="w7s1"></td>
+	  </tr>
+	  <tr>
+	    <th>3-4节</th>
+	    <td ng-bind-html="w1s2"></td>
+	    <td ng-bind-html="w2s2"></td>
+	    <td ng-bind-html="w3s2"></td>
+	    <td ng-bind-html="w4s2"></td>
+	    <td ng-bind-html="w5s2"></td>
+	    <td ng-bind-html="w6s2"></td>
+	    <td ng-bind-html="w7s2"></td>
+	  </tr>
+	  <tr>
+	    <th>5-6节</th>
+	    <td ng-bind-html="w1s3"></td>
+	    <td ng-bind-html="w2s3"></td>
+	    <td ng-bind-html="w3s3"></td>
+	    <td ng-bind-html="w4s3"></td>
+	    <td ng-bind-html="w5s3"></td>
+	    <td ng-bind-html="w6s3"></td>
+	    <td ng-bind-html="w7s3"></td>
+	  </tr>
+	  <tr>
+	    <th>7-8节</th>
+	    <td ng-bind-html="w1s4"></td>
+	    <td ng-bind-html="w2s4"></td>
+	    <td ng-bind-html="w3s4"></td>
+	    <td ng-bind-html="w4s4"></td>
+	    <td ng-bind-html="w5s4"></td>
+	    <td ng-bind-html="w6s4"></td>
+	    <td ng-bind-html="w7s4"></td>
+	  </tr>
+	  <tr>
+	    <th>9-10节</th>
+	    <td ng-bind-html="w1s5"></td>
+	    <td ng-bind-html="w2s5"></td>
+	    <td ng-bind-html="w3s5"></td>
+	    <td ng-bind-html="w4s5"></td>
+	    <td ng-bind-html="w5s5"></td>
+	    <td ng-bind-html="w6s5"></td>
+	    <td ng-bind-html="w7s5"></td>
+	  </tr>
+  </table>
+</div>
+</div>

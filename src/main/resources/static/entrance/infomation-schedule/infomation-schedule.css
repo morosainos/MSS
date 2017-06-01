@@ -1,0 +1,17 @@
+.infoschedule{
+	padding-top: 10%;
+	padding-bottom: 20%;
+}
+
+.infoschedule table{
+	color: black;
+}
+
+.infoschedule .editBtn{
+	margin-top: 10%;
+}
+
+
+.infoschedule .table-hover > tbody > tr:hover {
+    background-color: #f6d365;;
+}

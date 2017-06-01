@@ -170,7 +170,10 @@
 									</tr>
 									<tr class="form-group">
 										<td>*考试时间</td>
-										<td><span><select name="week" class="form-control" ng-model="exam.week"
+										<td><span><select name="zhou" class="form-control" ng-model="exam.zhou"
+													ng-options="z for z in zhous" required>
+												 </select>
+												<select name="week" class="form-control" ng-model="exam.week"
 													ng-options="week.ldvalue as week.ldvalue for week in weeks" required>
 												 </select>
 												 <select name="section" class="form-control" ng-model="exam.section"

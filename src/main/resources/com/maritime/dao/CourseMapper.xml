@@ -22,6 +22,23 @@
     <result column="last_update_user" jdbcType="VARCHAR" property="lastUpdateUser" />
     <result column="last_update_dt" jdbcType="TIMESTAMP" property="lastUpdateDt" />
     <result column="coExamType" jdbcType="INTEGER" property="coExamType" />
+      <result column="is_selectable" jdbcType="BIT" property="isSelectable" />
+
+      <result column="teacher" jdbcType="VARCHAR" property="teacher" />
+      <result column="academy" jdbcType="VARCHAR" property="academy" />
+      <result column="type" jdbcType="VARCHAR" property="type" />
+      <result column="category" jdbcType="VARCHAR" property="category" />
+      <result column="examtype" jdbcType="VARCHAR" property="examtype" />
+      <result column="position" jdbcType="VARCHAR" property="position" />
+      <result column="week" jdbcType="VARCHAR" property="week" />
+      <result column="section" jdbcType="VARCHAR" property="section" />
+      <result column="sdescription" jdbcType="VARCHAR" property="sdescription" />
+      <result column="freq" jdbcType="VARCHAR" property="freq" />
+      <result column="allPeople" jdbcType="INTEGER" property="allPeople" />
+      <result column="remainPeople" jdbcType="INTEGER" property="remainPeople" />
+      <result column="mapid" jdbcType="INTEGER" property="mapid" />
+      <result column="scheid" jdbcType="INTEGER" property="scheid" />
+
   </resultMap>
   <sql id="Base_Column_List">
     <!--
@@ -30,7 +47,7 @@
       This element was generated on Wed Apr 19 22:55:14 CST 2017.
     -->
     coid, coname, conumber, coteacher1, coteacher2, is_active, coacademy, cocategory, 
-    cotype, copoint, cohour, codescription, last_update_user, last_update_dt, coExamType
+    cotype, copoint, cohour, codescription, last_update_user, last_update_dt, coExamType, is_selectable
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
@@ -47,15 +64,54 @@
         select
         <include refid="Base_Column_List" />
         from maritime.course
-        where coteacher1 = #{coteacher1,jdbcType=BIGINT}
+        where coteacher1 = #{coteacher1,jdbcType=BIGINT} and is_active = true
     </select>
     <select id="selectForStudent" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select distinct
         coid, coname, conumber, coteacher1, coteacher2, c.is_active, coacademy, cocategory,
         cotype, copoint, cohour, codescription, c.last_update_user, c.last_update_dt, coExamType
         from maritime.course c
-        inner join maritime.scmapping on pcid = c.coid
-        where psid = #{psid,jdbcType=BIGINT}
+        inner join maritime.scmapping p on pcid = c.coid and p.is_active = true
+        where psid = #{psid,jdbcType=BIGINT} and c.is_active = true
+    </select>
+    <select id="selectSelectiveCourse" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select c.coid,c.coname,c.conumber,t.tname as teacher,
+        a.aname as academy,cate.ldvalue as category,type.ldvalue as type,c.copoint,
+        c.cohour,examt.ldvalue as examtype,s.spositon as position,week.ldvalue as week,
+        section.ldvalue as section,s.sdescription as sdescription,fre.ldvalue as freq,
+        s.all_people as allPeople,s.remain_people as remainPeople,s.sid as scheid
+        from maritime.course c
+        inner join maritime.schedule s on s.scid = c.coid and s.is_active = true
+        left join maritime.teacher t on c.coteacher1 = t.tid and t.is_active = true
+        left join maritime.academy a on c.coacademy = a.aid
+        left join maritime.listdata cate on c.cocategory = cate.ldid
+        left join maritime.listdata type on c.cotype = type.ldid
+        left join maritime.listdata examt on c.coexamtype = examt.ldid
+        left join maritime.listdata week on s.sweek = week.ldid
+        left join maritime.listdata section on s.ssection = section.ldid
+        left join maritime.listdata fre on s.frequency = fre.ldid
+        where c.is_selectable = true and c.is_active = true and s.sterm = #{term,jdbcType=VARCHAR}
+        order by c.coid
+    </select>
+    <select id="selectSelectiveCourseFoStudent" resultMap="BaseResultMap">
+        select c.coid,c.coname,c.conumber,t.tname as teacher,
+        a.aname as academy,cate.ldvalue as category,type.ldvalue as type,c.copoint,
+        c.cohour,examt.ldvalue as examtype,s.spositon as position,week.ldvalue as week,
+        section.ldvalue as section,s.sdescription as sdescription,fre.ldvalue as freq,
+        s.all_people as allPeople,s.remain_people as remainPeople,map.pid as mapid,s.sid as scheid
+        from maritime.course c
+        inner join maritime.schedule s on s.scid = c.coid and s.is_active = true
+        left join maritime.scmapping map on s.sterm = map.pterm and map.pcid = c.coid and map.is_active = true
+        left join maritime.teacher t on c.coteacher1 = t.tid
+        left join maritime.academy a on c.coacademy = a.aid
+        left join maritime.listdata cate on c.cocategory = cate.ldid
+        left join maritime.listdata type on c.cotype = type.ldid
+        left join maritime.listdata examt on c.coexamtype = examt.ldid
+        left join maritime.listdata week on s.sweek = week.ldid
+        left join maritime.listdata section on s.ssection = section.ldid
+        left join maritime.listdata fre on s.frequency = fre.ldid
+        where c.is_selectable = true and c.is_active = true and s.sterm = #{term} and map.psid = #{sid}
+        order by c.coid
     </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--

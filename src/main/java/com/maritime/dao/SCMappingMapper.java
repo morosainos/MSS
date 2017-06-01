@@ -56,4 +56,12 @@ public interface SCMappingMapper {
     int updateByPrimaryKey(SCMapping record);
 
     List<SCMapping> selectAllCourse(Long sid);
+
+    List<SCMapping> selectAllCourseForTeacher(Long tid);
+
+    List<SCMapping> selectAllTermsForStudent(Long sid);
+
+    List<SCMapping> selectAllTermsForTeacher(Long tid);
+
+    int inactiveScmapping(Integer[] pids);
 }

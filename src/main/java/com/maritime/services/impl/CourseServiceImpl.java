@@ -35,4 +35,14 @@ public class CourseServiceImpl extends BaseServiceImp implements CourseService {
     public List<Course> selectForStudent(Long psid) {
         return courseMapper.selectForStudent(psid);
     }
+
+    @Override
+    public List<Course> selectSelectiveCourse(String term) {
+        return courseMapper.selectSelectiveCourse(term);
+    }
+
+    @Override
+    public List<Course> selectSelectiveCourseFoStudent(Long sid, String term) {
+        return courseMapper.selectSelectiveCourseFoStudent(sid,term);
+    }
 }

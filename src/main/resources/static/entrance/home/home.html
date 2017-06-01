@@ -24,8 +24,8 @@
               <div class="menu_section">
                 <h3>&nbsp;</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-user" data-toggle="collapse" data-target="#infomation"></i>信息<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu" id="information">
+                  <li><a><i class="fa fa-user"></i>信息<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
                       <li ui-sref-active="active"><a ui-sref=".infomation-view">查看</a></li>
                       <li ui-sref-active="active"><a ui-sref=".infomation-news">消息</a></li>
                       <li ui-sref-active="active"><a ui-sref=".infomation-schedule">课程表</a></li>
@@ -34,7 +34,7 @@
                   <li><a><i class="fa fa-book"></i>课程<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li ui-sref-active="active"><a ui-sref=".course-view">查看</a></li>
-                      <li ui-sref-active="active"><a ui-sref=".course-select">选课</a></li>
+                      <li ng-if="user.student && isCourseSelectable" ui-sref-active="active"><a ui-sref=".course-select">选课</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i>考试<span class="fa fa-chevron-down"></span></a>
@@ -44,12 +44,12 @@
                   </li>
                   <li><a><i class="fa fa-balance-scale"></i>成绩<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li ui-sref-active="active"><a ui-sref=".score-view">查看</a></li>
-                      <li ui-sref-active="active"><a ui-sref=".score-view-teacher">管理</a></li>
+                      <li ng-if="user.student" ui-sref-active="active"><a ui-sref=".score-view">查看</a></li>
+                      <li ng-if="user.teacher" ui-sref-active="active"><a ui-sref=".score-view-teacher">管理</a></li>
                       <li ui-sref-active="active"><a ui-sref=".score-report">报表</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-users"></i>人员<span class="fa fa-chevron-down"></span></a>
+                  <li ng-if="user.admin"><a><i class="fa fa-users"></i>人员<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li ui-sref-active="active"><a ui-sref=".member-student">学生</a></li>
                       <li ui-sref-active="active"><a ui-sref=".member-teacher">教师</a></li>
@@ -97,8 +97,8 @@
                         <i class="fa fa-bell pull-right"></i><span>消息</span>
                       </a>
                     </li>
-                    <li><a href="javascript:;">
-                    	<i class="fa fa-question-circle pull-right"></i>帮助</a></li>
+                    <li><a ui-sref-active="active" ui-sref=".infomation-schedule">
+                    	<i class="fa fa-question-circle pull-right"></i>课程表</a></li>
                     <li><a href="javascript:;" ng-click="logout()">
                     	<i class="fa fa-sign-out pull-right"></i>退出登录</a></li>
                   </ul>

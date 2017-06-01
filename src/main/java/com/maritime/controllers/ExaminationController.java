@@ -24,7 +24,7 @@ public class ExaminationController extends BaseController{
 
     @ResponseBody
     @RequestMapping(value = "/examination/selectAllExam", method = RequestMethod.GET)
-    public List<Examination> selectAllCourse() throws MSSException {
+    public List<Examination> selectAllExam() throws MSSException {
         Long id = (Long) request.getSession().getAttribute("userID");
         String type = (String) request.getSession().getAttribute("userType");
         if(CommonConstants.USER_TYPE_TEACHER.equals(type))
@@ -43,7 +43,7 @@ public class ExaminationController extends BaseController{
     }
 
     @RequestMapping(value = "/examination/insert", method = RequestMethod.POST)
-    public Integer selectForAll(@RequestBody Examination examination) throws MSSException {
+    public Integer insert(@RequestBody Examination examination) throws MSSException {
         examination.setLastUpdateDt(new Date());
         examination.setLastUpdateUser((String) request.getSession().getAttribute("userType")+
                 (Long) request.getSession().getAttribute("userID"));

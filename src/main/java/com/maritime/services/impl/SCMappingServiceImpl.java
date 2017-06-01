@@ -33,4 +33,29 @@ public class SCMappingServiceImpl extends BaseServiceImp implements SCMappingSer
     public List<SCMapping> selectAllCourse(Long sid) {
         return scMappingMapper.selectAllCourse(sid);
     }
+
+    @Override
+    public List<SCMapping> selectAllCourseForTeacher(Long tid) {
+        return scMappingMapper.selectAllCourseForTeacher(tid);
+    }
+
+    @Override
+    public List<SCMapping> selectAllTermsForStudent(Long sid) {
+        return scMappingMapper.selectAllTermsForStudent(sid);
+    }
+
+    @Override
+    public List<SCMapping> selectAllTermsForTeacher(Long tid) {
+        return scMappingMapper.selectAllTermsForTeacher(tid);
+    }
+
+    @Override
+    public int insert(SCMapping record) {
+        return scMappingMapper.insert(record);
+    }
+
+    @Override
+    public int inactiveScmapping(Integer[] pids) {
+        return scMappingMapper.inactiveScmapping(pids);
+    }
 }

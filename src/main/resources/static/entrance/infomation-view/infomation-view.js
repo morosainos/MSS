@@ -1,28 +1,34 @@
 angular.module(window.mss.appName).controllerProvider.register(
 		window.mss.constants.CONTROLLER.INFO_VIEW_CONTROLLER,
-		function($rootScope, $scope, $uibModal, $http, toastr) {
+		function($rootScope, $scope, $uibModal, $http, $window, toastr) {
 			console.log("INFO_VIEW_CONTROLLER");
 			
 			$scope.user ={};
 			getUser = function(){
-				$scope.user = $rootScope.user;
-				if("student" == $scope.user.type)
-				{
-					$scope.user.student = true;
-				}
-				else if("teacher" == $scope.user.type)
-				{
-					$scope.user.teacher = true;
-				}
+				$http({
+					method : 'get',
+					url : '/user/getSession'
+				})
+				.success(function(response) {
+					$scope.user = response;
+					if("student" == $scope.user.type)
+					{
+						$scope.user.student = true;
+					}
+					else if("teacher" == $scope.user.type)
+					{
+						$scope.user.teacher = true;
+					}
+				})
+				.error(function(response) {
+					$window.location.href = "/entrance/home/login.html";
+				}); 
+
 			}
 			var scopeForSave = $scope.$new();
 			scopeForSave.getUser = getUser;
 
-			if(null != $rootScope.user)
-			{
-				getUser();				
-			}
-			setTimeout("getUser()",500);
+			getUser();				
 			
 			$scope.edit = function (){
 				var modalInstance = $uibModal.open({

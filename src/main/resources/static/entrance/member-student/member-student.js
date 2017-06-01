@@ -93,7 +93,7 @@ angular.module(window.mss.appName).controller(
 					$scope.checkboxes.items[student.sid] = value;
 				});
 			});
-			//get checked questions ids in array
+			
 			getAllSelectedData=function(){
 				var stuIds=[];
 				angular.forEach($scope.data, function(student) {

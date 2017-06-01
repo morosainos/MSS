@@ -107,7 +107,6 @@ angular.module(window.mss.appName).controller(
 					}
 				});
 			}
-			
 			$scope.deleteExam = function()
 			{
 				var exaIds = getAllSelectedData();
@@ -135,9 +134,11 @@ angular.module('addExamApp',[]).controller('addExamCtrl',function($scope, $rootS
 	{
 		$scope.exam = exam;
 		if(null != $scope.exam.startDt){
-			$scope.exam.week = $scope.exam.startDt.substring(0,3);
-			$scope.exam.section = $scope.exam.startDt.substring(3);			
+			$scope.exam.zhou = $scope.exam.startDt.substring(0,$scope.exam.startDt.indexOf("周")+1);
+			$scope.exam.week = $scope.exam.startDt.substring($scope.exam.startDt.indexOf("星"),$scope.exam.startDt.indexOf("星")+3);
+			$scope.exam.section = $scope.exam.startDt.substring($scope.exam.startDt.indexOf("星")+3);			
 		}else{
+			$scope.exam.zhou = {};
 			$scope.exam.week = {};
 			$scope.exam.section = {};
 		}
@@ -225,6 +226,10 @@ angular.module('addExamApp',[]).controller('addExamCtrl',function($scope, $rootS
 			.error(function(response) {
 				toastr.error("Error",window.mss.constants.LOGIN_MSG.SERVER_ERROR);
 			}); 
+		$scope.zhous = [];
+		for(var i=1;i<=22;i++){
+			$scope.zhous.push(i+"周");
+		}
 
 	}
 	loadDropDowns();

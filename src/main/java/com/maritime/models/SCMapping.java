@@ -28,7 +28,7 @@ public class SCMapping {
      *
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
-    private Integer psid;
+    private Long psid;
 
     /**
      *
@@ -167,7 +167,7 @@ public class SCMapping {
      *
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
-    public Integer getPsid() {
+    public Long getPsid() {
         return psid;
     }
 
@@ -179,7 +179,7 @@ public class SCMapping {
      *
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
-    public void setPsid(Integer psid) {
+    public void setPsid(Long psid) {
         this.psid = psid;
     }
 
@@ -422,4 +422,5 @@ public class SCMapping {
     public void setExamtype(String examtype) {
         this.examtype = examtype;
     }
+
 }

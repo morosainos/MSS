@@ -213,17 +213,20 @@ angular.module('addTeacherApp',[]).controller('addTeacherCtrl',function($scope, 
 	}
 
 	$scope.loadClass = function(){
-		$http({
-				method : 'post',
-				url : '/class/selectByMajor',
-				data : $scope.teacher.tMajor
-			})
-			.success(function(response) {
-				$scope.classes = response;
-			})
-			.error(function(response) {
-				toastr.error("Error",window.mss.constants.LOGIN_MSG.SERVER_ERROR);
-			});
+		if(null != $scope.teacher.tMajor)
+		{
+			$http({
+					method : 'post',
+					url : '/class/selectByMajor',
+					data : $scope.teacher.tMajor
+				})
+				.success(function(response) {
+					$scope.classes = response;
+				})
+				.error(function(response) {
+					toastr.error("Error",window.mss.constants.LOGIN_MSG.SERVER_ERROR);
+				});			
+		}
 	}
 	if(null != $scope.teacher.tMajor)
 	{
@@ -242,7 +245,6 @@ angular.module('addTeacherApp',[]).controller('addTeacherCtrl',function($scope, 
 
 
 	$scope.addTeacherInfo = function (){
-		console.log($scope.teacher);
 		$uibModal.open({
 			templateUrl: 'sureSaveT.html',
 			controller: 'sureSaveTCtrl',
