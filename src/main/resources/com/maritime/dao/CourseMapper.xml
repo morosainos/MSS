@@ -23,6 +23,7 @@
     <result column="last_update_dt" jdbcType="TIMESTAMP" property="lastUpdateDt" />
     <result column="coExamType" jdbcType="INTEGER" property="coExamType" />
       <result column="is_selectable" jdbcType="BIT" property="isSelectable" />
+      <result column="is_degree" jdbcType="BIT" property="isDegree" />
 
       <result column="teacher" jdbcType="VARCHAR" property="teacher" />
       <result column="academy" jdbcType="VARCHAR" property="academy" />
@@ -47,7 +48,8 @@
       This element was generated on Wed Apr 19 22:55:14 CST 2017.
     -->
     coid, coname, conumber, coteacher1, coteacher2, is_active, coacademy, cocategory, 
-    cotype, copoint, cohour, codescription, last_update_user, last_update_dt, coExamType, is_selectable
+    cotype, copoint, cohour, codescription, last_update_user, last_update_dt, coExamType,
+      is_selectable,is_degree
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
@@ -60,6 +62,12 @@
     from maritime.course
     where coid = #{coid,jdbcType=INTEGER}
   </select>
+    <select id="selectForAdmin" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from maritime.course
+        where is_active = true
+    </select>
     <select id="selectForTeacher" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />

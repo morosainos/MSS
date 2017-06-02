@@ -256,7 +256,7 @@ angular.module('addExamApp',[]).controller('addExamCtrl',function($scope, $rootS
 angular.module('sureSaveE', []).controller('sureSaveECtrl', function($scope,$uibModal, 
 		$uibModalInstance, $http, toastr, parentModalInstance, exam) {
 	$scope.exam = exam;
-	$scope.exam.startDt = $scope.exam.week + $scope.exam.section;
+	$scope.exam.startDt = $scope.exam.zhou+$scope.exam.week + $scope.exam.section;
 	$scope.yes = function() {
 		if(null == $scope.exam.eid){
 			$http({

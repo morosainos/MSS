@@ -52,4 +52,12 @@ public interface PointSetMapper {
      * @mbggenerated Wed Apr 19 22:55:14 CST 2017
      */
     int updateByPrimaryKey(PointSet record);
+
+    PointSet selectBasicInfo(String major);
+
+    PointSet selectForStudent(Long sid);
+
+    PointSet selectForAllType(Long sid);
+
+    PointSet selectForDegreeType(Long sid);
 }

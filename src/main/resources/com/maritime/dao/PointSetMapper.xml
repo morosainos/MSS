@@ -18,6 +18,18 @@
     <result column="psdescription" jdbcType="VARCHAR" property="psdescription" />
     <result column="last_update_user" jdbcType="VARCHAR" property="lastUpdateUser" />
     <result column="last_update_dt" jdbcType="TIMESTAMP" property="lastUpdateDt" />
+
+      <result column="force" jdbcType="REAL" property="force" />
+      <result column="limit" jdbcType="REAL" property="limit" />
+      <result column="alter" jdbcType="REAL" property="alter" />
+      <result column="curforce" jdbcType="REAL" property="curforce" />
+      <result column="curlimit" jdbcType="REAL" property="curlimit" />
+      <result column="curalter1" jdbcType="REAL" property="curalter1" />
+      <result column="curalter2" jdbcType="REAL" property="curalter2" />
+      <result column="curalter3" jdbcType="REAL" property="curalter3" />
+      <result column="curalter4" jdbcType="REAL" property="curalter4" />
+      <result column="allcourse" jdbcType="BIGINT" property="allcourse" />
+      <result column="allcoursepoint" jdbcType="REAL" property="allcoursepoint" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--
@@ -39,6 +51,44 @@
     from maritime.pointset
     where psid = #{psid,jdbcType=INTEGER}
   </select>
+    <select id="selectBasicInfo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select distinct ps1.pstotal as force,ps2.pstotal as limit,ps3.psmax as alter
+        from maritime.major m
+        left join maritime.pointset ps1 on m.mpointset = ps1.pssetid and ps1.pscategory = 4
+        left join maritime.pointset ps2 on m.mpointset = ps2.pssetid and ps2.pscategory = 5
+        left join maritime.pointset ps3 on m.mpointset = ps3.pssetid and ps3.pscategory = 6
+        where m.mname=#{major,jdbcType=VARCHAR}
+    </select>
+    <select id="selectForStudent" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select coalesce(sum(c1.copoint),0) as curforce,coalesce(sum(c2.copoint),0) as curlimit,
+        coalesce(sum(c3.copoint),0) as curalter1,coalesce(sum(c4.copoint),0) as curalter2,
+        coalesce(sum(c5.copoint),0) as curalter3,coalesce(sum(c6.copoint),0) as curalter4
+        from maritime.score s
+        inner join maritime.examination e on s.seid = e.eid and etype = 9 and e.is_active = true
+        left join maritime.course c1 on e.ecid = c1.coid and c1.is_active = true and c1.cocategory = 4
+        left join maritime.course c2 on e.ecid = c2.coid and c2.is_active = true and c2.cocategory = 5
+        left join maritime.course c3 on e.ecid = c3.coid and c3.is_active = true and c3.cocategory = 6 and c3.cotype = 16 --创新
+        left join maritime.course c4 on e.ecid = c4.coid and c4.is_active = true and c4.cocategory = 6 and c3.cotype = 17 --综合
+        left join maritime.course c5 on e.ecid = c5.coid and c5.is_active = true and c5.cocategory = 6 and c3.cotype = 18 --经管法
+        left join maritime.course c6 on e.ecid = c6.coid and c6.is_active = true and c6.cocategory = 6 and c3.cotype = 19 --理工
+        where s.is_active = true and cast(s.score as real)>=e.etotalscore*0.6 and s.ssid = #{sid,jdbcType=BIGINT}
+    </select>
+    <select id="selectForAllType" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select count(s.sid) as allcourse,round(cast(sum(s.point)/count(s.sid) as numeric),2) as allcoursepoint
+        from maritime.score s
+        inner join maritime.examination e on s.seid = e.eid and etype = 9 and e.is_active = true
+        inner join maritime.course c1 on e.ecid = c1.coid and c1.is_active = true and c1.cocategory in (4,5)
+        where s.is_active = true and s.ssid = #{sid,jdbcType=BIGINT}
+        group by s.ssid
+    </select>
+    <select id="selectForDegreeType" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select count(s.sid) as allcourse,round(cast(sum(s.point)/count(s.sid) as numeric),2) as allcoursepoint
+        from maritime.score s
+        inner join maritime.examination e on s.seid = e.eid and etype = 9 and e.is_active = true
+        inner join maritime.course c1 on e.ecid = c1.coid and c1.is_active = true and c1.cocategory = 4 and c1.is_degree = true
+        where s.is_active = true and s.ssid = #{sid,jdbcType=BIGINT}
+        group by s.ssid
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbggenerated

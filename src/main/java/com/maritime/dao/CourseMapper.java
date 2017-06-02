@@ -60,6 +60,8 @@ public interface CourseMapper {
 
     List<Course> selectForStudent(Long psid);
 
+    List<Course> selectForAdmin();
+
     List<Course> selectSelectiveCourse(String term);
 
     List<Course> selectSelectiveCourseFoStudent(@Param("sid")Long sid, @Param("term")String term);

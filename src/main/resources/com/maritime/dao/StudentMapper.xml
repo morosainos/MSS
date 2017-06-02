@@ -64,7 +64,7 @@
   </select>
   <select id="selectForAll" resultMap="BaseResultMap">
     select
-    sid, sname, ssex, snumber, spassword, sdate,sacademy,smajor,sclass,stype,s.is_active,
+    sid, sname, ssex, snumber, sdate,sacademy,smajor,sclass,stype,s.is_active,
     sdescription, sEmail, sPhone, sCertiID, sNation,
     type.ldValue as studenttype,aca.aname as academy,maj.mname as major,cla.cyear||'-'||cla.cnum as studentclass
     from maritime.student s

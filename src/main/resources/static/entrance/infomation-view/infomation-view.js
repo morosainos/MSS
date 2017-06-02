@@ -14,6 +14,35 @@ angular.module(window.mss.appName).controllerProvider.register(
 					if("student" == $scope.user.type)
 					{
 						$scope.user.student = true;
+						$http({
+							method : 'post',
+							url : '/pointset/selectBasicInfo',
+							data:$scope.user.major
+						})
+						.success(function(response) {
+							$scope.pointset = response;
+						});
+						$http({
+							method : 'get',
+							url : '/pointset/selectForStudent'
+						})
+						.success(function(response) {
+							$scope.selfpointset = response;
+						});
+						$http({
+							method : 'get',
+							url : '/pointset/selectForAllType'
+						})
+						.success(function(response) {
+							$scope.selfallpoint = response;
+						});
+						$http({
+							method : 'get',
+							url : '/pointset/selectForDegreeType'
+						})
+						.success(function(response) {
+							$scope.selfdegreepoint = response;
+						});
 					}
 					else if("teacher" == $scope.user.type)
 					{

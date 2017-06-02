@@ -42,7 +42,6 @@ angular.module(window.mss.appName).controller(
 					})
 					.success(function(response) {
 						if(null != response){
-							console.log(response);
 							if(response[0].ldvalue == "1"){
 								$scope.isCourseSelectable = true;
 							}else{

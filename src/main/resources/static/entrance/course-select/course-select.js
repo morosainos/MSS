@@ -316,11 +316,13 @@ angular.module(window.mss.appName).controller(
 			}
 			$scope.selectCourse = function(course){
 				if(!$scope.checkboxes.items[course.coid])
-				{						
-					for(var j = 0;j<$scope.response.length;j++){
-						if($scope.response[j].coid == course.coid){
-							$scope.response.splice(j,1);
-						}
+				{	
+					for(var m=0;m<3;m++){
+						for(var j = 0;j<$scope.response.length;j++){
+							if($scope.response[j].coid == course.coid){
+								$scope.response.splice(j,1);
+							}
+						}						
 					}
 					initSchedule();
 
@@ -414,6 +416,7 @@ angular.module(window.mss.appName).controller(
 				}
 				else{
 					var isDuplicate = false;
+					var allCourses = [];
 					for(var j=0;j<$scope.data.length;j++)
 					{
 						if(isDuplicate)
@@ -423,6 +426,7 @@ angular.module(window.mss.appName).controller(
 						var c = $scope.data[j];
 						if(c.coid == course.coid)
 						{
+							allCourses.push(c);
 							for(var i=0;i<$scope.response.length;i++){
 								if($scope.response[i].week == c.week)
 								{
@@ -445,12 +449,15 @@ angular.module(window.mss.appName).controller(
 					}
 					else
 					{
+						for(var i=0;i<allCourses.length;i++)
+						{
+						var course = allCourses[i];
 						if("星期一" == course.week){
 							if("1-2节" == course.section){
 								$scope.w1s1 = $scope.w1s1+'<br>'+course.coname+course.position+'<br>'+course.sdescription+course.freq;
 								$scope.response.push(course);
 							}else if("3-4节" == course.section){
-								scope.w1s2 = $scope.w1s2+'<br>'+course.coname+course.position+'<br>'+course.sdescription+course.freq;
+								$scope.w1s2 = $scope.w1s2+'<br>'+course.coname+course.position+'<br>'+course.sdescription+course.freq;
 								$scope.response.push(course);
 							}else if("5-6节" == course.section){
 								$scope.w1s3 = $scope.w1s3+'<br>'+course.coname+course.position+'<br>'+course.sdescription+course.freq;
@@ -564,6 +571,7 @@ angular.module(window.mss.appName).controller(
 								$scope.w7s5 = $scope.w7s5+'<br>'+course.coname+course.position+'<br>'+course.sdescription+course.freq;
 								$scope.response.push(course);
 							}
+						}
 						}
 					}
 				}

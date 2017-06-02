@@ -23,7 +23,6 @@ public class MajorController extends BaseController{
     @ResponseBody
     @RequestMapping(value = "/major/loadMajorByAcademy", method = RequestMethod.POST)
     public List<Major> selectAllAcademy(@RequestBody Integer aid) throws MSSException {
-        List<Major> content = majorService.selectByAcademy(aid);
         return majorService.selectByAcademy(aid);
     }
 

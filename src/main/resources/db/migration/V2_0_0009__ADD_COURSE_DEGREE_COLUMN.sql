@@ -1,0 +1,1 @@
+alter table maritime.course add is_degree BOOLEAN;

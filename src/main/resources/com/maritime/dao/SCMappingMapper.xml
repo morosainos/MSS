@@ -63,18 +63,18 @@
     order by map.pterm desc
   </select>
     <select id="selectAllCourseForTeacher" parameterType="java.lang.Long" resultMap="BaseResultMap">
-        select distinct map.pterm,c.coname as course,c.conumber as cnumber,t.tname as teacher,
+        select map.sterm as pterm,c.coname as course,c.conumber as cnumber,t.tname as teacher,
         a.aname as academy,cate.ldvalue as category,type.ldvalue as type,c.copoint as point,
         c.cohour as hour,examt.ldvalue as examtype
         from maritime.course c
-        left join maritime.scmapping map on map.pcid = c.coid and map.is_active = true
+        left join maritime.schedule map on map.scid = c.coid and map.is_active = true
         left join maritime.teacher t on c.coteacher1 = t.tid and t.is_active = true
         left join maritime.academy a on c.coacademy = a.aid
         left join maritime.listdata cate on c.cocategory = cate.ldid
         left join maritime.listdata type on c.cotype = type.ldid
         left join maritime.listdata examt on c.coexamtype = examt.ldid
         where c.coteacher1 =  #{tid,jdbcType=BIGINT} and c.is_active = true
-        order by map.pterm desc
+        order by map.sterm desc
     </select>
     <select id="selectAllTermsForStudent" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select distinct pterm from maritime.scmapping
@@ -82,11 +82,11 @@
         order by pterm
     </select>
     <select id="selectAllTermsForTeacher" parameterType="java.lang.Long" resultMap="BaseResultMap">
-        select distinct pterm
-        from maritime.scmapping p
-        left join maritime.course c on p.pcid = c.coid and c.is_active = true
+        select distinct sterm as pterm
+        from maritime.schedule p
+        left join maritime.course c on p.scid = c.coid and c.is_active = true
         where c.coteacher1 = #{tid,jdbcType=BIGINT} and p.is_active = true
-        order by pterm
+        order by sterm
     </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--

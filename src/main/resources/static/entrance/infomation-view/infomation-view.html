@@ -6,7 +6,7 @@
 </div>
 <div>
   <table class="table table-striped table-bordered table-hover">
-	  <tr style="font: 30px;">
+	  <tr>
 	    <th>姓名</th>
 	    <td ng-bind="user.name"></td>
 	    <th>性别</th>
@@ -35,6 +35,42 @@
 	    <td ng-bind="user.certiID"></td>
 	    <th>民族</th>
 	    <td ng-bind="user.nation"></td>
+	  </tr>
+  </table>
+  
+  
+  <table ng-if="user.student" style="margin-top: 30px;" class="table table-striped table-bordered table-hover">
+	  <tr>
+	    <th>必修总学分</th>
+	    <td ng-bind="pointset.force"></td>
+	    <th>当前必修学分</th>
+	    <td ng-bind="selfpointset.curforce"></td>
+	    <th>限选总学分</th>
+	    <td ng-bind="pointset.limit"></td>
+	    <th>当前限选学分</th>
+	    <td ng-bind="selfpointset.curlimit"></td>
+	  </tr>
+	  <tr>
+	    <th>任选总学分</th>
+	    <td ng-bind="pointset.alter"></td>
+	    <th>创新类</th>
+	    <td ng-bind="selfpointset.curalter1"></td>
+	    <th>综合类</th>
+	    <td ng-bind="selfpointset.curalter2"></td>
+	    <th>经管法类</th>
+	    <td ng-bind="selfpointset.curalter3"></td>
+	    <th>理工类</th>
+	    <td ng-bind="selfpointset.curalter4"></td>
+	  </tr>
+	  <tr>
+	  	<th>综合平均绩点</th>
+	    <td ng-bind="selfallpoint.allcoursepoint"></td>
+	    <th>所有课程</th>
+	    <td ng-bind="selfallpoint.allcourse"></td>
+	    <th>学位平均绩点</th>
+	    <td ng-bind="selfdegreepoint.allcoursepoint"></td>
+	    <th>所有课程</th>
+	    <td ng-bind="selfdegreepoint.allcourse"></td>
 	  </tr>
   </table>
 </div>

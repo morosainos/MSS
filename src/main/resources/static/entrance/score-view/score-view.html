@@ -69,7 +69,7 @@
 					header-class="'active'" demo-tracked-table-cell
 					>{{score.finalscore}}</td>
 
-				<td ng-if="filter[10].ticked" data-title="'总学分'"
+				<td ng-if="filter[10].ticked" data-title="'总绩点'"
 					filter="{finalpoint: 'text'}" sortable="'finalpoint'"
 					header-class="'active'" demo-tracked-table-cell
 					>{{score.finalpoint}}</td>
@@ -114,11 +114,6 @@
 								filter="{eform: 'text'}" sortable="'eform'"
 								header-class="'active'" demo-tracked-table-cell
 							    >{{scoreall.eform}}</td>
-							    
-							<td data-title="'考试时长'"
-								filter="{totaltime: 'text'}" sortable="'totaltime'"
-								header-class="'active'" demo-tracked-table-cell
-							    >{{scoreall.totaltime}}</td>
 							    
 							<td data-title="'考试总分'"
 								filter="{totalscore: 'text'}" sortable="'totalscore'"

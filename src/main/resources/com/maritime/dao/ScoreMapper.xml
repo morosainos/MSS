@@ -79,7 +79,7 @@
         where m.psid =  #{sid,jdbcType=BIGINT} and m.is_active = true
     </select>
     <select id="selectForAllScore" parameterType="com.maritime.models.Score" resultMap="BaseResultMap">
-        select s.score,s.point,e.ename as ename,e.total_time as totaltime,
+        select s.score,round(cast(s.point as numeric),2),e.ename as ename,e.total_time as totaltime,
         e.etotalscore as totalscore,examt.ldvalue as examtype,form.ldvalue as eform
         from maritime.scmapping m
         left join maritime.examination e on m.pcid = e.ecid and m.pterm = e.eterm and e.is_active = true
@@ -105,8 +105,8 @@
     </select>
     <select id="selectForStudentScore" parameterType="com.maritime.models.Score" resultMap="BaseResultMap">
         select s.sid as ssid,s.sname as sname,s.snumber as snumber, a.aname as saname,
-        maj.mname as smname,cla.cyear||'-'||cla.cnum as sclass,sc.score as score,sc.point as point,
-        sc.sid as sid,e.eid as eid,sc.sdescription as sdescription
+        maj.mname as smname,cla.cyear||'-'||cla.cnum as sclass,sc.score as score,round(cast(sc.point as numeric),2) as point,
+        sc.sid as sid,e.eid as eid,sc.sdescription as sdescription,e.etotalscore as totalscore
         from maritime.student s
         left join maritime.scmapping m on m.psid = s.sid and m.is_active = true
         left join maritime.course c on m.pcid = c.coid and c.is_active = true

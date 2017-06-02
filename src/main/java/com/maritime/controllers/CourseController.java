@@ -28,7 +28,13 @@ public class CourseController extends BaseController{
         String type = (String) request.getSession().getAttribute("userType");
         if(CommonConstants.USER_TYPE_TEACHER.equals(type))
         {
-            return courseService.selectForTeacher(id);
+            Integer role = (Integer) request.getSession().getAttribute("userRole");
+            if(1 == role)
+            {
+                return courseService.selectForAdmin();
+            }else{
+                return courseService.selectForTeacher(id);
+            }
         }else if(CommonConstants.USER_TYPE_STUDENT.equals(type)){
             return courseService.selectForStudent(id);
         }

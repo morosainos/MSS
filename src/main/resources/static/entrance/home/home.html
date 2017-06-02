@@ -27,7 +27,7 @@
                   <li><a><i class="fa fa-user"></i>信息<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li ui-sref-active="active"><a ui-sref=".infomation-view">查看</a></li>
-                      <li ui-sref-active="active"><a ui-sref=".infomation-news">消息</a></li>
+                      <li ng-if="false" ui-sref-active="active"><a ui-sref=".infomation-news">消息</a></li>
                       <li ui-sref-active="active"><a ui-sref=".infomation-schedule">课程表</a></li>
                     </ul>
                   </li>
@@ -45,11 +45,11 @@
                   <li><a><i class="fa fa-balance-scale"></i>成绩<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li ng-if="user.student" ui-sref-active="active"><a ui-sref=".score-view">查看</a></li>
-                      <li ng-if="user.teacher" ui-sref-active="active"><a ui-sref=".score-view-teacher">管理</a></li>
+                      <li ng-if="user.teacher && !user.admin" ui-sref-active="active"><a ui-sref=".score-view-teacher">管理</a></li>
                       <li ui-sref-active="active"><a ui-sref=".score-report">报表</a></li>
                     </ul>
                   </li>
-                  <li ng-if="user.admin"><a><i class="fa fa-users"></i>人员<span class="fa fa-chevron-down"></span></a>
+                  <li ng-if="user.teacher && user.admin"><a><i class="fa fa-users"></i>人员<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li ui-sref-active="active"><a ui-sref=".member-student">学生</a></li>
                       <li ui-sref-active="active"><a ui-sref=".member-teacher">教师</a></li>
@@ -63,7 +63,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="消息" ui-sref-active="active" ui-sref=".infomation-news">
+              <a data-toggle="tooltip" data-placement="top" title="信息" ui-sref-active="active" ui-sref=".infomation-view">
                 <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
               </a>
               <a data-toggle="tooltip" data-placement="top" title="退出" href="javascript:;" ng-click="logout()">
@@ -91,7 +91,7 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a ui-sref-active="active" ui-sref=".infomation-view">
                     	<i class="fa fa-folder-open pull-right"></i>个人信息</a></li>
-                    <li>
+                    <li ng-if="false">
                       <a ui-sref-active="active" ui-sref=".infomation-news">
                         <span class="badge bg-red pull-right">2</span>
                         <i class="fa fa-bell pull-right"></i><span>消息</span>

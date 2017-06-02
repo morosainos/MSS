@@ -106,6 +106,14 @@ angular.module('addScoreApp',[]).controller('addScoreCtrl',function($scope,$http
 		$uibModalInstance.close();
 	};
 	
+	$scope.detectScore = function(){
+		var totalScore = {};
+		for(var i=0;i<$scope.data.length;i++){
+			totalScore += $scope.data[i].score;
+		}
+		return totalScore;
+	}
+	
 	var loadTableData = function(){
 		$http({
 				method : 'post',
@@ -114,6 +122,14 @@ angular.module('addScoreApp',[]).controller('addScoreCtrl',function($scope,$http
 			})
 			.success(function(data) {
 				$scope.data = data;
+				if(!$scope.isPointBanned && null !=$scope.data && $scope.data.length >0){
+					$scope.$watch($scope.detectScore,function(newValue,oldValue){
+						for(var i=0;i<$scope.data.length;i++){
+							$scope.data[i].point = $scope.data[i].score*5.0/$scope.data[i].totalscore;
+						}
+					});
+					
+				}
 				$scope.innerParams = new NgTableParams({
 					'count' : 10
 				}, {

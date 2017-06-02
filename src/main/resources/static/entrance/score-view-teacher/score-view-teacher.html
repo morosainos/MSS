@@ -131,7 +131,12 @@
 								filter="{sname: 'text'}" sortable="'sname'"
 								header-class="'active'" demo-tracked-table-cell
 							    >{{scoreu.sname}}</td>
-							    
+							
+							<td data-title="'考试总分'"
+								filter="{totalscore: 'text'}" sortable="'totalscore'"
+								header-class="'active'" demo-tracked-table-cell
+							    >{{scoreu.totalscore}}</td>
+							
 							<td data-title="'*考试成绩'"
 								filter="{score: 'text'}" sortable="'score'"
 								header-class="'active'" demo-tracked-table-cell
@@ -143,13 +148,15 @@
 								filter="{point: 'text'}" sortable="'point'"
 								header-class="'active'" demo-tracked-table-cell
 							    ><input type="text" class="form-control"
-								ng-model="scoreu.point" ng-disabled="isPointBanned"/></td>
-								
+								ng-model="scoreu.point" ng-disabled="isPointBanned"/>
+							</td>
+							
 							<td data-title="'备注'"
 								filter="{sdescription: 'text'}" sortable="'sdescription'"
 								header-class="'active'" demo-tracked-table-cell
 							    ><input type="text" class="form-control"
-								ng-model="scoreu.sdescription"/></td>
+								ng-model="scoreu.sdescription"/>
+							</td>
 						</tr>
 					</table>
 					</form>

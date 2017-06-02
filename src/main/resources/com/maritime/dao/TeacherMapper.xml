@@ -68,7 +68,7 @@
 
   <select id="selectForAll" resultMap="BaseResultMap">
     select
-    tid, tname, tsex, tnumber, tpassword, tdescription, tEmail, tPhone, tCertiID, tNation,t.is_active,
+    tid, tname, tsex, tnumber, tdescription, tEmail, tPhone, tCertiID, tNation,t.is_active,
     trole,tmajor,tacademy,tclass,
     role.ldValue as role,aca.aname as academy,maj.mname as major,cla.cyear||'-'||cla.cnum as teacherclass
     from maritime.teacher t

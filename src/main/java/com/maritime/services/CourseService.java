@@ -13,4 +13,6 @@ public interface CourseService {
     List<Course> selectSelectiveCourse(String term);
 
     List<Course> selectSelectiveCourseFoStudent(Long sid,String term);
+
+    List<Course> selectForAdmin();
 }
