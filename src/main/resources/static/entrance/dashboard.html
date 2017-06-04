@@ -9,47 +9,31 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maritime Score System</title>
+<title>海事大学成绩管理系统</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
-<link rel="stylesheet"
-	href="../global/plugins/bootstrap-3.3.7/css/bootstrap.min.css">
-<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="../global/plugins/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" >
+<link href="../global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <!-- Favicon -->
 <link rel="shortcut icon" href="../favicon.ico" />
 
-<!-- Typeahead Style -->
-<link rel="stylesheet"
-	href="../global/plugins/typeahead/css/typeahead.css" />
+
 <link rel="stylesheet"
 	href="../global/plugins/isteven-multi-select/isteven-multi-select.css">
 <link rel="stylesheet"
 	href="../global/plugins/toastr/css/angular-toastr.css" />
 <link rel="stylesheet" href="../global/plugins/ng-table/ng-table.css">
-<link rel="stylesheet" href="../global/plugins/simditor/simditor/styles/simditor.css"/>
-<link rel="stylesheet" href="../global/plugins/simditor/simditor-html/styles/simditor-html.css"/>
-<link rel="stylesheet" href="../global/template/multiple-choice-question/mutiple-question.template.css" />
-<link rel="stylesheet" href="../global/plugins/CodeMirror/lib/codemirror.css" />
-<link rel="stylesheet" href="../global/template/single-selection-template/singleChoice.template.css" />
-<link rel="stylesheet" href="../global/template/short-answer-template/short-answer-module.css" />
 <link rel="stylesheet" href="../global/plugins/meterial/css/angular-material.min.css" />
 <link rel="stylesheet" href="../global/plugins/angular-chart/angular-chart.css" />
 <link rel="stylesheet" href="../global/plugins/ngTagsInput/ng-tags-input.bootstrap.min.css"/>
 <link rel="stylesheet" href="../global/plugins/ngTagsInput/ng-tags-input.min.css"/>
 <link rel="stylesheet" href="../global/plugins/angular-tooltips/angular-tooltips.min.css"/>
 
-<!-- NProgress -->
-<link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-<!-- iCheck -->
-<link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-<!-- bootstrap-progressbar -->
-<link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-
 <!-- Custom Theme Style -->
 <link href="../global/css/common.css" rel="stylesheet">
-<link href="../build/css/custom.css" rel="stylesheet">
+<link href="home/custom.css" rel="stylesheet">
 </head>
 
 <body class="nav-md" data-ui-view="">
@@ -60,66 +44,27 @@
 	<script src="../global/plugins/angular-1.5.8/angular-ui-router.js"></script>
 	<script src="../global/plugins/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 	<script src="../global/plugins/ocLazyLoad.js"></script>
-	<script
-		src="../global/plugins/isteven-multi-select/isteven-multi-select.js"></script>
-	
-	<script
-		src="../global/plugins/isteven-multi/isteven-multi.js"></script>
-	
+	<script src="../global/plugins/isteven-multi-select/isteven-multi-select.js"></script>
+	<script src="../global/plugins/isteven-multi/isteven-multi.js"></script>
 	<script src="../global/plugins/ui-bootstrap-tpls-2.2.0.js"></script>
 	<script src="../global/plugins/toastr/js/angular-toastr.tpls.js"></script>
 	<script src="../global/plugins/angular-1.5.8/angular-animate.js"></script>
 	<script src="../global/plugins/ng-table/ng-table.js"></script>
 	<script src="../global/plugins/angular-1.5.8/angular-resource.js"></script>
 	<script src="../global/plugins/angular-1.5.8/angular-sanitize.min.js"></script>
-	<script src="../global/plugins/angular-1.5.8/ng-file-upload.min.js"></script>
 	<script src="../global/plugins/typeahead/js/typeahead.js"></script>
 	
-	<script src="../global/plugins/simditor/simple-module/lib/module.js"></script>
-	<script src="../global/plugins/simditor/simple-hotkeys/lib/hotkeys.js"></script>
-	<script src="../global/plugins/simditor/simple-uploader/lib/uploader.js"></script>
-	<script src="../global/plugins/simditor/simditor/lib/simditor.js"></script>
 	<script src="../global/plugins/js-beautify/js/lib/beautify.js"></script>
 	<script src="../global/plugins/js-beautify/js/lib/beautify-css.js"></script>
 	<script src="../global/plugins/js-beautify/js/lib/beautify-html.js"></script>
-	<script src="../global/plugins/simditor/simditor-html/lib/simditor-html.js"></script>
-	<script src="../global/plugins/simditor/angular-simditor.js"></script>
-	<script src="../global/plugins/CodeMirror/lib/codemirror.js"></script>
-	<script src="../global/plugins/CodeMirror/mode/clike.js"></script>
-	<script src="../global/template/multiple-choice-question/multiple-question.directive.js"></script>
-	<script src="../global/template/programing-question/programing-question.directive.js"></script>
-	<script src="../global/template/short-answer-template/short-answer-module.js"></script>
-	<script src="../global/template/single-selection-template/singleChoice.directive.js"></script>
 	<script src="../global/plugins/meterial/js/angular-aria.min.js"></script>
 	<script src="../global/plugins/meterial/js/angular-material.min.js"></script>
 	<script src="../global/plugins/meterial/js/angular-messages.min.js"></script>
-	<script src="../global/template/report-chart-template/report-chart.js"></script>
+
 	<script src="../global/plugins/angular-chart/Chart.min.js"></script>
 	<script src="../global/plugins/angular-chart/angular-chart.min.js"></script>
 	<script src="../global/plugins/ngTagsInput/ng-tags-input.min.js"></script>
 	<script src="../global/plugins/angular-tooltips/angular-tooltips.min.js"></script>
-	
-
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Flot -->
-    <script src="../vendors/Flot/jquery.flot.js"></script>
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
 	
 	<!-- Angular Initialization -->
 	<script src='../global/script/constants.js'></script>

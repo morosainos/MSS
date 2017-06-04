@@ -145,21 +145,33 @@ angular.module('addScoreApp',[]).controller('addScoreCtrl',function($scope,$http
 	loadTableData();
 	
 	$scope.updateScore = function (){
-		$uibModal.open({
-			templateUrl: 'sureSaveSC.html',
-			controller: 'sureSaveSCCtrl',
-			resolve: {
-				parentModalInstance: function() {
-					return $uibModalInstance;
-				},
-				data : function (){
-					return $scope.data;
-				},
-				eid : function (){
-					return eid;
-				}
+		var ifValid = true;
+		for(var i=0;i<$scope.data.length;i++){
+			if(null == $scope.data[i].score)
+			{
+				ifValid = false;
+				break;
 			}
-		});
+		}
+		if(ifValid){
+			$uibModal.open({
+				templateUrl: 'sureSaveSC.html',
+				controller: 'sureSaveSCCtrl',
+				resolve: {
+					parentModalInstance: function() {
+						return $uibModalInstance;
+					},
+					data : function (){
+						return $scope.data;
+					},
+					eid : function (){
+						return eid;
+					}
+				}
+			});
+		}else{
+			toastr.error("Error",window.mss.constants.VALIDATE_MSG.SCORE_EMPTY);
+		}
 	};
 
 });

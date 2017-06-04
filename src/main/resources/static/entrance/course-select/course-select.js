@@ -327,6 +327,12 @@ angular.module(window.mss.appName).controller(
 					initSchedule();
 
 					for(var i=0;i<$scope.response.length;i++){
+						if(angular.isUndefined($scope.response[i].cname)){
+							$scope.response[i].cname = $scope.response[i].coname;
+						}
+						if(angular.isUndefined($scope.response[i].spositon)){
+							$scope.response[i].spositon = $scope.response[i].position;
+						}
 						if("星期一" == $scope.response[i].week){
 							if("1-2节" == $scope.response[i].section){
 								$scope.w1s1 = $scope.w1s1+'<br>'+$scope.response[i].cname+$scope.response[i].spositon+'<br>'+$scope.response[i].sdescription+$scope.response[i].freq;
@@ -612,9 +618,21 @@ angular.module(window.mss.appName).controller(
 
 angular.module('sureSaveCS', []).controller('sureSaveCSCtrl', function($scope,$uibModal, 
 		$uibModalInstance, $http, toastr, courseIds, scheIds, term) {
-	$scope.courseIds = courseIds;
+	$scope.courseIds = [];
 	$scope.scheIds = scheIds;
-	
+	for(var m=0;m<courseIds.length;m++){
+		var add = true;
+		for(var n=0;n<$scope.courseIds.length;n++){
+			if($scope.courseIds[n] == courseIds[m])
+			{
+				add = false;
+				break;
+			}
+		}
+		if(add){
+			$scope.courseIds.push(courseIds[m]);
+		}
+	}
 	$scope.yes = function() {
 		if(courseIds.length > 0 && scheIds.length > 0)
 		{
