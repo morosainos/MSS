@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface CourseMapper {
@@ -65,4 +66,6 @@ public interface CourseMapper {
     List<Course> selectSelectiveCourse(String term);
 
     List<Course> selectSelectiveCourseFoStudent(@Param("sid")Long sid, @Param("term")String term);
+
+    List<Course> selectCourseByTermForTeacher(Map<String, Object> params);
 }

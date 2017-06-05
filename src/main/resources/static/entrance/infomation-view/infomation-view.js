@@ -46,6 +46,9 @@ angular.module(window.mss.appName).controllerProvider.register(
 					}
 					else if("teacher" == $scope.user.type)
 					{
+						if("管理员" == response.role){
+							$scope.user.admin = true;
+						}
 						$scope.user.teacher = true;
 					}
 				})

@@ -3,6 +3,7 @@ package com.maritime.services;
 import com.maritime.models.Score;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ScoreService {
 
@@ -17,4 +18,8 @@ public interface ScoreService {
     int insert(Score record);
 
     int updateByPrimaryKey(Score record);
+
+    List<Score> selectByExam(Integer eid);
+
+    List<Score> selectByTermsForGraphics(Map<String, Object> params);
 }

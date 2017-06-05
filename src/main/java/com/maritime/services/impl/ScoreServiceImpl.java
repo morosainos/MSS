@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED, timeout = 30)
@@ -54,5 +55,15 @@ public class ScoreServiceImpl extends BaseServiceImp implements ScoreService {
     @Override
     public int updateByPrimaryKey(Score record) {
         return scoreMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Score> selectByExam(Integer eid) {
+        return scoreMapper.selectByExam(eid);
+    }
+
+    @Override
+    public List<Score> selectByTermsForGraphics(Map<String, Object> params) {
+        return scoreMapper.selectByTermsForGraphics(params);
     }
 }

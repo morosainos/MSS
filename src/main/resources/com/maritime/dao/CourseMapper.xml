@@ -121,6 +121,16 @@
         where c.is_selectable = true and c.is_active = true and s.sterm = #{term} and map.psid = #{sid}
         order by c.coid
     </select>
+    <select id="selectCourseByTermForTeacher" resultMap="BaseResultMap">
+        select distinct c.coid,c.conumber,c.coname
+        from maritime.course c
+        left join maritime.schedule s on c.coid = s.scid and s.is_active = true
+        where c.coteacher1 = #{tid} and c.is_active = true and sterm in
+        <foreach item="term" index="index" collection="term" open="("
+                 separator="," close=")">
+            #{term}
+        </foreach>
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbggenerated

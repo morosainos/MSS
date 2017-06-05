@@ -40,7 +40,13 @@
       <result column="saname" jdbcType="VARCHAR" property="saname" />
       <result column="smname" jdbcType="VARCHAR" property="smname" />
       <result column="sclass" jdbcType="VARCHAR" property="sclass" />
-      <result column="tid" jdbcType="BIGINT" property="tid" />
+      <result column="totalp" jdbcType="INTEGER" property="totalp" />
+      <result column="greatp" jdbcType="INTEGER" property="greatp" />
+      <result column="goodp" jdbcType="INTEGER" property="goodp" />
+      <result column="okp" jdbcType="INTEGER" property="okp" />
+      <result column="snpassp" jdbcType="INTEGER" property="snpassp" />
+      <result column="bnpassp" jdbcType="INTEGER" property="bnpassp" />
+
   </resultMap>
   <sql id="Base_Column_List">
     <!--
@@ -116,6 +122,32 @@
         left join maritime.major maj on maj.mid = s.smajor
         left join maritime.class cla on cla.cid = s.sclass
         where c.coteacher1 = #{tid,jdbcType=BIGINT} and e.eid = #{eid,jdbcType=INTEGER} and s.is_active = true
+    </select>
+    <select id="selectByExam" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select stu.snumber as snumber,stu.sname as sname,s.score,a.aname as saname,m.mname as smname,c.cnum as sclass
+        from maritime.score s
+        inner join maritime.student stu on s.ssid = stu.sid and stu.is_active = true
+        left join maritime.academy a on stu.sacademy = a.aid
+        left join maritime.major m on stu.smajor = m.mid
+        left join maritime.class c on stu.sclass = c.cid
+        where s.is_active = true and stu.is_active = true and s.seid = #{eid,jdbcType=INTEGER}
+        order by stu.snumber
+    </select>
+    <select id="selectByTermsForGraphics" resultMap="BaseResultMap">
+        select e.eterm as term,count(s.sid) as totalp,sum(case when cast(s.score as numeric) &gt;= e.etotalscore*0.9 then 1 else 0 end) as greatp,
+        sum(case when cast(s.score as numeric) &gt;= e.etotalscore*0.7 and cast(s.score as numeric) &lt; e.etotalscore*0.9 then 1 else 0 end) as goodp,
+        sum(case when cast(s.score as numeric) &gt;= e.etotalscore*0.6 and cast(s.score as numeric) &lt; e.etotalscore*0.7 then 1 else 0 end) as okp,
+        sum(case when cast(s.score as numeric) &gt;= e.etotalscore*0.4 and cast(s.score as numeric) &lt; e.etotalscore*0.6 then 1 else 0 end) as snpassp,
+        sum(case when cast(s.score as numeric) &lt; e.etotalscore*0.4 then 1 else 0 end) as bnpassp
+        from maritime.score s
+        left join maritime.examination e on s.seid = e.eid and e.is_active = true and e.etype = 9 and e.ecid = #{cid}
+        where s.is_active = true and e.is_active = true and e.ecid = #{cid} and e.eterm in
+        <foreach item="term" index="index" collection="term" open="("
+                 separator="," close=")">
+            #{term}
+        </foreach>
+        group by e.eterm
+        order by e.eterm
     </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--

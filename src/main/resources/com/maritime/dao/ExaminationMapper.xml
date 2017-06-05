@@ -76,6 +76,15 @@
         left join maritime.listdata form on e.eform = form.ldid
         where map.psid = #{sid,jdbcType=BIGINT} and e.is_active = true
     </select>
+    <select id="selectExamByCourseForTeacher" resultMap="BaseResultMap">
+        select e.eid,e.ename,e.etype,e.etotalscore
+        from maritime.examination e
+        where e.ecid = #{cid} and e.is_active = true and e.eterm in
+        <foreach item="term" index="index" collection="term" open="("
+                 separator="," close=")">
+            #{term}
+        </foreach>
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbggenerated

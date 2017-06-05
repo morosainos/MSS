@@ -4,6 +4,7 @@ import com.maritime.models.Examination;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ExaminationMapper {
@@ -62,4 +63,6 @@ public interface ExaminationMapper {
     List<Examination> selectForAll();
 
     int inactiveExam(Long[] eids);
+
+    List<Examination> selectExamByCourseForTeacher(Map<String, Object> params);
 }

@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ScoreController extends BaseController{
@@ -89,4 +91,22 @@ public class ScoreController extends BaseController{
         return updateNums;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/score/selectByExam", method = RequestMethod.POST)
+    public List<Score> selectByExam(@RequestBody Integer eid) throws MSSException {
+        return scoreService.selectByExam(eid);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/score/selectByTermsForGraphics", method = RequestMethod.GET)
+    public List<Score> selectByTermsForGraphics(@RequestParam Integer cid,@RequestParam String[] term) throws MSSException {
+        String type = (String) request.getSession().getAttribute("userType");
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("cid", cid);
+        params.put("term", term);
+        if(CommonConstants.USER_TYPE_TEACHER.equals(type)){
+            return scoreService.selectByTermsForGraphics(params);
+        }
+        return null;
+    }
 }

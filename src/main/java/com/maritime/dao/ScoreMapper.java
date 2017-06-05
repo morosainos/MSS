@@ -4,6 +4,7 @@ import com.maritime.models.Score;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ScoreMapper {
@@ -62,4 +63,8 @@ public interface ScoreMapper {
     List<Score> selectForTeacherPage(Long tid);
 
     List<Score> selectForStudentScore(Score score);
+
+    List<Score> selectByExam(Integer eid);
+
+    List<Score> selectByTermsForGraphics(Map<String, Object> params);
 }

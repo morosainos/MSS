@@ -43,7 +43,13 @@ public class SCMappingController extends BaseController{
         String type = (String) request.getSession().getAttribute("userType");
         if(CommonConstants.USER_TYPE_TEACHER.equals(type))
         {
-            return scMappingService.selectAllTermsForTeacher(id);
+            Integer role = (Integer) request.getSession().getAttribute("userRole");
+            if(1 == role)
+            {
+                return null;
+            }else {
+                return scMappingService.selectAllTermsForTeacher(id);
+            }
         }else if(CommonConstants.USER_TYPE_STUDENT.equals(type)){
             return scMappingService.selectAllTermsForStudent(id);
         }

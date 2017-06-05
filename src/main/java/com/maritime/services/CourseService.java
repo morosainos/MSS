@@ -3,6 +3,7 @@ package com.maritime.services;
 import com.maritime.models.Course;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CourseService {
 
@@ -15,4 +16,6 @@ public interface CourseService {
     List<Course> selectSelectiveCourseFoStudent(Long sid,String term);
 
     List<Course> selectForAdmin();
+
+    List<Course> selectCourseByTermForTeacher(Map<String, Object> params);
 }

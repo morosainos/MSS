@@ -9,7 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class CourseController extends BaseController{
@@ -52,6 +54,20 @@ public class CourseController extends BaseController{
     public List<Course> selectSelectiveCourseFoStudent(@RequestBody String term) throws MSSException {
         Long id = (Long) request.getSession().getAttribute("userID");
         return courseService.selectSelectiveCourseFoStudent(id,term);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/course/selectCourseByTermForTeacher", method = RequestMethod.GET)
+    public List<Course> selectCourseByTermForTeacher(@RequestParam String[] term) throws MSSException {
+        Long id = (Long) request.getSession().getAttribute("userID");
+        String type = (String) request.getSession().getAttribute("userType");
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("tid", id);
+        params.put("term", term);
+        if(CommonConstants.USER_TYPE_TEACHER.equals(type)){
+            return courseService.selectCourseByTermForTeacher(params);
+        }
+        return null;
     }
 
 }

@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ExaminationController extends BaseController{
@@ -66,4 +68,16 @@ public class ExaminationController extends BaseController{
         return examinationService.updateByPrimaryKey(examination);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/examination/selectExamByCourseForTeacher", method = RequestMethod.GET)
+    public List<Examination> selectExamByCourseForTeacher(@RequestParam Integer cid,@RequestParam String[] term) throws MSSException {
+        String type = (String) request.getSession().getAttribute("userType");
+        Map<String, Object> params = new HashMap<String, Object>(2);
+        params.put("cid", cid);
+        params.put("term", term);
+        if(CommonConstants.USER_TYPE_TEACHER.equals(type)){
+            return examinationService.selectExamByCourseForTeacher(params);
+        }
+        return null;
+    }
 }

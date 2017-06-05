@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED, timeout = 30)
@@ -49,5 +50,10 @@ public class CourseServiceImpl extends BaseServiceImp implements CourseService {
     @Override
     public List<Course> selectForAdmin() {
         return courseMapper.selectForAdmin();
+    }
+
+    @Override
+    public List<Course> selectCourseByTermForTeacher(Map<String, Object> params) {
+        return courseMapper.selectCourseByTermForTeacher(params);
     }
 }

@@ -1,12 +1,67 @@
-<div class="col-lg-5 col-md-5">
-<button type="button" class="btn btn-dark" ng-click="toggle()">toggle</button>
-<!--<canvas id="line" class="chart chart-line" chart-data="data"
-chart-labels="labels" chart-series="series" chart-options="options"
-chart-dataset-override="datasetOverride" chart-click="onClick" >
-</canvas>-->
+<div>
+<table class="table">
+	<tr class="form-group">
+		<td style="border: 0;">选择学期1：
+			<select class="form-control" ng-model="term1" style="border-radius:10px;width: 80%;"
+			ng-options="t.pterm as t.pterm for t in terms">
+			</select>
+		</td>
+		<td style="border: 0;">选择学期2：
+			<select class="form-control" ng-model="term2" style="border-radius:10px;width: 80%;"
+			ng-options="t.pterm as t.pterm for t in terms">
+			</select>
+		</td>
+		<td style="border: 0;">选择课程：
+			<select class="form-control" ng-model="course" style="border-radius:10px;width: 80%;"
+			ng-options="c.coid as (c.conumber+'-'+c.coname) for c in courses" ng-click="loadExamData()">
+			</select>
+		</td>
+		<td style="border: 0;">选择考试：
+			<select class="form-control" ng-model="exam" style="border-radius:10px;width: 80%;"
+			ng-options="e.eid as e.ename for e in exams" ng-disabled="isExamDisable" ng-click="loadScoreData()">
+			</select>
+		</td>
+	</tr>
+</table>
 
-<canvas id="base" class="chart-base" chart-type="type"
-  chart-data="data" chart-labels="labels" chart-options="options">
-</canvas> 
+<button class="btn btn-primary" ng-click="clip()" ng-if="!isExamDisable">切换报表</button>
 
+<h3 ng-if="dataNull" style="padding-bottom: 20px;">没有相关数据！</h3>
+<div ng-if="showChart && !dataNull">
+<h3 ng-if="!isExamDisable">表中纵坐标代表人数，总人数为:{{totalpeople}}</h3>
+<table class="table">
+	<tr class="form-group">
+		<td style="border: 0;width:50%;">
+			<canvas id="lineC" class="chart-bar" chart-series="series"
+			  chart-data="lineData" chart-labels="lineLabels" chart-colors="colors" chart-options="lineOptions"
+			  chart-dataset-override="datasetOverride" >
+			</canvas> 
+		</td>
+		<td style="border: 0;width:10%;">
+		</td>
+		<td style="border: 0;width:40%;">
+			<canvas id="pieC" class="chart chart-pie" chart-type="pie"
+			  chart-data="pieData" chart-labels="pieLabels">
+			</canvas> 
+		</td>
+	</tr>
+</table>
+</div>
+<div ng-if="!showChart && !isExamDisable" style="padding-bottom:10%">
+<table class="table table-bordered">
+	<tr class="form-group">
+		<td>学院</td>
+		<td>专业</td>
+		<td>学号</td>
+		<td>姓名</td>
+		<td>成绩</td>
+	</tr>
+	<tr class="form-group" ng-repeat="s in scores">
+		<td ng-bind="s.saname"></td>
+		<td ng-bind="s.smname"></td>
+		<td ng-bind="s.snumber"></td>
+		<td ng-bind="s.sname"></td>
+		<td ng-bind="s.score"></td>
+	</tr>
+</table>
 </div>
