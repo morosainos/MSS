@@ -65,7 +65,13 @@ public class CourseController extends BaseController{
         params.put("tid", id);
         params.put("term", term);
         if(CommonConstants.USER_TYPE_TEACHER.equals(type)){
-            return courseService.selectCourseByTermForTeacher(params);
+            Integer role = (Integer) request.getSession().getAttribute("userRole");
+            if(1 == role)
+            {
+                return courseService.selectCourseByTermForAdmin(term);
+            }else{
+                return courseService.selectCourseByTermForTeacher(params);
+            }
         }
         return null;
     }

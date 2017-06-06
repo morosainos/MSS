@@ -68,4 +68,6 @@ public interface CourseMapper {
     List<Course> selectSelectiveCourseFoStudent(@Param("sid")Long sid, @Param("term")String term);
 
     List<Course> selectCourseByTermForTeacher(Map<String, Object> params);
+
+    List<Course> selectCourseByTermForAdmin(String[] term);
 }

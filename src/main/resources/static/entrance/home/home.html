@@ -45,11 +45,11 @@
                   <li><a><i class="fa fa-balance-scale"></i>成绩<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li ng-if="user.student" ui-sref-active="active"><a ui-sref=".score-view">查看</a></li>
-                      <li ng-if="user.teacher && !user.admin" ui-sref-active="active"><a ui-sref=".score-view-teacher">管理</a></li>
+                      <li ng-if="user.teacher" ui-sref-active="active"><a ui-sref=".score-view-teacher">管理</a></li>
                       <li ui-sref-active="active"><a ui-sref=".score-report">报表</a></li>
                     </ul>
                   </li>
-                  <li ng-if="user.teacher && user.admin"><a><i class="fa fa-users"></i>人员<span class="fa fa-chevron-down"></span></a>
+                  <li ng-show="user.teacher && user.admin"><a><i class="fa fa-users"></i>人员<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li ui-sref-active="active"><a ui-sref=".member-student">学生</a></li>
                       <li ui-sref-active="active"><a ui-sref=".member-teacher">教师</a></li>
@@ -116,7 +116,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
+        <footer style="background: #2A3F54;padding:18px 0px;">
           <div class="pull-right">
             2017 MSS 海事大学成绩管理系统
           </div>

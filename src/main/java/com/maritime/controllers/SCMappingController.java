@@ -46,7 +46,7 @@ public class SCMappingController extends BaseController{
             Integer role = (Integer) request.getSession().getAttribute("userRole");
             if(1 == role)
             {
-                return null;
+                return scMappingService.selectAllTermsForAdmin();
             }else {
                 return scMappingService.selectAllTermsForTeacher(id);
             }

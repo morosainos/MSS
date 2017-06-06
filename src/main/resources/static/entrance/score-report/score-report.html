@@ -25,6 +25,7 @@
 </table>
 
 <button class="btn btn-primary" ng-click="clip()" ng-if="!isExamDisable">切换报表</button>
+<button class="btn btn-success" ng-click="viewClass()" ng-if="user.admin">查看班级统计</button>
 
 <h3 ng-if="dataNull" style="padding-bottom: 20px;">没有相关数据！</h3>
 <div ng-if="showChart && !dataNull">
@@ -65,3 +66,81 @@
 	</tr>
 </table>
 </div>
+</div>
+
+
+
+<script type="text/ng-template" id="viewClass.html">
+	<div class="modalCustom">
+		<div class="sure-save">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" style="font-size: 20px; font-weight: 600;">查看班级学分</h2>
+				</div>
+				<div class="modal-body">
+					<table class="table">
+						<tr class="form-group">
+							<td style="border: 0;">选择学期：
+								<select class="form-control" ng-model="term" style="border-radius:10px;width: 80%;"
+								ng-options="t.pterm as t.pterm for t in terms" ng-click="loadPoint()">
+								</select>
+							</td>
+							<td style="border: 0;">选择学院：
+								<select class="form-control" ng-model="academy" style="border-radius:10px;width: 80%;"
+								ng-options="academy.aid as academy.aname for academy in academies" ng-click="loadMajor()">
+								</select>
+							</td>
+							<td style="border: 0;">选择专业：
+								<select class="form-control" ng-model="major" style="border-radius:10px;width: 80%;"
+								ng-options="major.mid as major.mname for major in majors" ng-click="loadClass()">
+								</select>
+							</td>
+							<td style="border: 0;">选择班级：
+								<select class="form-control" ng-model="sclass" style="border-radius:10px;width: 80%;"
+								ng-options="class.cid as class.display for class in classes" ng-click="loadPoint()">
+								</select>
+							</td>
+						</tr>
+					</table>
+					<button class="btn btn-primary" ng-click="clip()">切换报表</button>
+					<div ng-if="!dataNull && showChart">
+					<table class="table">
+						<tr class="form-group">
+							<td style="border: 0;width:20%;">
+							</td>
+							<td style="border: 0;width:40%;">
+								<canvas id="pieCM" class="chart chart-pie" chart-type="pie"
+								  chart-data="pieData" chart-labels="pieLabels">
+								</canvas> 
+							</td>
+							<td style="border: 0;width:20%;">
+							</td>
+						</tr>
+					</table>
+					</div>
+					<div ng-if="!showChart && !isExamDisable" style="padding-bottom:10%">
+					<table class="table table-bordered">
+						<tr class="form-group">
+							<td>学号</td>
+							<td>姓名</td>
+							<td>综合绩点</td>
+							<td>总课数</td>
+							<td>挂科课数</td>
+						</tr>
+						<tr class="form-group" ng-repeat="p in points">
+							<td ng-bind="p.stunumber"></td>
+							<td ng-bind="p.stuname"></td>
+							<td ng-bind="(p.allcoursepoint/p.allcourse).toFixed(2)"></td>
+							<td ng-bind="p.allcourse"></td>
+							<td ng-bind="p.nopass"></td>
+						</tr>
+					</table>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-lg yes" style="float: left;width: 16%" ng-click="cancel()">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

@@ -33,7 +33,6 @@ angular.module(window.mss.appName).controller(
 			$scope.showChart = true;
 			$scope.dataNull = true;
 			$scope.isExamDisable = false;
-			var course = 0;
 			
 			var loadAllTerms = function(){
 				$http({
@@ -42,7 +41,6 @@ angular.module(window.mss.appName).controller(
 				})
 				.success(function(data) {
 					$scope.terms = data;
-					course = 0;
 					if(null != data && $scope.terms.length > 0){
 						$scope.term1 = $scope.terms[$scope.terms.length - 1].pterm;	
 						$scope.term2 = $scope.terms[$scope.terms.length - 1].pterm;	
@@ -254,37 +252,114 @@ angular.module(window.mss.appName).controller(
 			}
 			
 			$scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
-
-//		    $scope.datasetOverride = [
-//		      {
-//		        label: "Bar chart",
-//		        borderWidth: 2,
-//		        type: 'bar',
-//		        yAxisID: 'y-axis-1'
-//		      }
-//		    ];
-
-//			$scope.lineOptions = {
-//			    scales: {
-//			      yAxes: [
-//			        {
-//			          id: 'y-axis-1',
-//			          type: 'linear',
-//			          display: true,
-//			          position: 'left'
-//			        },
-//			        {
-//			          id: 'y-axis-2',
-//			          type: 'linear',
-//			          display: true,
-//			          position: 'right'
-//			        }
-//			      ]
-//			    }
-//			};
-
-
-
+			
+			$scope.viewClass = function(){
+				var modalInstance = $uibModal.open({
+					animation : true,
+					templateUrl : 'viewClass.html',
+					controller : 'viewClassCtrl',
+					size : 'lg',
+					backdrop : false
+				});
+			}
 
 }
 );
+
+
+var editInfo = angular.module('viewClassApp',[]);
+editInfo.controller('viewClassCtrl',function($scope,$http, $uibModal, $uibModalInstance, toastr){
+	//cancel function
+	$scope.term = '';
+	$scope.academy = 0;
+	$scope.major = 0;
+	$scope.sclass = 0;
+	$scope.showChart = true;
+	$scope.dataNull = true;
+	
+	$scope.cancel = function() {
+		$uibModalInstance.close();
+	};
+	var loadAllTerms = function(){
+	$http({
+		method : 'get',
+		url : '/scmapping/selectAllTerms'
+	})
+	.success(function(data) {
+		$scope.terms = data;
+		if(null != data && $scope.terms.length > 0){
+			$scope.term = $scope.terms[$scope.terms.length - 1].pterm;	
+		}
+	});
+	}
+	loadAllTerms();
+	
+	var getAllAcademy = function(){
+	$http({
+			method : 'get',
+			url : '/academy/selectAllAcademy'
+		})
+		.success(function(response) {
+			$scope.academies = response;
+			$scope.academy = $scope.academies[0].aid;
+			$scope.loadMajor();
+		});
+	}
+	getAllAcademy();
+	
+	$scope.loadMajor = function(){
+		$http({
+				method : 'post',
+				url : '/major/loadMajorByAcademy',
+				data : $scope.academy
+			})
+			.success(function(response) {
+				$scope.majors = response;
+				$scope.major = $scope.majors[0].mid;
+				$scope.loadClass();
+			});
+	}
+
+	$scope.loadClass = function(){
+		$http({
+				method : 'post',
+				url : '/class/selectByMajor',
+				data : $scope.major
+			})
+			.success(function(response) {
+				$scope.classes = response;
+				if(null != response && response.length > 0){
+					$scope.sclass = $scope.classes[0].cid;
+					$scope.loadPoint();
+				}
+			});
+	}
+	
+	$scope.loadPoint = function(){
+		$scope.pieLabels = [];
+		$scope.pieData = [];
+		$http.get("/pointset/selectForClassGraphic?term="+$scope.term+"&cid="+$scope.sclass)
+				.success(function(data) {
+					$scope.points = data;
+					$scope.pieLabels.push("通过率");
+					$scope.pieLabels.push("挂科率");
+					var passratio = 0;
+					var nopassratio = 0;
+					if(null != data && data.length>0){
+						$scope.dataNull = false;
+						for(var i=0;i<$scope.points.length;i++){
+							passratio += (($scope.points[i].allcourse - $scope.points[i].nopass)/$scope.points[i].allcourse)*100;
+							nopassratio += ($scope.points[i].nopass/$scope.points[i].allcourse)*100;
+						}
+						$scope.pieData.push((passratio/$scope.points.length).toFixed(2));
+						$scope.pieData.push((nopassratio/$scope.points.length).toFixed(2));
+					}
+				});
+	}
+	
+	$scope.clip = function(){
+		$scope.showChart = !$scope.showChart;
+	}
+			
+
+});

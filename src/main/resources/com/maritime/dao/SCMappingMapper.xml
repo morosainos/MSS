@@ -88,6 +88,12 @@
         where c.coteacher1 = #{tid,jdbcType=BIGINT} and p.is_active = true
         order by sterm
     </select>
+    <select id="selectAllTermsForAdmin" resultMap="BaseResultMap">
+        select distinct sterm as pterm
+        from maritime.schedule p
+        where p.is_active = true
+        order by sterm
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbggenerated

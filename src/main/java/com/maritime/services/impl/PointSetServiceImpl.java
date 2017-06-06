@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED, timeout = 30)
 @Service("pointset")
@@ -42,5 +44,10 @@ public class PointSetServiceImpl extends BaseServiceImp implements PointSetServi
     @Override
     public PointSet selectForDegreeType(Long sid) {
         return pointSetMapper.selectForDegreeType(sid);
+    }
+
+    @Override
+    public List<PointSet> selectForClassGraphic(String term, Integer cid) {
+        return pointSetMapper.selectForClassGraphic(term,cid);
     }
 }

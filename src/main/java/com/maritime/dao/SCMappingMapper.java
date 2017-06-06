@@ -64,4 +64,6 @@ public interface SCMappingMapper {
     List<SCMapping> selectAllTermsForTeacher(Long tid);
 
     int inactiveScmapping(Integer[] pids);
+
+    List<SCMapping> selectAllTermsForAdmin();
 }

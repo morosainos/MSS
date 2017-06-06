@@ -2,6 +2,9 @@ package com.maritime.dao;
 
 import com.maritime.models.PointSet;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface PointSetMapper {
@@ -60,4 +63,6 @@ public interface PointSetMapper {
     PointSet selectForAllType(Long sid);
 
     PointSet selectForDegreeType(Long sid);
+
+    List<PointSet> selectForClassGraphic(@Param("term")String term, @Param("cid")Integer cid);
 }

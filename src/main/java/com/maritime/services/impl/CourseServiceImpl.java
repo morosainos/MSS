@@ -56,4 +56,9 @@ public class CourseServiceImpl extends BaseServiceImp implements CourseService {
     public List<Course> selectCourseByTermForTeacher(Map<String, Object> params) {
         return courseMapper.selectCourseByTermForTeacher(params);
     }
+
+    @Override
+    public List<Course> selectCourseByTermForAdmin(String[] term) {
+        return courseMapper.selectCourseByTermForAdmin(term);
+    }
 }

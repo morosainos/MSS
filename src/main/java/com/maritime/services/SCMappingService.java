@@ -17,4 +17,6 @@ public interface SCMappingService {
     int insert(SCMapping record);
 
     int inactiveScmapping(Integer[] pids);
+
+    List<SCMapping> selectAllTermsForAdmin();
 }

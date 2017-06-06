@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class PointSetController extends BaseController{
     /**
@@ -54,6 +56,22 @@ public class PointSetController extends BaseController{
         String type = (String) request.getSession().getAttribute("userType");
         if(CommonConstants.USER_TYPE_STUDENT.equals(type)){
             return pointSetService.selectForDegreeType(id);
+        }
+        return null;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/pointset/selectForClassGraphic", method = RequestMethod.GET)
+    public List<PointSet> selectForClassGraphic(@RequestParam String term,@RequestParam Integer cid) throws MSSException {
+        String type = (String) request.getSession().getAttribute("userType");
+        if(CommonConstants.USER_TYPE_TEACHER.equals(type)){
+            Integer role = (Integer) request.getSession().getAttribute("userRole");
+            if(1 == role)
+            {
+                return pointSetService.selectForClassGraphic(term,cid);
+            }else{
+                return null;
+            }
         }
         return null;
     }

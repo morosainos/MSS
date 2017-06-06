@@ -58,4 +58,9 @@ public class SCMappingServiceImpl extends BaseServiceImp implements SCMappingSer
     public int inactiveScmapping(Integer[] pids) {
         return scMappingMapper.inactiveScmapping(pids);
     }
+
+    @Override
+    public List<SCMapping> selectAllTermsForAdmin() {
+        return scMappingMapper.selectAllTermsForAdmin();
+    }
 }

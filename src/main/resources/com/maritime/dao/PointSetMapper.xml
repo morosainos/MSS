@@ -30,6 +30,9 @@
       <result column="curalter4" jdbcType="REAL" property="curalter4" />
       <result column="allcourse" jdbcType="BIGINT" property="allcourse" />
       <result column="allcoursepoint" jdbcType="REAL" property="allcoursepoint" />
+      <result column="nopass" jdbcType="BIGINT" property="nopass" />
+      <result column="stunumber" jdbcType="BIGINT" property="stunumber" />
+      <result column="stuname" jdbcType="VARCHAR" property="stuname" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--
@@ -88,6 +91,17 @@
         inner join maritime.course c1 on e.ecid = c1.coid and c1.is_active = true and c1.cocategory = 4 and c1.is_degree = true
         where s.is_active = true and s.ssid = #{sid,jdbcType=BIGINT}
         group by s.ssid
+    </select>
+    <select id="selectForClassGraphic" resultMap="BaseResultMap">
+        select stu.snumber as stunumber,stu.sname as stuname,sum(s.point) as allcoursepoint,
+        sum(case when cast(s.score as real) &lt; e.etotalscore*0.4 then 1 else 0 end) as nopass,count(e.ecid) as allcourse
+        from maritime.score s
+        inner join maritime.examination e on s.seid = e.eid and e.is_active = true and e.etype = 9
+        inner join maritime.student stu on stu.is_active = true and s.ssid = stu.sid
+        inner join maritime.course c on e.ecid = c.coid and c.is_active = true and c.cocategory in (4,5)
+        where s.is_active = true and e.is_active = true and stu.is_active= true and e.eterm = #{term} and stu.sclass = #{cid}
+        group by stu.sid
+        order by allcoursepoint desc
     </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--

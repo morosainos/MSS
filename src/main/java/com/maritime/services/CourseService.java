@@ -18,4 +18,6 @@ public interface CourseService {
     List<Course> selectForAdmin();
 
     List<Course> selectCourseByTermForTeacher(Map<String, Object> params);
+
+    List<Course> selectCourseByTermForAdmin(String[] term);
 }
