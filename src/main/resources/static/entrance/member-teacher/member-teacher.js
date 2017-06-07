@@ -125,7 +125,6 @@ angular.module(window.mss.appName).controller(
 					templateUrl : 'sureDeleteT.html',
 					controller : 'sureDeleteTCtrl',
 					scope: scopeForModal,
-					size : 'lg',
 					resolve : {
 						teaIds:function(){ 
 							return teaIds;

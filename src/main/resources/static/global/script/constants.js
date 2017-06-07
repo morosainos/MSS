@@ -6,7 +6,7 @@
 			'DEFAULT_PAGE_URL': '/home/infomation-view',
 			'HOME_URL': '/home',
 			'INFO_VIEW_URL': '/infomation-view',
-			'INFO_NEWS_URL': '/infomation-news',
+			'SCORE_REPORT_STUDENT_URL': '/score-report-student',
 			'COURSE_VIEW_URL': '/course-view',
 			'COURSE_SELECT_URL': '/course-select',
 			'EXAM_VIEW_URL': '/exam-view',
@@ -21,7 +21,7 @@
 		'STATE': {
 			'HOME_STATE': 'home',
 			'INFO_VIEW_STATE': 'home.infomation-view',
-			'INFO_NEWS_STATE': 'home.infomation-news',
+			'SCORE_REPORT_STUDENT_STATE': 'home.score-report-student',
 			'COURSE_VIEW_STATE': 'home.course-view',
 			'COURSE_SELECT_STATE': 'home.course-select',
 			'EXAM_VIEW_STATE': 'home.exam-view',
@@ -35,7 +35,7 @@
 		'TEMPLATE': {
 			'HOME_TEMPLATE': 'home/home.html',
 			'INFO_VIEW_TEMPLATE': 'infomation-view/infomation-view.html',
-			'INFO_NEWS_TEMPLATE': 'infomation-news/infomation-news.html',
+			'SCORE_REPORT_STUDENT_TEMPLATE': 'score-report-student/score-report-student.html',
 			'COURSE_VIEW_TEMPLATE': 'course-view/course-view.html',
 			'COURSE_SELECT_TEMPLATE': 'course-select/course-select.html',
 			'EXAM_VIEW_TEMPLATE': 'exam-view/exam-view.html',
@@ -49,7 +49,7 @@
 		'CONTROLLER': {
 			'HOME_CONTROLLER': 'HomeController',
 			'INFO_VIEW_CONTROLLER': 'InfoViewController',
-			'INFO_NEWS_CONTROLLER': 'InfoNewsController',
+			'SCORE_REPORT_STUDENT_CONTROLLER': 'ScoreReportStudentController',
 			'COURSE_VIEW_CONTROLLER': 'CourseViewController',
 			'COURSE_SELECT_CONTROLLER': 'CourseSelectController',
 			'EXAM_VIEW_CONTROLLER': 'ExamViewController',

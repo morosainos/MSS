@@ -22,4 +22,6 @@ public interface ScoreService {
     List<Score> selectByExam(Integer eid);
 
     List<Score> selectByTermsForGraphics(Map<String, Object> params);
+
+    List<Score> selectByTermsForStudentGraphics(Map<String, Object> params);
 }

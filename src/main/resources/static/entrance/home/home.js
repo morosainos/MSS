@@ -1,9 +1,10 @@
 angular.module(window.mss.appName).controller(
 		window.mss.constants.CONTROLLER.HOME_CONTROLLER,
 		function($rootScope, $scope, $http, $window,toastr) {
-			console.log("homeController");
+			console.log("HOME_CONTROLLER");
 			$rootScope.user = null;
 			$rootScope.isCourseSelectable = false;
+			
 			init = function(){
 				$http({
 					method : 'get',
@@ -33,7 +34,6 @@ angular.module(window.mss.appName).controller(
 								$rootScope.user.admin = true;
 							}
 						}
-						console.log($rootScope.user);
 					}
 					$http({
 						method : 'post',

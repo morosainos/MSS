@@ -116,7 +116,6 @@ angular.module(window.mss.appName).controller(
 					templateUrl : 'sureDeleteE.html',
 					controller : 'sureDeleteECtrl',
 					scope: scopeForModal,
-					size : 'lg',
 					resolve : {
 						exaIds:function(){ 
 							return exaIds;

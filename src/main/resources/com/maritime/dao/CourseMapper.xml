@@ -67,14 +67,14 @@
         <include refid="Base_Column_List" />
         from maritime.course
         where is_active = true
-        order by c.coid
+        order by coid
     </select>
     <select id="selectForTeacher" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from maritime.course
         where coteacher1 = #{coteacher1,jdbcType=BIGINT} and is_active = true
-        order by c.coid
+        order by coid
     </select>
     <select id="selectForStudent" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select distinct

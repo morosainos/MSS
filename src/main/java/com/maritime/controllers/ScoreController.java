@@ -109,4 +109,19 @@ public class ScoreController extends BaseController{
         }
         return null;
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/score/selectByTermsForStudentGraphics", method = RequestMethod.GET)
+    public List<Score> selectByTermsForStudentGraphics(@RequestParam Integer category,@RequestParam String[] term) throws MSSException {
+        String type = (String) request.getSession().getAttribute("userType");
+        Long id = (Long) request.getSession().getAttribute("userID");
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("category", category);
+        params.put("term", term);
+        params.put("sid",id);
+        if(CommonConstants.USER_TYPE_STUDENT.equals(type)){
+            return scoreService.selectByTermsForStudentGraphics(params);
+        }
+        return null;
+    }
 }

@@ -1,0 +1,64 @@
+<div>
+<table class="table">
+	<tr class="form-group">
+		<td style="border: 0;">选择学期1：
+			<select class="form-control" ng-model="term1" style="border-radius:10px;width: 90%;"
+			ng-options="t.pterm as t.pterm for t in terms">
+			</select>
+		</td>
+		<td style="border: 0;">选择学期2：
+			<select class="form-control" ng-model="term2" style="border-radius:10px;width: 90%;"
+			ng-options="t.pterm as t.pterm for t in terms">
+			</select>
+		</td>
+		<td style="border: 0;">选择课程类型：
+			<select class="form-control" ng-model="type" style="border-radius:10px;width: 90%;"
+			ng-options="t.ldid as t.ldvalue for t in types" ng-click="loadScoreData()">
+			</select>
+		</td>
+	</tr>
+</table>
+
+<button class="btn btn-primary" ng-click="clip()">切换报表</button>
+
+<h3 ng-if="dataNull" style="padding-bottom: 20px;">没有相关数据！</h3>
+<div ng-if="showChart && !dataNull">
+<table class="table">
+	<tr class="form-group">
+		<td style="border: 0;width:50%;">
+			<canvas id="lineC" class="chart-bar" chart-series="series"
+			  chart-data="lineData" chart-labels="lineLabels" chart-colors="colors" chart-options="lineOptions"
+			  chart-dataset-override="datasetOverride" >
+			</canvas> 
+		</td>
+		<td style="border: 0;width:10%;">
+		</td>
+		<td style="border: 0;width:40%;">
+			<canvas id="pieC" class="chart chart-pie" chart-type="pie"
+			  chart-data="pieData" chart-labels="pieLabels">
+			</canvas> 
+		</td>
+	</tr>
+</table>
+</div>
+<div ng-if="!showChart" style="padding-bottom:10%">
+<table class="table table-bordered">
+	<tr class="form-group">
+		<td>学期</td>
+		<td>课程类型</td>
+		<td>总课数</td>
+		<td>优秀数</td>
+		<td>通过数</td>
+		<td>挂科数</td>
+	</tr>
+	<tr class="form-group" ng-repeat="s in scores">
+		<td ng-bind="s.term"></td>
+		<td ng-bind="category"></td>
+		<td ng-bind="s.totalp"></td>
+		<td ng-bind="s.greatp"></td>
+		<td ng-bind="s.okp"></td>
+		<td ng-bind="s.bnpassp"></td>
+	</tr>
+</table>
+</div>
+</div>

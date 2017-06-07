@@ -149,6 +149,22 @@
         group by e.eterm
         order by e.eterm
     </select>
+    <select id="selectByTermsForStudentGraphics" resultMap="BaseResultMap">
+        select e.eterm as term,sum(case when cast(s.score as numeric) &gt;= e.etotalscore*0.9 then 1 else 0 end) as greatp,
+        sum(case when cast(s.score as numeric) &gt;= e.etotalscore*0.6 then 1 else 0 end) as okp,
+        sum(case when cast(s.score as numeric) &lt; e.etotalscore*0.4 then 1 else 0 end) as bnpassp,count(c.coid) as totalp
+        from maritime.course c
+        inner join maritime.examination e on c.coid = e.ecid and e.is_active = true and e.etype = 9
+        left join maritime.score s on s.seid = e.eid and s.is_active = true and c.cocategory = #{category}
+        inner join maritime.student stu on s.ssid = stu.sid and stu.is_active = true
+        where s.is_active = true and stu.is_active = true and stu.sid = #{sid} and e.eterm in
+        <foreach item="term" index="index" collection="term" open="("
+                 separator="," close=")">
+            #{term}
+        </foreach>
+        group by e.eterm
+        order by e.eterm
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbggenerated

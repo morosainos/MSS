@@ -30,13 +30,13 @@ adminApp.config(function($stateProvider, $urlRouterProvider, $controllerProvider
 				}]
 			}
 		})
-		.state(window.mss.constants.STATE.INFO_NEWS_STATE, {
-			url: window.mss.constants.URL.INFO_NEWS_URL,
-			templateUrl: window.mss.constants.TEMPLATE.INFO_NEWS_TEMPLATE,
-			controller: window.mss.constants.CONTROLLER.INFO_NEWS_CONTROLLER,
+		.state(window.mss.constants.STATE.SCORE_REPORT_STUDENT_STATE, {
+			url: window.mss.constants.URL.SCORE_REPORT_STUDENT_URL,
+			templateUrl: window.mss.constants.TEMPLATE.SCORE_REPORT_STUDENT_TEMPLATE,
+			controller: window.mss.constants.CONTROLLER.SCORE_REPORT_STUDENT_CONTROLLER,
 			resolve: {
 				deps: ['$ocLazyLoad', function($ocLazyLoad) {
-					return $ocLazyLoad.load(['infomation-news/infomation-news.js','infomation-news/infomation-news.css']);
+					return $ocLazyLoad.load(['score-report-student/score-report-student.js','score-report-student/score-report-student.css']);
 				}]
 			}
 		})

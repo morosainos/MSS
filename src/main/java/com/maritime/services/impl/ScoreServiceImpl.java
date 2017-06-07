@@ -66,4 +66,9 @@ public class ScoreServiceImpl extends BaseServiceImp implements ScoreService {
     public List<Score> selectByTermsForGraphics(Map<String, Object> params) {
         return scoreMapper.selectByTermsForGraphics(params);
     }
+
+    @Override
+    public List<Score> selectByTermsForStudentGraphics(Map<String, Object> params) {
+        return scoreMapper.selectByTermsForStudentGraphics(params);
+    }
 }

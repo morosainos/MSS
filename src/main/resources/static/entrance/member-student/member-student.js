@@ -129,7 +129,6 @@ angular.module(window.mss.appName).controller(
 					templateUrl : 'sureDeleteS.html',
 					controller : 'sureDeleteSCtrl',
 					scope: scopeForModal,
-					size : 'lg',
 					resolve : {
 						stuIds:function(){ 
 							return stuIds;
