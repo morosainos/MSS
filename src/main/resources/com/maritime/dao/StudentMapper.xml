@@ -73,6 +73,7 @@
     inner join maritime.major maj on smajor = maj.mid
     inner join maritime.class cla on sclass = cla.cid
     where s.is_active = true
+    order by s.snumber
   </select>
     <select id="selectForDuplicate" parameterType="com.maritime.models.Student" resultMap="BaseResultMap">
         select * from maritime.student

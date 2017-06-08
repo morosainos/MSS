@@ -156,9 +156,12 @@
 										</td>
 									</tr>
 									<tr class="form-group">
-										<td>考试总分</td>
+										<td>*考试总分</td>
 										<td><span><input type="number" class="form-control" 
-											autofocus="autofocus" name="eTotalScore" ng-model="exam.eTotalScore"/></span>
+											autofocus="autofocus" name="eTotalScore" ng-model="exam.eTotalScore" required/></span>
+										<span class="error-display" ng-show="ExamInfForm.eTotalScore.$dirty"> 
+											<span class="fa fa-close" ng-show="ExamInfForm.eTotalScore.$error.required" ng-bind=TOTAL_SCORE_EMPTY></span>
+										</span>
 										</td>
 										<td>*考试地点</td>
 										<td><span><input type="text" class="form-control" 

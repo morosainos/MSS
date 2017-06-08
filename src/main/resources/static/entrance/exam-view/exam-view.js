@@ -164,6 +164,7 @@ angular.module('addExamApp',[]).controller('addExamCtrl',function($scope, $rootS
 	$scope.FORM_EMPTY = window.mss.constants.VALIDATE_MSG.FORM_EMPTY;
 	$scope.POSITION_EMPTY = window.mss.constants.VALIDATE_MSG.POSITION_EMPTY;
 	$scope.HOUR_EMPTY = window.mss.constants.VALIDATE_MSG.HOUR_EMPTY;
+	$scope.TOTAL_SCORE_EMPTY = window.mss.constants.VALIDATE_MSG.TOTAL_SCORE_EMPTY;
 	
 	//cancel function
 	$scope.cancel = function() {

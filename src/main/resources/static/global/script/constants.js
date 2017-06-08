@@ -90,6 +90,7 @@
 			'FORM_EMPTY': '考试形式不能为空',
 			'POSITION_EMPTY': '考试地点不能为空',
 			'HOUR_EMPTY': '考试时间不能为空',
+			'TOTAL_SCORE_EMPTY': '考试总分不能为空',
 			'COURSE_DUPLICATE': '该时间已有课程！',
 			'SCORE_EMPTY': '成绩未编辑完成！'
 		},
