@@ -12,7 +12,7 @@ public class CommonUtil {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
 
-            byte[] input = message.getBytes();
+            byte[]  input = message.getBytes();
 
             byte[] buff = md.digest(input);
 

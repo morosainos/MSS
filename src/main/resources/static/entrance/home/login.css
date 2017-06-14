@@ -69,11 +69,11 @@ body {
 .block {
 	margin-top: 20%;
 	margin-bottom: 11%;
-    margin-left: -50%;
+    margin-left: -15em;
     padding-top: 33px;
     padding-bottom: 70px;
-    width: 600px;
-    height: 420px;
+    width: 50em;
+    height: 30em;
     border: #909090 1px solid;
     background: rgba(255, 255, 255, 0.2);
     padding-right: 80px;
